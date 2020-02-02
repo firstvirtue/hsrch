@@ -1,0 +1,15 @@
+.l-wrap {
+
+  // padding-left: 20px;
+  // padding-right: 20px;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include mq(large) {
+    max-width: $w-wrap + 50px + 50px;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}

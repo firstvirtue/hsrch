@@ -1,0 +1,58 @@
+// -----------------------------------------------------------------------------
+// Variable
+// -----------------------------------------------------------------------------
+
+// breakpoints
+$mq-breakpoints: (
+       small:  560px,
+      medium:  720px,
+       large:  960px,
+     x-large: 1200px,
+    xx-large: 1600px
+);
+
+// layout
+// -----------------------------------------------------------------------------
+$w-small: 360px;
+$w-default: 1440px;
+$w-wrap: 1180px;
+
+// fonts
+// -----------------------------------------------------------------------------
+$font-list: (
+  // [filename]: ([font-family]: [weight])
+  // NotoSansKR-Light: (NotoSans, 100),
+  // NotoSansKR-Regular: (NotoSans, 400),
+  MyriadPro-Semibold: (Myriad, 400),
+  IropkeBatangM: (iropke, 300)
+);
+
+// $font-main: 'Noto Sans KR', sans-serif;
+$font-main: 'NotoSans', sans-serif;
+$font-sub: 'Myriad', sans-serif;
+$en: $font-sub;
+$serif: 'iropke', serif;
+
+// colors
+$color-primary: #F07299;
+$color-primary-deep: $color-primary;
+$color-primary-pale: $color-primary;
+$color-secondary: #A69174;
+$brand: $color-primary;
+
+$white: #fff;
+$black: #000;
+
+$gray0: #f7f7f7;
+$gray1: #f0f0f0;
+$gray2: #e6e6e6; //
+$gray3: #b3b3b3; //
+$gray4: #999999;
+$gray5: #808080; //
+$gray6: #666666; //
+$gray7: #4d4d4d; //
+$gray8: #333333; //
+$gray9: #1a1a1a; //
+
+$ink: $gray9;
+$border-color: $gray2;

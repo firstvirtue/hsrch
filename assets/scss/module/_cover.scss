@@ -1,0 +1,42 @@
+.cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  height: 100vh;
+  overflow: hidden;
+
+  .video-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cont {
+    position: relative;
+    text-align: center;
+
+    .title {
+      margin: 0 2rem 4rem;
+      color: $white;
+      font-family: $en;
+      font-size: 4rem;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+  }
+
+  @include mq(medium) {
+    .cont {
+      .title {
+        font-size: 6.4rem;
+      }
+    }
+  }
+}

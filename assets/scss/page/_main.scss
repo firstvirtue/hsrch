@@ -1,0 +1,424 @@
+@import '../common';
+
+.main {
+  @include break-word;
+
+  .cover {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .container {
+    position: relative;
+    margin-top: 100vh;
+    background: $white;
+  }
+
+  .worship {
+    padding-bottom: 6.5rem;
+    overflow: hidden;
+
+    @mixin head-style {
+      position: absolute;
+      top: 0;
+      color: $color-primary;
+      text-transform: uppercase;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .sermon {
+      margin-top: 65px;
+      margin-left: 22.2222%;
+
+      .head {
+        @include head-style;
+        left: 0;
+        transform: rotate(-90deg) translate(-100%, -110%);
+        transform-origin: 0 0;
+      }
+
+      &-current {
+        display: none;
+      }
+    }
+
+    .praise {
+      margin-top: 65px;
+      margin-right: 22.2222%;
+
+      .head {
+        @include head-style;
+        right: 0;
+        text-align: right;
+        transform: rotate(-90deg) translate(0, 10%);
+        transform-origin: 100% 0;
+      }
+    }
+
+    .sermon,
+    .praise {
+      & {
+        position: relative;
+      }
+
+      .cont {
+        padding: 15px 30px 0;
+      }
+
+      .tit {
+        font-size: 24px;
+      }
+
+      .desc {
+        font-size: 16px;
+        font-weight: lighter;
+      }
+    }
+  }
+
+  .counsel {
+    position: relative;
+    background: url(~assets/image/main/counsel-bg.jpg);
+    background-size: cover;
+    text-align: center;
+    padding: 6rem 0;
+
+    strong {
+      position: relative;
+      margin-bottom: 2rem;
+      display: block;
+      color: $white;
+      font-family: $en;
+      font-size: 28px;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .btn {
+      position: relative;
+    }
+  }
+
+  .logos {
+    padding: 6rem 0;
+
+    p {
+      max-width: 748px;
+      margin: 0 auto;
+      padding: 0 3.8rem;
+      color: $gray9;
+      font-family: $serif;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.6;
+
+      @include icon(quotes) {
+        display: block;
+        margin-bottom: 6px;
+        color: $gray2;
+        font-size: 24px;
+      }
+    }
+
+    span {
+      display: block;
+      margin-top: 18px;
+      color: $gray5;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .community {
+    padding: 6rem 0;
+    border-top: 1px solid $border-color;
+
+    strong {
+      display: block;
+      // margin-bottom: 3.5rem;
+      font-family: $en;
+      font-size: 18px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .news {
+      .item {
+        margin-top: 3.5rem;
+        width: calc(100% - 30px - 20px - 30px);
+      }
+    }
+
+    .img-wrap {
+      img {
+        width: 100%;
+      }
+    }
+
+    .cont {
+      margin: 2.8rem 5px 0;
+    }
+
+    .category {
+      color: $color-secondary;
+      font-size: 14px;
+      letter-spacing: -.025em;
+      font-weight: lighter;
+    }
+
+    .tit {
+      margin-top: 12px;
+      color: $black;
+      font-size: 22px;
+      letter-spacing: -.025em;
+      line-height: 1.6;
+    }
+
+    .desc {
+      color: $gray7;
+      font-size: 16px;
+      font-weight: lighter;
+      line-height: 1.6;
+    }
+
+    .date {
+      margin-top: 10px;
+      color: $gray3;
+      font-size: 16px;
+      font-weight: lighter;
+    }
+
+    .func {
+      margin-top: 6rem;
+      text-align: center;
+    }
+  }
+
+  .dimmed {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($black, 0.4);
+  }
+
+  @include mq(medium) {
+    .worship {
+      display: flex;
+      align-items: flex-end;
+
+      .sermon {
+        flex: 1.7142;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 150px;
+
+        .cont {
+          display: none;
+        }
+
+        &-current {
+          display: block;
+          position: absolute;
+          width: 300px;
+          top: 50px;
+          right: -400px;
+          z-index: 1;
+
+          padding-left: 150px;
+
+
+
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -30px;
+            width: 150px;
+            height: 1px;
+            background: $black;
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+
+          &::before {
+            // visibility: collapse;
+          }
+
+          &::after {
+            transform: scaleX(0);
+            transform-origin: right;
+          }
+
+          &.is-animated {
+            &::before {
+              animation: slide-line-before;
+              animation-duration: 0.5s;
+              animation-fill-mode: forwards;
+            }
+            &::after {
+              animation: slide-line-after;
+              animation-duration: 1s;
+              animation-delay: 0.55s;
+              animation-fill-mode: forwards;
+            }
+          }
+
+          @keyframes slide-line-before {
+            0% {
+              transform: scaleX(1);
+            }
+
+            100% {
+              transform: scaleX(0);
+            }
+          }
+
+          @keyframes slide-line-after {
+            0% {
+              transform: scaleX(0);
+            }
+
+            100% {
+              transform: scaleX(1);
+            }
+          }
+
+          .tit {
+            margin-right: 40px;
+            font-size: 32px;
+          }
+        }
+      }
+
+      .praise {
+        flex: 1;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+    }
+
+    .community {
+
+      .swiper-container {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      .swiper-wrapper {
+        &.disabled {
+          transform: translate3d(0, 0, 0) !important;
+        }
+      }
+
+      .news {
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .item {
+          box-sizing: border-box;
+          margin: 5.5rem 0 0 !important;
+          padding-left: 10px;
+          padding-right: 10px;
+          width: 50%;
+        }
+      }
+
+      .func {
+        margin-top: 7rem;
+      }
+    }
+  }
+
+  @include mq(large) {
+    .worship {
+      padding-bottom: 10rem;
+
+      .sermon {
+        margin-top: 10rem;
+        margin-left: 100px;
+        margin-right: 6%;
+
+        &-current {
+          right: -500px;
+          width: 400px;
+
+          .tit {
+            font-size: 42px;
+          }
+        }
+      }
+      .praise {
+        margin-left: 6%;
+        margin-right: 100px;
+      }
+    }
+
+    .counsel {
+      padding: 15rem 0;
+
+      strong {
+        margin-bottom: 3rem;
+        font-size: 58px;
+      }
+    }
+
+    .logos {
+      padding: 11rem 0;
+
+      p {
+        font-size: 26px;
+
+        &::before {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .community {
+      padding: 11rem 0;
+
+      strong {
+        font-size: 20px;
+      }
+
+      .swiper-container {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+
+      .news {
+        .item {
+          width: 25%;
+        }
+      }
+    }
+  }
+
+  @include mq(x-large) {
+    .worship {
+      max-width: initial;
+
+      .sermon {
+        margin-right: 110px;
+        .praise {
+          margin-left: 110px;
+        }
+      }
+    }
+  }
+}

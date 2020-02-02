@@ -1,0 +1,33 @@
+.footer {
+  position: relative;
+  border-top: 1px solid $border-color;
+  background: $white;
+
+  .l-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  p {
+    color: $gray4;
+    font-size: 13px;
+    font-family: $en;
+    text-transform: uppercase;
+  }
+
+  @include mq(large) {
+    .l-footer {
+      justify-content: flex-start;
+      height: 100px;
+      max-width: $w-wrap + 50px + 50px;
+      margin: 0 auto;
+      padding: 0 50px;
+    }
+
+    p {
+
+    }
+  }
+}

@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// Cursor indicator
+// -----------------------------------------------------------------------------
+
+#cursor {
+
+  &-indicator {
+    pointer-events: none;
+  }
+
+  &-progress,
+  &-outline {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-progress {
+    mix-blend-mode: multiply;
+
+    circle {
+      fill: none;
+      stroke: $color-primary;
+      stroke-width: 1.2;
+      stroke-miterlimit: 10;
+      stroke-dasharray: 200;
+    }
+  }
+
+  &-outline {
+
+    circle {
+      fill: none;
+      stroke: #3a3c49;
+      stroke-width: 1.2;
+      stroke-miterlimit: 10;
+      opacity: .1;
+    }
+  }
+}

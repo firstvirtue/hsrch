@@ -1,0 +1,41 @@
+@import 'iconfont';
+
+@font-face {
+  font-family: 'icon';
+  src: url(../../font/icon.eot??#iefix) format('embedded-opentype'),
+  url(../../font/icon.woff2) format('woff2'),
+  url(../../font/icon.woff) format('woff');
+}
+
+@mixin icon-styles {
+  display: inline-block;
+  font-family: 'icon';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
+}
+
+@mixin icon($filename, $position: before, $styles: true) {
+  @if $position == both {
+    $position: 'before, &:after';
+  }
+
+  // Either a :before or :after pseudo-element, or both, defaulting to :before
+  &:#{$position} {
+    @if $filename {
+      // A particular icon has been specified
+      $icon: map-get($webfont-icons, $filename);
+      content: unquote("\"\\#{nth($icon, 2)}\"");
+    }
+    @if $styles {
+      @include icon-styles;
+    }
+    // Include any extra rules supplied for the pseudo-element
+    @content;
+  }
+}

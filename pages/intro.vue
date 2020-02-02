@@ -1,0 +1,38 @@
+<template lang="html">
+  <main class="main">
+    <div class="intro" data-invert>
+      <div class="l-wrap">
+        <h1 class="title">소개합니다</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="slogan">
+          하나님을 경외하고<br>
+          사람을 사랑하는 교회
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</template>
+
+<style lang="scss" src="~/assets/scss/page/_intro.scss"></style>
+
+<script>
+export default {
+}
+</script>

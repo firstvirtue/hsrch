@@ -1,0 +1,162 @@
+@import '../common';
+
+.list {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
+  .title {
+    font-family: $serif;
+    font-size: 34px;
+    text-align: center;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    font-family: $serif;
+
+    a {
+      display: block;
+      position: relative;
+      padding: 4px;
+      font-size: 18px;
+
+      .bar {
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0;
+        background: $brand;
+        transition: width 0.33s;
+      }
+
+      &:hover,
+      &.is-active {
+        .bar {
+          width: 100%;
+        }
+      }
+    }
+
+    li + li {
+      margin-left: 20px;
+    }
+  }
+
+  .items {
+    li {
+
+      a {
+        display: block;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .cont {
+        padding-top: 2.5rem;
+      }
+
+      .tit {
+        font-size: 2.2rem;
+      }
+
+      .desc {
+        margin-top: 2rem;
+        color: $gray7;
+        font-size: 1.6rem;
+      }
+
+      .date {
+        color: $gray4;
+        font-size: 1.6rem;
+      }
+    }
+
+    @include mq(medium) {
+      li {
+
+        a {
+          position: relative;
+          overflow: hidden;
+
+          &::after {
+            clear: both;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgb(249, 249, 249);
+            transform: scaleY(0);
+            transition: transform 0.5s;
+          }
+        }
+
+        .img-wrap {
+          width: 280px;
+          height: 158px;
+          margin-right: 4rem;
+          float: left;
+          overflow: hidden;
+        }
+
+        img {
+          transition: transform 1.0s;
+        }
+
+        .cont {
+          display: flex;
+          position: relative;
+          align-items: center;
+          height: 158px;
+          padding-top: 0;
+          padding-right: 200px;
+
+          &__wrapper {
+            position: relative;
+            transition: transform 0.5s;
+          }
+        }
+
+        .tit {
+          font-size: 3.6rem;
+        }
+
+        .date {
+          position: absolute;
+          top: 50%;
+          right: 3rem;
+          transform: translate(0, -50%);
+        }
+
+        a {
+          &:hover,
+          &:active {
+            &::before {
+              transform: scaleY(1);
+            }
+
+            img {
+              transform: scale(1.1);
+            }
+
+            .cont {
+              &__wrapper {
+                transform: translate3d(5%, 0, 0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
