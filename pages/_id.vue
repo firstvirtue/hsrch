@@ -3,7 +3,11 @@
     <h1>User</h1>
     <p>User ID : {{id}}</p>
   </div>
-</template> <script>
+</template>
+
+<style lang="scss" src="~/assets/scss/page/_write.scss"></style>
+
+<script>
 export default {
   asyncData({ params }) {
     console.log(params);
