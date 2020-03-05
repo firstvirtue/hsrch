@@ -78,7 +78,8 @@ module.exports = {
       '@/assets/scss/base/_reset.scss',
       '@/assets/scss/util/_iconfont-helper.scss',
       '@/assets/scss/util/_mixin.scss',
-      'sass-mq/_mq.scss'
+      'sass-mq/_mq.scss',
+      '@/assets/scss/_common.scss'
     ]
   },
 

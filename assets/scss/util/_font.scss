@@ -9,8 +9,7 @@
     font-family: '#{$family}';
     font-style: normal;
     font-weight: $weight;
-    src: url(../../font/#{$filename}.woff2) format('woff2'),
-         url(../../font/#{$filename}.woff) format('woff');
+    src: url(../../font/#{$filename}.woff) format('woff');
   }
 }
 
