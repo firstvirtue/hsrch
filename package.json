@@ -23,6 +23,7 @@
     "vue-rx": "^6.2.0"
   },
   "devDependencies": {
+    "@editorjs/editorjs": "^2.16.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.1",

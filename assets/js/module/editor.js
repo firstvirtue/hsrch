@@ -1,10 +1,11 @@
 'use strict';
 
-import EditorJS from '@editorjs/editorjs';
-
 class Editor {
   constructor(container) {
-    new EditorJS(container);
+    if(process.browser) {
+      const EditorJS = require('@editorjs/editorjs');
+      new EditorJS(container);
+    }
   }
 }
 
