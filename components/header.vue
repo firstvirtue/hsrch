@@ -36,12 +36,12 @@
     </nav>
 
     <div class="user">
-      <div class="user__login">
+      <div class="user__login" v-if="!isSignedIn">
         <a href="/auth/login">로그인</a>
       </div>
-      <div class="user__panel">
-        <button class="user__info">MY</button>
-        <ul class="user__layer">
+      <div class="user__panel" v-if="isSignedIn">
+        <button class="user__info" @click="toggleUserLayer">@{{$store.getters.signed.username}}</button>
+        <ul class="user__layer" v-show="isShowUserLayer">
           <li><a href="#">글 쓰기</a></li>
           <li><a href="#">나의 글</a></li>
           <li><a href="#">내 정보</a></li>
@@ -65,6 +65,17 @@ import { fromEvent } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 
 export default {
+  computed: {
+    isSignedIn() {
+      console.log(this.$store.getters.signed);
+      return this.$store.getters.signed;
+    },
+  },
+  data() {
+    return {
+      isShowUserLayer: false
+    }
+  },
   mounted() {
 
     const breakpoint = 800;
@@ -183,7 +194,11 @@ export default {
 
         }});
       }
+    },
+    toggleUserLayer() {
+      this.isShowUserLayer = !this.isShowUserLayer;
     }
+
   }
 }
 </script>

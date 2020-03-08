@@ -10,7 +10,7 @@ const store = () => {
       user: null
     },
     getters: {
-      user: state => {
+      signed: state => {
         return state.user;
       }
     },

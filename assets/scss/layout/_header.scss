@@ -48,7 +48,7 @@
 
   .l-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 80px;
     margin: 0 3rem;
@@ -198,5 +198,12 @@
 
   &.is-black {
 
+  }
+
+  .user {
+    &__layer {
+      position: absolute;
+
+    }
   }
 }
