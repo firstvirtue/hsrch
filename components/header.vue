@@ -16,14 +16,14 @@
     <nav class="gnb">
       <ul>
         <li>
-          <a href="intro">환영합니다</a>
+          <a href="/intro">환영합니다</a>
         </li>
         <li>
           <!-- <nuxt-link to="list">설교와 찬양</nuxt-link> -->
-          <a href="worship">설교와 찬양</a>
+          <a href="/worship">설교와 찬양</a>
         </li>
         <li>
-          <a href="community">커뮤니티</a>
+          <a href="/community">커뮤니티</a>
         </li>
         <li>
           <a href="#">414생활관</a>
@@ -33,6 +33,22 @@
         </li>
       </ul>
     </nav>
+
+    <div class="user">
+      <div class="user__login">
+        <a href="/auth/login">로그인</a>
+      </div>
+      <div class="user__panel">
+        <button class="user__info">MY</button>
+        <ul class="user__layer">
+          <li><a href="#">글 쓰기</a></li>
+          <li><a href="#">나의 글</a></li>
+          <li><a href="#">내 정보</a></li>
+          <li><button>로그아웃</button></li>
+        </ul>
+      </div>
+    </div>
+
     <button class="menu" @click="onMenu">
       <span></span>
       <span></span>

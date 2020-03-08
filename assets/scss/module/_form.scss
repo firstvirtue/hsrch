@@ -1,0 +1,19 @@
+.form-g {
+
+}
+
+label {
+  display: inline-block;
+  min-width: 120px;
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid #dedede;
+  outline: 0;
+  transition: border-color .2s;
+
+  &:focus {
+    border-color: #1f1f1f;
+  }
+}

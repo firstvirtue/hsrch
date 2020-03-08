@@ -36,6 +36,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  mode: 'universal',
   head: {
     title: '한사랑교회',
     meta: [
@@ -65,11 +66,13 @@ module.exports = {
    */
   modules: [
     // provide path to the file with resources
-    [
-      '@nuxtjs/style-resources',
-      '@nuxtjs/axios'
-    ]
+    '@nuxtjs/style-resources',
+    '@nuxtjs/axios'
   ],
+
+  axios: {
+    baseURL: 'http://192.168.0.14:4000'
+  },
 
   styleResources: {
     scss: [
