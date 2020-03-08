@@ -16,6 +16,7 @@
     <nav class="gnb">
       <ul>
         <li>
+          <!-- <router-link to="/intro">환영합니다</router-link> -->
           <a href="/intro">환영합니다</a>
         </li>
         <li>

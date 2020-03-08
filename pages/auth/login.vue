@@ -49,16 +49,32 @@ export default {
         password: this.user.password
       }
 
-      await this.$axios.$post('/api/auth/login/local', param)
-      .then(res => {
-        console.log(res);
-        //
-      })
-      .catch(e => {
-        console.log(e.response);
-        this.error = '잘못된 계정 정보입니다.'
-      });
+      this.$store.dispatch('LOGIN', param)
+        .then(() => this.redirect())
+        .catch((message) => this.error = message);
 
+      // await this.$axios.$post('/api/auth/login/local', param)
+      // .then(res => {
+      //   console.log(res);
+      //   //
+      // })
+      // .catch(e => {
+      //   console.log(e.response);
+      //   this.error = '잘못된 계정 정보입니다.'
+      // });
+
+    },
+    redirect() {
+      const {search} = window.location;
+      const tokens = search.replace(/^\?/, '').split('&');
+      const {returnPath} = tokens.reduce((qs, tkn) => {
+        const pair = tkn.split('=')
+        qs[pair[0]] = decodeURIComponent(pair[1])
+        return qs;
+      }, {});
+
+      // 리다이렉트 처리
+      this.$router.push(returnPath);
     }
   }
 };

@@ -9,6 +9,11 @@
 
 <script>
 export default {
+  beforeRouteEnter (to, from, next) {
+    const isAuthenticated = false
+    if (isAuthenticated) return next();
+    next('/auth/login?returnPath=mypage');
+  },
   asyncData({ params }) {
     console.log(params);
     return { id: params.id };
