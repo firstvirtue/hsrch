@@ -77,7 +77,14 @@ module.exports = {
   },
 
   axios: {
-    baseURL: 'http://192.168.0.14:4000'
+    baseURL: 'http://192.168.0.14:4000',
+    credentials: true,
+    proxy: true
+  },
+
+  proxy: {
+    '/api/auth/login/local': { target: 'http://192.168.0.14:4000' },
+    '/api/auth/user': { target: 'http://192.168.0.14:4000' }
   },
 
   loading: {
@@ -91,8 +98,9 @@ module.exports = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/api/auth/login/local', method: 'post', tokenName: 'access' },
-          user: { url: '/api/auth/check', method: 'get', propertyName: '' }
+          login: { url: '/api/auth/login/local', method: 'post', propertyName: false },
+          logout: false,
+          user: { url: '/api/auth/user', method: 'get' }
         },
         tokenRequired: true,
         tokenType: 'Bearer'

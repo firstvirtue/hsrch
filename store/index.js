@@ -26,7 +26,7 @@ const store = () => {
     },
     actions: {
       async nuxtServerInit ({ commit }, { req }) {
-        // console.log(`cookie:: ${req.headers.cookie}`);
+        console.log(`cookie:: ${req.headers.cookie}`);
 
         // const loggedInfo = storage.get('loggedInfo');
         // if(!loggedInfo) return;
