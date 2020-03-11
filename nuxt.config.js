@@ -67,11 +67,37 @@ module.exports = {
   modules: [
     // provide path to the file with resources
     '@nuxtjs/style-resources',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/toast'
   ],
+  toast: {
+    position: 'top-right',
+    duration: 2000
+  },
 
   axios: {
     baseURL: 'http://192.168.0.14:4000'
+  },
+
+  loading: {
+    name: 'chasing-dots',
+    color: '#ff5638',
+    background: 'white',
+    height: '4px'
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login/local', method: 'post', tokenName: 'access' },
+          user: { url: '/api/auth/check', method: 'get', propertyName: '' }
+        },
+        tokenRequired: true,
+        tokenType: 'Bearer'
+      }
+    }
   },
 
   styleResources: {

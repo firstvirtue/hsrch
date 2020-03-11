@@ -67,7 +67,7 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 export default {
   computed: {
     isSignedIn() {
-      console.log(this.$store.getters.signed);
+      // console.log(this.$store.getters.signed);
       return this.$store.getters.signed;
     },
   },

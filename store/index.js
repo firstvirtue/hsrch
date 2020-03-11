@@ -25,9 +25,25 @@ const store = () => {
       }
     },
     actions: {
+      async nuxtServerInit ({ commit }, { req }) {
+        // console.log(`cookie:: ${req.headers.cookie}`);
+
+        // const loggedInfo = storage.get('loggedInfo');
+        // if(!loggedInfo) return;
+        // this.commit('LOGIN', loggedInfo);
+
+        // FIXME!
+        // try {
+        //   await UserActions.checkStatus();
+        // } catch (e) {
+        //   storage.remove('loggedInfo');
+        //   window.location.href = '/auth/login?expired';
+        // }
+      },
       LOGIN ({commit}, {email, password}) {
+
         return this.$axios.$post('/api/auth/login/local', {email, password})
-          .then((data) => commit('LOGIN', data));
+          .then((loggedInfo) => commit('LOGIN', loggedInfo));
       },
       LOGOUT ({commit}) {
         commit('LOGOUT');

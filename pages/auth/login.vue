@@ -21,6 +21,7 @@
         <button type="submit" class="btn btn--invert">로그인</button>
       </form>
       <a href="/auth/register">회원 가입</a>
+      <button @click="checkAuth">auth check</button>
     </div>
   </main>
 </template>
@@ -49,9 +50,16 @@ export default {
         password: this.user.password
       }
 
-      this.$store.dispatch('LOGIN', param)
-        .then(() => this.redirect())
-        .catch((message) => this.error = message);
+      // console.log(this.$auth);
+
+      await this.$auth.loginWith('local', {data: param})
+        // .then(e => console.log(e))
+        .catch(e => this.$toast.error('로그인에 실패했습니다.', { icon: 'error_outline' }));
+
+      console.log(this.$auth);
+      // this.$store.dispatch('LOGIN', param)
+      //   .then(() => this.redirect())
+      //   .catch((message) => this.error = message);
 
       // await this.$axios.$post('/api/auth/login/local', param)
       // .then(res => {
@@ -65,6 +73,8 @@ export default {
 
     },
     redirect() {
+      return;
+
       const {search} = window.location;
       const tokens = search.replace(/^\?/, '').split('&');
       const {returnPath} = tokens.reduce((qs, tkn) => {
@@ -75,6 +85,11 @@ export default {
 
       // 리다이렉트 처리
       this.$router.push(returnPath);
+    },
+    checkAuth() {
+      this.$axios.get('api/auth/check')
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
     }
   }
 };
