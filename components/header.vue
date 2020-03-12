@@ -42,7 +42,7 @@
           <li><a href="#">글 쓰기</a></li>
           <li><a href="#">나의 글</a></li>
           <li><a href="#">내 정보</a></li>
-          <li><button>로그아웃</button></li>
+          <li><button @click="$auth.logout()">로그아웃</button></li>
         </ul>
       </div>
       <div class="user__login" v-else>
@@ -197,6 +197,13 @@ export default {
     },
     toggleUserLayer() {
       this.isShowUserLayer = !this.isShowUserLayer;
+    },
+    async onLogout() {
+      await this.$auth.loginWith('local', {data: param})
+        // .then(e => console.log(e))
+        .catch(e => this.$toast.error('로그아웃에 실패했습니다.', { icon: 'error_outline' }));
+
+      console.log(this.$auth);
     }
 
   }
