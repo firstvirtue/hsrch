@@ -87,6 +87,7 @@ export default {
       this.$router.push(returnPath);
     },
     checkAuth() {
+      console.log(this.$auth);
       this.$axios.get('/api/auth/user')
         .then(res => console.log(res))
         .catch(err => console.log(err));

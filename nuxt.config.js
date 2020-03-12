@@ -98,12 +98,12 @@ module.exports = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/api/auth/login/local', method: 'post', propertyName: false },
-          logout: false,
-          user: { url: '/api/auth/user', method: 'get' }
+          login: { url: '/api/auth/login/local', method: 'post', propertyName: 'access_token' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/api/auth/user', method: 'get', propertyName: false }
         },
-        tokenRequired: true,
-        tokenType: 'Bearer'
+        // tokenRequired: true,
+        // tokenType: 'Bearer'
       }
     }
   },
