@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <main class="main">
     <div class="intro" data-invert>
       <div class="l-wrap">

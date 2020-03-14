@@ -84,7 +84,8 @@ module.exports = {
 
   proxy: {
     '/api/auth/login/local': { target: 'http://192.168.0.14:4000' },
-    '/api/auth/user': { target: 'http://192.168.0.14:4000' }
+    '/api/auth/user': { target: 'http://192.168.0.14:4000' },
+    '/api/auth/logout': { target: 'http://192.168.0.14:4000' }
   },
 
   loading: {
