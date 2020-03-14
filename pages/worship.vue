@@ -2,7 +2,7 @@
   <main class="main">
 
     <div class="list" data-invert>
-      <!-- <div class="l-wrap"> -->
+      <!-- <div class="wrapper"> -->
         <h1 class="h2 title">설교와 찬양</h1>
 
         <ul class="nav">
@@ -19,7 +19,7 @@
         <ul class="items">
           <li v-for="(item) in items" :key="item.videoId">
             <a :href="item.videoId" @click="onVideo(item.videoId, $event)">
-              <div class="l-wrap">
+              <div class="wrapper">
                 <div class="img-wrap">
                   <img :src="item.thumbnail" alt="">
                 </div>

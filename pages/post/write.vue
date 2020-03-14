@@ -10,9 +10,9 @@
         <!-- <div class="wrapper wrapper__post"> -->
 
           <article class="article">
-            <h2 contenteditable="true" class="h2 article__title">
+            <h1 contenteditable="true" class="h2 article__title">
               {{articleTitle}}
-            </h2>
+            </h1>
 
             <div id="container"></div>
           </article>

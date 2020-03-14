@@ -17,7 +17,7 @@
     </header>
 
     <div class="container">
-      <div class="l-wrap">
+      <div class="wrapper">
         <section class="worship" data-invert>
           <div class="sermon reveal">
             <h2 class="head">sunday sermon</h2>
@@ -66,7 +66,7 @@
         <a href="#" class="btn btn--discover reveal">discover</a>
       </section>
 
-      <div class="l-wrap">
+      <div class="wrapper">
         <section class="logos" data-invert>
           <h2 class="a11y">주제말씀</h2>
           <p class="reveal">

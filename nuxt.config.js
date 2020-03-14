@@ -82,10 +82,19 @@ module.exports = {
     proxy: true
   },
 
+  // proxy: {
+  //   '/api/auth/login/local': { target: 'http://192.168.0.14:4000' },
+  //   '/api/auth/user': { target: 'http://192.168.0.14:4000' },
+  //   '/api/auth/logout': { target: 'http://192.168.0.14:4000' },
+  //   '/api/posts/': { target: 'http://192.168.0.14:4000' }
+  // },
+
   proxy: {
-    '/api/auth/login/local': { target: 'http://192.168.0.14:4000' },
-    '/api/auth/user': { target: 'http://192.168.0.14:4000' },
-    '/api/auth/logout': { target: 'http://192.168.0.14:4000' }
+    '/api/': {
+      target: 'http://192.168.0.14:4000',
+      // pathRewrite: { '^/api/': '' },
+      changeOrigin: true
+    }
   },
 
   loading: {
