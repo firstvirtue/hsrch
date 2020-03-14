@@ -17,3 +17,10 @@ input {
     border-color: #1f1f1f;
   }
 }
+
+.func {
+
+  &.align-right {
+    text-align: right;
+  }
+}

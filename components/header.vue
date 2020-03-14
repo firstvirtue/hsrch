@@ -40,8 +40,8 @@
         <button class="user__info" @click="toggleUserLayer">@{{$auth.user.profile.username}}</button>
         <ul class="user__layer" v-show="isShowUserLayer">
           <li><a href="/post/write">글 쓰기</a></li>
-          <li><a href="#">나의 글</a></li>
-          <li><a href="mypage">내 정보</a></li>
+          <li><a :href="`/@${$auth.user.profile.username}`">나의 글</a></li>
+          <li><a href="/mypage">내 정보</a></li>
           <li><button @click="$auth.logout()">로그아웃</button></li>
         </ul>
       </div>
