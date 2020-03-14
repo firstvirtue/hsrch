@@ -1,5 +1,5 @@
 <template lang="html">
-  <header class="header">
+  <header class="header" v-bind:class="{'is-spread': isSpread, 'is-invert': isInvert}">
     <div class="l-header">
       <a href="/">
         <div class="logo">
@@ -39,9 +39,9 @@
       <div class="user__panel" v-if="$auth.loggedIn">
         <button class="user__info" @click="toggleUserLayer">@{{$auth.user.profile.username}}</button>
         <ul class="user__layer" v-show="isShowUserLayer">
-          <li><a href="#">글 쓰기</a></li>
+          <li><a href="/post/write">글 쓰기</a></li>
           <li><a href="#">나의 글</a></li>
-          <li><a href="#">내 정보</a></li>
+          <li><a href="mypage">내 정보</a></li>
           <li><button @click="$auth.logout()">로그아웃</button></li>
         </ul>
       </div>
@@ -73,7 +73,9 @@ export default {
   },
   data() {
     return {
-      isShowUserLayer: false
+      isShowUserLayer: false,
+      isSpread: false,
+      isInvert: false,
     }
   },
   mounted() {
@@ -92,30 +94,24 @@ export default {
     pageScroll$
     .pipe(
       map(() => {
-        let isInvert = false;
+        let invert = false;
         document.querySelectorAll('[data-invert]').forEach((element) => {
 
           const checkPoint = 80 / 2;  // header height
 
           const rect = element.getBoundingClientRect();
           if(rect.top < checkPoint && checkPoint < rect.height - Math.abs(rect.top)) {
-            isInvert = true;
+            invert = true;
           }
-
-        })
+        });
 
         console.log('invert scroll');
-
-        return isInvert;
+        return invert;
       }),
       distinctUntilChanged()
     )
-    .subscribe(isInvert => {
-      if(isInvert) {
-        this.header.classList.add('is-invert');
-      } else {
-        this.header.classList.remove('is-invert');
-      }
+    .subscribe(invert => {
+      this.isInvert = invert;
     });
 
     pageScroll$
@@ -176,21 +172,25 @@ export default {
       console.log('on Menu');
     },
     onSpread() {
+      console.log('on Spread');
       if(this.header.classList.contains('is-spread')) return;
 
       gsap.to('.menu', { duration: 0.3, x: '-30', autoAlpha: 0 });
-      this.header.classList.add('is-spread');
+      // this.header.classList.add('is-spread');
+      this.isSpread = true;
       gsap.to(this.gnb, { duration: 0.3, delay: 0.13, x: '0', autoAlpha: 1, onComplete: () => {
 
       }});
     },
     onFold() {
+      console.log('on Fold');
       if(this.header.classList.contains('is-spread')) {
         gsap.to(this.gnb, { duration: 0.3, x: '65', autoAlpha: 0, onComplete: () => {
 
         }});
         gsap.to('.menu', { duration: 0.3, delay: 0.13, x: '0', autoAlpha: 1, onComplete: () => {
-          this.header.classList.remove('is-spread');
+          // this.header.classList.remove('is-spread');
+          this.isSpread = false;
 
         }});
       }
