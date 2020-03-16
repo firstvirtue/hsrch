@@ -2,7 +2,11 @@
   <main class="main">
     <div class="blessay" data-invert>
       <div class="wrapper">
-        <h1>@{{$auth.user.profile.username}}</h1>
+        <h1>@{{$auth.user.profile.username}} 님의 이야기</h1>
+
+        <div class="func align-right">
+          <a href="/post/write" class="btn btn--invert">글 쓰기</a>
+        </div>
 
         <div class="essay">
           <ul class="essay__list">
