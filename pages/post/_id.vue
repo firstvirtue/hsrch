@@ -4,7 +4,7 @@
       <div class="wrapper">
         <div class="func align-right">
           <a :href="`/post/write?id=${articleId}`" class="bton btn--invert">수정하기</a>
-          <button class="btn btn--invert">삭제하기</button>
+          <button class="btn btn--invert" @click="onDelete">삭제하기</button>
         </div>
         <article class="article">
           <h1 class="h2 article__title">{{article.title}}</h1>
@@ -44,7 +44,14 @@ export default {
     }
   },
   methods: {
-
+    onDelete() {
+      // TODO: 삭제 하시겠습니까?
+      this.$axios.delete(`/api/posts/${this.articleId}`)
+      .then(res => {
+        this.$router.push(`/@${this.$auth.user.profile.username}`);
+      })
+      .catch(err => console.log(err));
+    }
   },
   validate({ params }) {
     // return /^\d+$/.test(params.id);
