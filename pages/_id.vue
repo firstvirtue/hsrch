@@ -26,6 +26,10 @@
         </div>
       </div>
     </div>
+
+    <!-- <modal name="hello-world">
+      hello, world!
+    </modal> -->
   </main>
 </template>
 
@@ -38,13 +42,15 @@ export default {
   //   if (this.$auth.profile) next();
   //   next('/auth/login?returnPath=mypage');
   // },
-  mounted() {
-    this.$axios.get(`/api/posts/user/${this.$auth.user.profile.username}`)
+  async mounted() {
+    await this.$axios.get(`/api/posts/user/${this.$auth.user.profile.username}`)
       .then(res => {
         console.log(res);
         this.articles = res.data;
       })
       .catch(err => console.log(err));
+
+    // this.$modal.show('hello-world');
   },
   asyncData({ params }) {
     console.log(params);
