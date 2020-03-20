@@ -2,10 +2,10 @@
   <main class="main">
     <div class="write" data-invert>
       <div class="wrapper">
-        <div class="func align-right">
+        <!-- <div class="func align-right">
           <a :href="`/post/write?id=${articleId}`" class="bton btn--invert">수정하기</a>
           <button class="btn btn--invert" @click="onDelete">삭제하기</button>
-        </div>
+        </div> -->
         <article class="article">
           <h1 class="h2 article__title">{{article.title}}</h1>
 

@@ -11,7 +11,7 @@
         <div class="essay">
           <ul class="essay__list">
             <li v-for="item in articles" v-bind:key="item.id">
-              <a :href="`/post/${item.id}`">
+              <a :href="`/post/write?id=${item.id}`">
                 <!-- {{article.title}} -->
                 <div class="cont">
                   <div class="cont__wrapper">
