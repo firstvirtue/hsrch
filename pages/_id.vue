@@ -10,8 +10,8 @@
 
         <div class="essay">
           <ul class="essay__list">
-            <li v-for="item in articles" v-bind:key="item.id">
-              <a :href="`/post/write?id=${item.id}`">
+            <li class="essay__item" v-for="item in articles" v-bind:key="item.id">
+              <a :href="`/post/${item.id}`">
                 <!-- {{article.title}} -->
                 <div class="cont">
                   <div class="cont__wrapper">
@@ -21,6 +21,13 @@
                   <span class="date">{{item.created_on}}</span>
                 </div>
               </a>
+              <div>
+                <button @click="onUtil(item)">유틸</button>
+                <div v-show="item.isActive">
+                  <a :href="`/post/write?id=${item.id}`" class="btn btn--invert">수정하기</a>
+                  <button class="btn btn--invert" @click="onDelete">삭제하기</button>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -46,6 +53,9 @@ export default {
     await this.$axios.get(`/api/posts/user/${this.$auth.user.profile.username}`)
       .then(res => {
         console.log(res);
+        res.data.forEach(item => {
+          item.isActive = false;
+        });
         this.articles = res.data;
       })
       .catch(err => console.log(err));
@@ -56,6 +66,19 @@ export default {
     console.log(params);
     return {
       articles: []
+    }
+  },
+  methods: {
+    onUtil(item) {
+      item.isActive = !item.isActive;
+      // this.$set(item, 'isActive', true);
+      // this.articles = this.articles;
+    },
+    onEdit() {
+
+    },
+    onDelete() {
+
     }
   },
   validate({ params }) {

@@ -1,3 +1,17 @@
 .blessay {
   padding-top: 10rem;
+
+  .essay {
+    &__list {
+
+    }
+
+    &__item {
+      display: flex;
+
+      a {
+        display: block;
+      }
+    }
+  }
 }
