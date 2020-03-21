@@ -24,15 +24,13 @@
     <modal name="publish-modal"
          :adaptive="true"
          :max-width="1000"
-         :max-height="400"
-         width="300px"
-         height="150px"
+         :max-height="500"
          @before-open="beforeOpen">
       <div style="padding:30px; text-align: center">
-        <h2>출간</h2>
-        <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다. 게시 하시겠습니까?</p>
-        <!-- <button @click="execDelete">삭제</button>
-        <button @click="execCancel">취소</button> -->
+        <h3>출간</h3>
+        <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다.<br> 게시 하시겠습니까?</p>
+        <button @click="execPublish">게시하기</button>
+        <button @click="$modal.hide('publish-modal')">취소</button>
       </div>
     </modal>
   </main>
@@ -136,6 +134,9 @@ export default {
     },
     onPublish() {
       this.$modal.show('publish-modal');
+    },
+    execPublish() {
+      alert('출간');
     },
     beforeOpen() {
       // ToDo: 썸네일

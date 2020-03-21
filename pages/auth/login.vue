@@ -6,7 +6,7 @@
       <form @submit.prevent="onSave">
         <div class="form-g">
           <label for="username">아이디</label>
-          <input type="text" id="username" v-model="user.email">
+          <input type="text" id="username" v-model="user.username">
         </div>
 
         <div class="form-g">
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       user: {
-        email: '',
+        username: '',
         password: ''
       },
       error: ''
@@ -46,13 +46,13 @@ export default {
     async onSave() {
 
       const param = {
-        email: this.user.email,
+        username: this.user.username,
         password: this.user.password
       }
 
       // console.log(this.$auth);
 
-      await this.$auth.loginWith('local', {data: param})
+      await this.$auth.loginWith('local', { data: param })
         // .then(e => console.log(e))
         .catch(e => this.$toast.error('로그인에 실패했습니다.', { icon: 'error_outline' }));
 
