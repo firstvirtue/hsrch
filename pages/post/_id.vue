@@ -20,6 +20,7 @@
         </article>
       </div>
     </div>
+    <v-dialog/>
   </main>
 </template>
 
@@ -46,11 +47,26 @@ export default {
   methods: {
     onDelete() {
       // TODO: 삭제 하시겠습니까?
-      this.$axios.delete(`/api/posts/${this.articleId}`)
-      .then(res => {
-        this.$router.push(`/@${this.$auth.user.profile.username}`);
-      })
-      .catch(err => console.log(err));
+      this.$modal.show('dialog', {
+        title: '삭제',
+        text: '이야기를 삭제 하시겠습니까?',
+        buttons: [
+          {
+            title: '삭제',       // Button title
+            default: true,    // Will be triggered by default if 'Enter' pressed.
+            handler: () => {
+              this.$axios.delete(`/api/posts/${this.articleId}`)
+              .then(res => {
+                this.$router.push(`/@${this.$auth.user.profile.username}`);
+              })
+              .catch(err => console.log(err));
+            }
+          },
+          {
+            title: '취소'
+          }
+      ]
+      });
     }
   },
   validate({ params }) {

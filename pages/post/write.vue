@@ -3,7 +3,8 @@
     <div class="write" data-invert>
       <div class="wrapper">
         <div class="func align-right">
-          <button class="btn btn--invert" @click="onSave">저장하기</button>
+          <button class="btn btn--invert" @click="onPublish">게시하기</button>
+          <button class="btn btn--invert" @click="onSave">저장</button>
           <button class="btn btn--invert" @click="$router.back()">취소</button>
         </div>
 
@@ -19,6 +20,21 @@
         <!-- </div> -->
       </div>
     </div>
+
+    <modal name="publish-modal"
+         :adaptive="true"
+         :max-width="1000"
+         :max-height="400"
+         width="300px"
+         height="150px"
+         @before-open="beforeOpen">
+      <div style="padding:30px; text-align: center">
+        <h2>출간</h2>
+        <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다. 게시 하시겠습니까?</p>
+        <!-- <button @click="execDelete">삭제</button>
+        <button @click="execCancel">취소</button> -->
+      </div>
+    </modal>
   </main>
 </template>
 
@@ -117,6 +133,12 @@ export default {
     },
     onKeyin(e) {
       this.article.storedTitle = e.target.innerText;
+    },
+    onPublish() {
+      this.$modal.show('publish-modal');
+    },
+    beforeOpen() {
+      // ToDo: 썸네일
     }
   }
 }

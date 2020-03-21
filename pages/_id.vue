@@ -25,7 +25,7 @@
                 <button @click="onUtil(item)">유틸</button>
                 <div v-show="item.isActive">
                   <a :href="`/post/write?id=${item.id}`" class="btn btn--invert">수정하기</a>
-                  <button class="btn btn--invert" @click="onDelete">삭제하기</button>
+                  <button class="btn btn--invert" @click="onDelete(item)">삭제하기</button>
                 </div>
               </div>
             </li>
@@ -34,9 +34,7 @@
       </div>
     </div>
 
-    <!-- <modal name="hello-world">
-      hello, world!
-    </modal> -->
+    <v-dialog/>
   </main>
 </template>
 
@@ -59,26 +57,48 @@ export default {
         this.articles = res.data;
       })
       .catch(err => console.log(err));
-
-    // this.$modal.show('hello-world');
   },
   asyncData({ params }) {
     console.log(params);
     return {
-      articles: []
+      articles: [],
+      article: undefined
     }
   },
   methods: {
     onUtil(item) {
       item.isActive = !item.isActive;
-      // this.$set(item, 'isActive', true);
-      // this.articles = this.articles;
     },
-    onEdit() {
-
+    onDelete(item) {
+      item.isActive = false;
+      // this.$modal.show('conditional-modal');
+      this.article = item;
+      let ccc = this.$modal.show('dialog', {
+        title: '삭제',
+        text: '이야기를 삭제 하시겠습니까?',
+        buttons: [
+          {
+            title: '삭제',       // Button title
+            default: true,    // Will be triggered by default if 'Enter' pressed.
+            handler: () => {
+              this.$axios.delete(`/api/posts/${this.article.id}`)
+              .then(res => {
+                // this.$router.push(`/@${this.$auth.user.profile.username}`);
+                this.articles.splice(this.articles.findIndex(item => item.id === this.article.id), 1);
+              })
+              .catch(err => console.log(err))
+              .finally(() => { this.$modal.hide('dialog'); });
+            }
+          },
+          {
+            title: '취소'
+          }
+      ]
+      });
     },
-    onDelete() {
+    execDelete() {
 
+      console.log(this.articles);
     }
   },
   validate({ params }) {
