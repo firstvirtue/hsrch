@@ -4,9 +4,22 @@ class Editor {
   constructor(container, data) {
     if(process.browser) {
       const EditorJS = require('@editorjs/editorjs');
+      const ImageTool = require('@editorjs/image');
+
       this.editor = new EditorJS({
         holder: container,
-        data: data
+        data: data,
+        tools: {
+          image: {
+            class: ImageTool,
+            config: {
+              endpoints: {
+                byFile: 'http://192.168.0.14:4000/api/posts/upload'
+              },
+              field: 'postassets'
+            }
+          }
+        }
       });
 
       return this.editor;

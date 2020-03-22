@@ -58,11 +58,26 @@ export default {
           }
 
           res.data.blocks.forEach(el => {
+            let blockContent;
+
+            switch(el.type) {
+            case 'image':
+              blockContent = {
+                file: {
+                  url: el.content
+                }
+              }
+              break;
+            case 'paragraph':
+              blockContent = {
+                text: el.content
+              };
+              break;
+            }
+
             let item = {
               type: el.type,
-              data: {
-                text: el.content
-              }
+              data: blockContent
             };
 
             data.blocks.push(item);
@@ -92,12 +107,24 @@ export default {
       // TODO: 저장 하시겠습니까?
 
       await this.editor.save().then((outputData) => {
+        console.log(outputData);
         const blocks = [];
 
         outputData.blocks.forEach(el => {
+          let blockContent;
+
+          switch(el.type) {
+            case 'image':
+              blockContent = el.data.file.url;
+              break;
+            case 'paragraph':
+              blockContent = el.data.text;
+              break;
+          }
+
           const item = {
             type: el.type,
-            content: el.data.text,
+            content: blockContent,
             created_on: new Date().toISOString(),
             updated_on: new Date().toISOString()
           }

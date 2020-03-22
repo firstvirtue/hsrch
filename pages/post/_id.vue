@@ -14,7 +14,7 @@
               {{block.content}}
             </template>
             <template v-else-if="block.type === 'image'">
-              <img src="" alt="">
+              <img :src="block.content" alt="">
             </template>
           </p>
         </article>
