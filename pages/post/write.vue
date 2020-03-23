@@ -3,8 +3,13 @@
     <div class="write" data-invert>
       <div class="wrapper">
         <div class="func align-right">
-          <button class="btn btn--invert" @click="onPublish">게시하기</button>
-          <button class="btn btn--invert" @click="onSave">저장</button>
+          <template v-if="article.published">
+            <button class="btn btn--invert" @click="onSavePublish">게시글 저장하기</button>
+          </template>
+          <template v-else>
+            <button class="btn btn--invert" @click="onPublish">게시하기</button>
+            <button class="btn btn--invert" @click="onSave">저장</button>
+          </template>
           <button class="btn btn--invert" @click="$router.back()">취소</button>
         </div>
 
@@ -33,6 +38,19 @@
         <button @click="$modal.hide('publish-modal')">취소</button>
       </div>
     </modal>
+
+    <modal name="published-modal"
+         :adaptive="true"
+         :max-width="1000"
+         :max-height="500"
+         @before-open="beforeOpen">
+      <div style="padding:30px; text-align: center">
+        <h3>출간</h3>
+        <p>이 게시글의 편집한 내용이 저장되어 커뮤니티에 반영됩니다.<br> 저장 하시겠습니까?</p>
+        <button @click="execPublish">게시글 저장하기</button>
+        <button @click="$modal.hide('published-modal')">취소</button>
+      </div>
+    </modal>
   </main>
 </template>
 
@@ -50,7 +68,8 @@ export default {
     if(this.article.id) {
       this.$axios.get(`/api/posts/${this.article.id}`)
         .then(res => {
-          this.article.title = res.data.title;
+          this.article = res.data;
+          console.log(this.article);
           this.article.storedTitle = res.data.title;
 
           const data = {
@@ -97,6 +116,8 @@ export default {
         title: '',
         storedTitle: '',
         description: '',
+        thumbnail: null,
+        published: 0,
         blocks: []
       }
     }
@@ -162,11 +183,16 @@ export default {
     onPublish() {
       this.$modal.show('publish-modal');
     },
+    onSavePublish() {
+      this.$modal.show('published-modal');
+    },
     execPublish() {
-      alert('출간');
+      this.article.published = 1;
+
+      this.onSave();
     },
     beforeOpen() {
-      // ToDo: 썸네일
+      // ToDo: 썸네일, 디스크립션
     }
   }
 }
