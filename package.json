@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@editorjs/editorjs": "^2.16.1",
+    "@editorjs/header": "^2.4.0",
     "@editorjs/image": "^2.3.3",
     "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.0.1",
