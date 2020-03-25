@@ -102,10 +102,23 @@ export default {
             data.blocks.push(item);
           });
 
-          this.editor = new Editor('container', data);
+          this.editor = new Editor('container', data, () => {
+            this.editor.focus(1);
+          });
         })
     } else {
-      this.editor = new Editor('container');
+      const data = {
+        blocks: [
+          { type: 'header', data: {
+            level: 1
+          }},
+          { type: 'paragraph' }
+        ]
+      }
+
+      this.editor = new Editor('container', data, () => {
+        this.editor.focus(1);
+      });
     }
 
   },
@@ -117,8 +130,7 @@ export default {
         storedTitle: '',
         description: '',
         thumbnail: null,
-        published: 0,
-        blocks: []
+        published: 0
       }
     }
   },
@@ -193,6 +205,9 @@ export default {
     },
     beforeOpen() {
       // ToDo: 썸네일, 디스크립션
+    },
+    onTemp() {
+
     }
   }
 }

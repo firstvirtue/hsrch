@@ -1,7 +1,7 @@
 'use strict';
 
 class Editor {
-  constructor(container, data) {
+  constructor(container, data, cb) {
     if(process.browser) {
       const EditorJS = require('@editorjs/editorjs');
       const ImageTool = require('@editorjs/image');
@@ -9,12 +9,13 @@ class Editor {
 
       this.editor = new EditorJS({
         holder: container,
+        placeholder: 'Let`s write an awesome story!',
         data: data,
         tools: {
           header: {
             class: Header,
             config: {
-              placeholder: '소제목',
+              placeholder: '| 제목',
               levels: [1, 2],
               defaultLevel: 2
             }
@@ -28,7 +29,8 @@ class Editor {
               field: 'post-rsc-pool'
             }
           }
-        }
+        },
+        onReady: cb
       });
 
       return this.editor;
