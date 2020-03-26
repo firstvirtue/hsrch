@@ -16,9 +16,9 @@
         <!-- <div class="wrapper wrapper__post"> -->
 
           <article class="article">
-            <h1 contenteditable="true" class="h2 article__title" @input="onKeyin">
+            <!-- <h1 contenteditable="true" class="h2 article__title" @input="onKeyin">
               {{article.title}}
-            </h1>
+            </h1> -->
 
             <div id="container"></div>
           </article>
@@ -70,7 +70,7 @@ export default {
         .then(res => {
           this.article = res.data;
           console.log(this.article);
-          this.article.storedTitle = res.data.title;
+          // this.article.storedTitle = res.data.title;
 
           const data = {
             blocks: []
@@ -91,6 +91,12 @@ export default {
               blockContent = {
                 text: el.content
               };
+              break;
+            case 'header':
+              blockContent = {
+                text: el.content,
+                level: el.optional
+              }
               break;
             }
 
@@ -126,9 +132,8 @@ export default {
     return {
       article: {
         id: null,
-        title: '',
-        storedTitle: '',
-        description: '',
+        title: null,
+        description: null,
         thumbnail: null,
         published: 0
       }
@@ -142,9 +147,10 @@ export default {
       await this.editor.save().then((outputData) => {
         console.log(outputData);
         const blocks = [];
+        let title = null, desc = null;
 
         outputData.blocks.forEach(el => {
-          let blockContent;
+          let blockContent, optional;
 
           switch(el.type) {
             case 'image':
@@ -152,20 +158,36 @@ export default {
               break;
             case 'paragraph':
               blockContent = el.data.text;
+
+              if(desc === null) {
+                desc = el.data.text;
+              }
+              break;
+            case 'header':
+              blockContent = el.data.text;
+              optional = el.data.level;
+
+              if(title === null) {
+                title = el.data.text;
+              }
               break;
           }
 
           const item = {
             type: el.type,
             content: blockContent,
+            optional: optional,
             created_on: new Date().toISOString(),
             updated_on: new Date().toISOString()
           }
           blocks.push(item);
-        })
+        });
 
+        this.article.title = title;
+        this.article.description = desc;
         this.article.blocks = blocks;
-        this.article.title = this.article.storedTitle;
+        // this.article.title = this.article.storedTitle;
+        console.log(this.article);
 
         if(this.article.id) {
           this.$axios.patch('/api/posts/' + this.article.id, this.article).then((e) => {
@@ -189,9 +211,9 @@ export default {
         }
       })
     },
-    onKeyin(e) {
-      this.article.storedTitle = e.target.innerText;
-    },
+    // onKeyin(e) {
+    //   this.article.storedTitle = e.target.innerText;
+    // },
     onPublish() {
       this.$modal.show('publish-modal');
     },
