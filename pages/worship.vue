@@ -28,7 +28,9 @@
                     <h3 class="tit">{{item.title}}</h3>
                     <p class="desc">{{item.description}}</p>
                   </div>
-                  <span class="date">{{item.publishedAt}}</span>
+                  <span class="date">
+                    {{item.publishedAt.substring(0,10).replace(/-/gi, '.')}}
+                    </span>
                 </div>
               </div>
             </a>
