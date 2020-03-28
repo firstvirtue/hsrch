@@ -14,11 +14,7 @@
         </div>
 
         <!-- <div class="wrapper wrapper__post"> -->
-
           <article class="article">
-            <!-- <h1 contenteditable="true" class="h2 article__title" @input="onKeyin">
-              {{article.title}}
-            </h1> -->
 
             <div id="container"></div>
           </article>
@@ -142,12 +138,17 @@ export default {
   methods: {
     async onSave() {
 
-      // TODO: 저장 하시겠습니까?
-
+      this.saveArticle().then(result => {
+        if(result) {
+          this.execServiceSave();
+        }
+      });
+    },
+    async saveArticle() {
       await this.editor.save().then((outputData) => {
         console.log(outputData);
         const blocks = [];
-        let title = null, desc = null;
+        // let title = null, desc = null;
 
         outputData.blocks.forEach(el => {
           let blockContent, optional;
@@ -158,18 +159,10 @@ export default {
               break;
             case 'paragraph':
               blockContent = el.data.text;
-
-              if(desc === null) {
-                desc = el.data.text;
-              }
               break;
             case 'header':
               blockContent = el.data.text;
               optional = el.data.level;
-
-              if(title === null) {
-                title = el.data.text;
-              }
               break;
           }
 
@@ -183,50 +176,73 @@ export default {
           blocks.push(item);
         });
 
-        this.article.title = title;
-        this.article.description = desc;
         this.article.blocks = blocks;
-        // this.article.title = this.article.storedTitle;
-        console.log(this.article);
+      });
 
-        if(this.article.id) {
-          this.$axios.patch('/api/posts/' + this.article.id, this.article).then((e) => {
-            console.log(e);
-            this.$router.push(`/@${this.$auth.user.profile.username}`);
 
-          }).catch((e) => {
-            console.log(e);
-            notify('연결에 실패했습니다.');
-          });
-        } else {
-          this.$axios.post('/api/posts/', this.article).then((e) => {
-            // history.push('/post/list');
-            console.log(e);
-            this.$router.push(`/@${this.$auth.user.profile.username}`);
+      // validate
+      const hBlock = this.article.blocks.find(block => block.type === 'header');
+      const pBlock = this.article.blocks.find(block => block.type === 'paragraph');
 
-          }).catch((e) => {
-            console.log(e);
-            notify('연결에 실패했습니다.');
-          });
-        }
-      })
+      if(hBlock === null || hBlock === undefined) {
+        // console.log(hBlock);
+
+        this.$toast.error('제목과 문장이 한 개 이상 있어야 저장이 가능해요!', { icon: 'error_outline' });
+        return false;
+      }
+
+      if(this.article.title === null) {
+        this.article.title = hBlock.content;
+      }
+      if(this.article.description === null) {
+        this.article.description = pBlock.content;
+      }
+      // console.log(this.article);
+      return true;
     },
-    // onKeyin(e) {
-    //   this.article.storedTitle = e.target.innerText;
-    // },
+    execServiceSave() {
+      if(this.article.id) {
+        this.$axios.patch('/api/posts/' + this.article.id, this.article).then((e) => {
+          console.log(e);
+          this.$router.push(`/@${this.$auth.user.profile.username}`);
+
+        }).catch((e) => {
+          console.log(e);
+          notify('연결에 실패했습니다.');
+        });
+      } else {
+        this.$axios.post('/api/posts/', this.article).then((e) => {
+          // history.push('/post/list');
+          console.log(e);
+          this.$router.push(`/@${this.$auth.user.profile.username}`);
+
+        }).catch((e) => {
+          console.log(e);
+          notify('연결에 실패했습니다.');
+        });
+      }
+    },
     onPublish() {
-      this.$modal.show('publish-modal');
+      this.saveArticle().then(result => {
+        if(result) {
+          this.$modal.show('publish-modal');
+        }
+      });
     },
     onSavePublish() {
-      this.$modal.show('published-modal');
+      this.saveArticle().then(result => {
+        if(result) {
+        this.$modal.show('published-modal');
+        }
+      });
     },
     execPublish() {
       this.article.published = 1;
-
-      this.onSave();
+      this.execServiceSave();
     },
     beforeOpen() {
-      // ToDo: 썸네일, 디스크립션
+      // ToDo: 썸네일
+
     },
     onTemp() {
 
