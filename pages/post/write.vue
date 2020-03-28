@@ -27,9 +27,14 @@
          :max-width="1000"
          :max-height="500"
          @before-open="beforeOpen">
-      <div style="padding:30px; text-align: center">
+      <div style="padding:30px; text-align: center" class="article-modal">
         <h3>출간</h3>
         <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다.<br> 게시 하시겠습니까?</p>
+        <div class="article-modal__preview">
+          <img src="" alt="">
+          <input type="text" class="article-modal__h" v-model="article.title">
+          <input type="text" class="article-modal__desc" v-model="article.description">
+        </div>
         <button @click="execPublish">게시하기</button>
         <button @click="$modal.hide('publish-modal')">취소</button>
       </div>
@@ -187,15 +192,20 @@ export default {
       if(hBlock === null || hBlock === undefined) {
         // console.log(hBlock);
 
-        this.$toast.error('제목과 문장이 한 개 이상 있어야 저장이 가능해요!', { icon: 'error_outline' });
+        this.$toast.error('제목이 있어야 저장이 가능해요!', { icon: 'error_outline' });
         return false;
       }
 
       if(this.article.title === null) {
         this.article.title = hBlock.content;
       }
-      if(this.article.description === null) {
+      if(this.article.description === null && pBlock !== undefined) {
         this.article.description = pBlock.content;
+      }
+
+      const thumbBlock = this.article.blocks.find(block => block.type === 'image');
+      if(thumbBlock !== undefined) {
+        this.article.thumbnail = thumbBlock.content;
       }
       // console.log(this.article);
       return true;

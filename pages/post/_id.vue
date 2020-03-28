@@ -7,14 +7,18 @@
           <button class="btn btn--invert" @click="onDelete">삭제하기</button>
         </div>
         <article class="article">
-          <h1 class="h2 article__title">{{article.title}}</h1>
+          <!-- <h1 class="h2 article__title">{{article.title}}</h1> -->
 
           <p v-for="block in article.blocks" :key="block.id">
             <template v-if="block.type === 'paragraph'">
               {{block.content}}
             </template>
+            <template v-if="block.type === 'header'">
+              <h1 v-if="block.optional === '1'">{{block.content}}</h1>
+              <h2 v-if="block.optional === '2'">{{block.content}}</h2>
+            </template>
             <template v-else-if="block.type === 'image'">
-              <img :src="block.content" alt="">
+              <img :src="block.content" :alt="block.optional">
             </template>
           </p>
         </article>
