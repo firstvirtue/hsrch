@@ -16,7 +16,7 @@
           </li>
         </ul>
 
-        <ul class="items">
+        <ul class="items items--list">
           <li v-for="(item) in items" :key="item.videoId">
             <a :href="item.videoId" @click="onVideo(item.videoId, $event)">
               <div class="wrapper">

@@ -1,4 +1,3 @@
-
 .list {
   padding-top: 10rem;
   padding-bottom: 10rem;
@@ -76,6 +75,17 @@
       }
     }
 
+    &--masonry {
+      li {
+        .category-badge {
+          display: block;
+          margin-bottom: 10px;
+          color: #A69174;
+          font-size: 1.4rem;
+        }
+      }
+    }
+
     @include mq(medium) {
       li {
 
@@ -100,16 +110,23 @@
           }
         }
 
+        // .img-wrap {
+        //   width: 280px;
+        //   height: 158px;
+        //   margin-right: 4rem;
+        //   float: left;
+        //   overflow: hidden;
+        // }
+
+      }
+
+      &--list {
         .img-wrap {
           width: 280px;
           height: 158px;
           margin-right: 4rem;
           float: left;
           overflow: hidden;
-        }
-
-        img {
-          transition: transform 1.0s;
         }
 
         .cont {
@@ -124,10 +141,6 @@
             position: relative;
             transition: transform 0.5s;
           }
-        }
-
-        .tit {
-          font-size: 3.6rem;
         }
 
         .date {
@@ -154,6 +167,39 @@
               }
             }
           }
+        }
+
+        img {
+          transition: transform 1.0s;
+        }
+
+        .tit {
+          font-size: 3.6rem;
+        }
+      }
+
+      &--masonry {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          width: 50%;
+        }
+      }
+    }
+
+    @include mq(large) {
+      &--masonry {
+        li {
+          width: 33.3333%;
+        }
+      }
+    }
+
+    @include mq(x-large) {
+      &--masonry {
+        li {
+          width: 25%;
         }
       }
     }

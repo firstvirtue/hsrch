@@ -73,7 +73,7 @@ module.exports = {
   ],
   toast: {
     position: 'top-right',
-    duration: 2000
+    duration: 6000
   },
 
   axios: {

@@ -192,7 +192,7 @@ export default {
       if(hBlock === null || hBlock === undefined) {
         // console.log(hBlock);
 
-        this.$toast.error('제목이 있어야 저장이 가능해요!', { icon: 'error_outline' });
+        this.$toast.error('제목이 있어야 저장이 가능해요!');
         return false;
       }
 
