@@ -84,9 +84,18 @@ class YoutubeDataProvider {
 
   getThumbnail() {
     // 랜덤한 썸네일 가져오기
-    const rand = Math.floor(Math.random() * 6 + 1);
+    this.beforeThumbNumber;
+    let rand = this.getNewRand(this.beforeThumbNumber);
+    this.beforeThumbNumber = rand;
     return `/image/list/list-${rand}.jpg`;
+  }
 
+  getNewRand(before) {
+    let rand = Math.floor(Math.random() * 6 + 1);
+    if(rand === before) {
+      rand = this.getNewRand(before);
+    }
+    return rand;
   }
 
 }

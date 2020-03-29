@@ -29,7 +29,7 @@
                     <p class="desc">{{item.description}}</p>
                   </div>
                   <span class="date">
-                    {{item.publishedAt.substring(0,10).replace(/-/gi, '.')}}
+                    {{item.publishedAt && item.publishedAt.substring(0,10).replace(/-/gi, '.')}}
                     </span>
                 </div>
               </div>

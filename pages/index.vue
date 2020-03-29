@@ -97,7 +97,7 @@
             </ul>
           </div>
           <div class="func">
-            <a href="#" class="btn btn--discover btn--invert">view more</a>
+            <a href="/community" class="btn btn--discover btn--invert">view more</a>
           </div>
         </section>
       </div>

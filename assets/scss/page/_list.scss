@@ -109,15 +109,6 @@
             transition: transform 0.5s;
           }
         }
-
-        // .img-wrap {
-        //   width: 280px;
-        //   height: 158px;
-        //   margin-right: 4rem;
-        //   float: left;
-        //   overflow: hidden;
-        // }
-
       }
 
       &--list {
@@ -186,6 +177,13 @@
 
         li {
           width: 50%;
+
+          a {
+            padding-left: 2rem;
+            padding-right: 2rem;
+            // padding-top: 3rem;
+            // padding-bottom: 3rem;
+          }
         }
       }
     }
