@@ -51,11 +51,15 @@ export default {
       navList: [
         {
           id: '#sermonSunday',
-          title: '주일예배'
+          title: '전체보기'
         },
         {
           id: '#praise',
-          title: '찬양'
+          title: '부서별 행사'
+        },
+        {
+          id: '#praise',
+          title: '신앙 칼럼'
         }
       ],
       items: [],

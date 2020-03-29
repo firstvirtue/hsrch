@@ -90,7 +90,6 @@ export default {
     // init
     window.innerWidth < breakpoint ? this.onFold() : this.onSpread();
 
-
     pageScroll$
     .pipe(
       map(() => {
@@ -154,6 +153,7 @@ export default {
       if(isMobile) {
         this.onFold();
       } else {
+        // TODO: 특정 스크롤 이상일 때 폴딩 유지
         this.onSpread();
       }
     });
@@ -181,10 +181,11 @@ export default {
       gsap.to(this.gnb, { duration: 0.3, delay: 0.13, x: '0', autoAlpha: 1, onComplete: () => {
 
       }});
+      gsap.to('.user', { duration: 0.3, delay: 0.13, x:'0', autoAlpha: 1 });
     },
     onFold() {
       console.log('on Fold');
-      if(this.header.classList.contains('is-spread')) {
+      // if(this.header.classList.contains('is-spread')) {
         gsap.to(this.gnb, { duration: 0.3, x: '65', autoAlpha: 0, onComplete: () => {
 
         }});
@@ -193,13 +194,14 @@ export default {
           this.isSpread = false;
 
         }});
-      }
+        gsap.to('.user', { duration: 0.3, x:'20', autoAlpha: 0 });
+      // }
     },
     toggleUserLayer() {
       this.isShowUserLayer = !this.isShowUserLayer;
     },
     async onLogout() {
-      await this.$auth.loginWith('local', {data: param})
+      await this.$auth.loginWith('local', { data: param })
         // .then(e => console.log(e))
         .catch(e => this.$toast.error('로그아웃에 실패했습니다.', { icon: 'error_outline' }));
 

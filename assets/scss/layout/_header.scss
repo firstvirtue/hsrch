@@ -23,7 +23,6 @@
     }
 
     .ci-line {
-      // fill: #f07399;
       fill: #ffffff;
     }
   }
@@ -52,45 +51,58 @@
     align-items: center;
     height: 80px;
     margin: 0 3rem;
-    transition: all 0.4s;
     padding: 0 30px;
-    height: 80px;
   }
 
   .gnb {
     display: none;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
   }
 
-  // @include mq($until: large) {
-  //   .gnb {
-  //     text-align: right;
-  //     padding-top: 100px;
-  //     padding-right: 40px;
-  //     padding-bottom: 50px;
-  //     background: $white;
-  //     height: 100vh;
-  //
-  //     li {
-  //       margin-top: 8px;
-  //       font-size: 32px;
-  //       font-weight: 700;
-  //     }
-  //   }
-  // }
+  .user {
+    &__info {
+      color: $white;
+    }
+    &__login {
+      text-align: right;
+      a { color: $white; }
+    }
+    &__panel {
+      position: relative;
+      text-align: right;
+    }
+    &__layer {
+      position: absolute;
+      right: 0;
+      top: 30px;
+      // text-align: left;
+      width: 100px;
+
+      li + li {
+        margin-top: 5px;
+      }
+
+      a, button {
+        color: $white;
+      }
+    }
+  }
 
   &.is-open {
+    .l-header {
+      display: block;
+      padding: 0 30px;
+      margin: 0;
+      height: 100vh;
+      background-color: $white;
+    }
+
     .gnb {
       display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // right: 0;
+      // bottom: 0;
 
       visibility: visible !important;
       opacity: 1 !important;
@@ -99,14 +111,26 @@
       padding-top: 100px;
       padding-right: 40px;
       padding-bottom: 50px;
-      background: $white;
-      height: 100vh;
+      // background: $white;
+      // height: 100vh;
       text-align: right;
 
       li {
         margin-top: 8px;
         font-size: 32px;
         font-weight: 700;
+      }
+    }
+
+    .user {
+      display: block;
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+      padding-right: 40px;
+
+      &__layer {
+        display: block !important;
       }
     }
 
@@ -137,7 +161,6 @@
       }
 
       li {
-
         a {
           color: $white;
           font-size: 17px;
@@ -166,15 +189,14 @@
   //   }
   // }
 
-  &.is-invert {
+  &.is-invert,
+  &.is-open {
     // background: $white;
 
     .logo {
-
       .cls-1{
         fill: $black; // TODO: check color gray?
       }
-
       .ci-line {
         fill: #f07399;
       }
@@ -194,16 +216,32 @@
         background: $black;
       }
     }
+
+    .user {
+      &__login a {
+        color: $black;
+      }
+      &__info {
+        color: $black;
+      }
+      a, button {
+        color: $black;
+      }
+    }
   }
 
-  &.is-black {
-
-  }
-
-  .user {
-    &__layer {
-      position: absolute;
-
+  &.is-open {
+    .user {
+      &__panel {
+        margin-top: 80px;
+      }
+      &__info {
+        pointer-events: none;
+      }
+      &__layer {
+        top: auto;
+        bottom: 30px;
+      }
     }
   }
 }
