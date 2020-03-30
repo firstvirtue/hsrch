@@ -215,6 +215,7 @@ export default {
     }
   },
   mounted() {
+    window.dispatchEvent(new CustomEvent('scroll'));
 
     this.getApiData();
     this.setMotion();
