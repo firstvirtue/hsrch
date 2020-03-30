@@ -63,6 +63,10 @@ import Editor from '~/assets/js/module/editor.js';
 export default {
   mounted() {
 
+    if(this.$auth.user === undefined) {
+      alert('TODO: 403 잘못된 접근입니다.');
+    }
+
     const urlParams = new URLSearchParams(window.location.search);
     this.article.id = urlParams.get('id');
 
@@ -72,6 +76,10 @@ export default {
           this.article = res.data;
           console.log(this.article);
           // this.article.storedTitle = res.data.title;
+
+          if(this.article.writer !== this.$auth.user.profile.username) {
+            alert('TODO: 403 잘못된 접근입니다.');
+          }
 
           const data = {
             blocks: []

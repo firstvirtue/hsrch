@@ -2,7 +2,7 @@
   <main class="main">
     <div class="write" data-invert>
       <div class="wrapper">
-        <div class="func align-right">
+        <div class="func align-right" v-if="$auth.user && article.writer === $auth.user.profile.username">
           <a :href="`/post/write?id=${articleId}`" class="btn btn--invert">수정하기</a>
           <button class="btn btn--invert" @click="onDelete">삭제하기</button>
         </div>

@@ -21,7 +21,6 @@
         <button type="submit" class="btn btn--invert">로그인</button>
       </form>
       <a href="/auth/register">회원 가입</a>
-      <button @click="checkAuth">auth check</button>
     </div>
   </main>
 </template>
