@@ -103,9 +103,12 @@ export default {
       console.log(this.articles);
     }
   },
-  validate({ params }) {
+  validate({ params, query, store }) {
     // return /^\d+$/.test(params.id);
-    return params.id;
+    // console.log(params.id);
+    // console.log(store.$auth.user.profile.username);
+
+    return `@${store.$auth.user.profile.username}` === params.id;
   }
 };
 </script>
