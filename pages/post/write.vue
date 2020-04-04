@@ -256,6 +256,7 @@ export default {
     },
     execPublish() {
       this.article.published = 1;
+      // this.article.category = 'columns';
       this.execServiceSave();
     },
     beforeOpen() {

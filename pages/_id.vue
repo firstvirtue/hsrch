@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <div class="blessay" data-invert>
-      <div class="wrapper">
+      <div class="wrapper wrapper--m-p">
         <h1>@{{$auth.user.profile.username}} 님의 이야기</h1>
 
         <div class="func align-right">
