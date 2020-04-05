@@ -34,7 +34,7 @@
 export default {
   mounted() {
 
-    this.$axios.get(`/api/posts/${this.articleId}`)
+    this.$axios.get(`/api/posts/read/${this.articleId}`)
       .then(res => {
         console.log(res.data);
         // this.articles = res.data;

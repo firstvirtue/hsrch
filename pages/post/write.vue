@@ -30,11 +30,18 @@
       <div style="padding:30px; text-align: center" class="article-modal">
         <h3>출간</h3>
         <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다.<br> 게시 하시겠습니까?</p>
+
         <div class="article-modal__preview">
           <img src="" alt="">
           <input type="text" class="article-modal__h" v-model="article.title">
           <input type="text" class="article-modal__desc" v-model="article.description">
+          <select v-model="article.category">
+            <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.value">
+              {{ option.text }}
+            </option>
+          </select>
         </div>
+
         <button @click="execPublish">게시하기</button>
         <button @click="$modal.hide('publish-modal')">취소</button>
       </div>
@@ -48,6 +55,18 @@
       <div style="padding:30px; text-align: center">
         <h3>출간</h3>
         <p>이 게시글의 편집한 내용이 저장되어 커뮤니티에 반영됩니다.<br> 저장 하시겠습니까?</p>
+
+        <div class="article-modal__preview">
+          <img src="" alt="">
+          <input type="text" class="article-modal__h" v-model="article.title">
+          <input type="text" class="article-modal__desc" v-model="article.description">
+          <select v-model="article.category">
+            <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.value">
+              {{ option.text }}
+            </option>
+          </select>
+        </div>
+
         <button @click="execPublish">게시글 저장하기</button>
         <button @click="$modal.hide('published-modal')">취소</button>
       </div>
@@ -71,9 +90,12 @@ export default {
     this.article.id = urlParams.get('id');
 
     if(this.article.id) {
-      this.$axios.get(`/api/posts/${this.article.id}`)
+      this.$axios.get(`/api/posts/read/${this.article.id}`)
         .then(res => {
           this.article = res.data;
+          if(this.article.category === null || this.article.category === undefined) {
+            this.article.category = this.options[0].value;
+          }
           console.log(this.article);
           // this.article.storedTitle = res.data.title;
 
@@ -144,8 +166,13 @@ export default {
         title: null,
         description: null,
         thumbnail: null,
+        category: 'events',
         published: 0
-      }
+      },
+      options: [
+        { text: '부서별 행사', value: 'events' },
+        { text: '신앙 칼럼', value: 'columns' }
+      ]
     }
   },
   methods: {

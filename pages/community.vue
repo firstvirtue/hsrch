@@ -6,7 +6,7 @@
       <ul class="nav">
         <li v-for="item in navList" :key="item.id">
           <h2>
-            <a :href="item.id" :data-id="item.id" @click="getList">
+            <a :href="item.id" :data-id="item.id" @click="selectCategory">
               {{item.title}}
               <span class="bar"></span>
             </a>
@@ -44,21 +44,23 @@
 <script>
 export default {
   async mounted() {
+    document.querySelector(`.nav li a[data-id="#all"]`)
+        .classList.add('is-active');
     this.getList();
   },
   data() {
     return {
       navList: [
         {
-          id: '#sermonSunday',
+          id: '#all',
           title: '전체보기'
         },
         {
-          id: '#praise',
+          id: '#events',
           title: '부서별 행사'
         },
         {
-          id: '#praise',
+          id: '#columns',
           title: '신앙 칼럼'
         }
       ],
@@ -66,23 +68,35 @@ export default {
     }
   },
   methods: {
-    async getList(e) {
+    async selectCategory(e) {
+      e.preventDefault();
+      const target = e.target.getAttribute('href').replace('#', '');
 
-      // if(e.target.getAttribute('href') === '#sermonSunday') {
-      //   this.getSermons();
-      // } else if (e.target.getAttribute('href') === '#praise') {
-      //   this.getPraises();
-      // }
+      document.querySelectorAll('.nav li a').forEach(function(el) {
+        el.classList.remove('is-active');
+      });
+      document.querySelector(`.nav li a[data-id="#${target}"]`)
+        .classList.add('is-active');
 
-      await this.$axios.get(`/api/posts/`)
+      this.getList(target);
+    },
+    async getList(target) {
+
+      let apiUrl;
+
+      if(target && target !== 'all') {
+        apiUrl = `/api/posts/${target}`;
+      } else {
+        apiUrl = '/api/posts/';
+      }
+
+      await this.$axios.get(apiUrl)
       .then(res => {
         console.log(res);
 
         this.items = res.data;
       })
       .catch(err => console.log(err));
-
-      e.preventDefault();
     },
 
   }
