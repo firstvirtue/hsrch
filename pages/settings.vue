@@ -1,5 +1,8 @@
 <template>
   <main class="main">
-    <div></div>
+    <div>
+      마이 페이지
+    </div>
   </main>
 </template>
+

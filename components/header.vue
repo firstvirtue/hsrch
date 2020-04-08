@@ -41,7 +41,7 @@
         <ul class="user__layer" v-show="isShowUserLayer">
           <li><a href="/post/write">글 쓰기</a></li>
           <li><a :href="`/@${$auth.user.profile.username}`">나의 글</a></li>
-          <!-- <li><a href="/mypage">내 정보</a></li> -->
+          <li><a href="/settings">설정</a></li>
           <li><button @click="onLogout">로그아웃</button></li>
         </ul>
       </div>
