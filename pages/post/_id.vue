@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     onDelete() {
-      // TODO: 삭제 하시겠습니까?
       this.$modal.show('dialog', {
         title: '삭제',
         text: '이야기를 삭제 하시겠습니까?',
