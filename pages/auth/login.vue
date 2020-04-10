@@ -21,6 +21,7 @@
         <button type="submit" class="btn btn--invert">로그인</button>
       </form>
       <a href="/auth/register">회원 가입</a>
+      <button @click="onFacebook">facebook</button>
     </div>
   </main>
 </template>
@@ -70,6 +71,9 @@ export default {
       //   this.error = '잘못된 계정 정보입니다.'
       // });
 
+    },
+    onFacebook() {
+      this.$auth.loginWith('facebook');
     },
     redirect() {
       return;
