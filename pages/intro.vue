@@ -1,32 +1,36 @@
 <template>
   <main class="main">
-    <div class="wrapper wrapper--m-p">
-      <div class="intro" data-invert>
-        <div class="l-wrap">
+    <div class="intro" data-invert>
+      <section class="section section--cover">
+        <div class="wrapper wrapper--m-p">
           <h1 class="intro__title">소개합니다</h1>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <div class="slogan">
+
+          <!-- <img src="" alt="">
+          <video src=""></video> -->
+
+          <div class="cover-desc">
             하나님을 경외하고<br>
             사람을 사랑하는 교회
           </div>
         </div>
+      </section>
 
-      </div>
+      <section class="section section--worship">
+
+      </section>
+
+      <section class="section section--location">
+
+      </section>
+
+      <section class="section section--feature">
+
+      </section>
+
+      <section class="section section--server">
+
+      </section>
+
     </div>
 
   </main>
@@ -35,8 +39,6 @@
 <style lang="scss" src="~/assets/scss/page/_intro.scss"></style>
 
 <script>
-// import EditorJS from '@editorjs/editorjs';
-
 export default {
   mounted() {
 

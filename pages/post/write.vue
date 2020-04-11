@@ -277,7 +277,7 @@ export default {
     onSavePublish() {
       this.saveArticle().then(result => {
         if(result) {
-        this.$modal.show('published-modal');
+          this.$modal.show('published-modal');
         }
       });
     },
