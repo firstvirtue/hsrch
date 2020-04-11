@@ -21,7 +21,7 @@
         <button type="submit" class="btn btn--invert">로그인</button>
       </form>
       <a href="/auth/register">회원 가입</a>
-      <button @click="onFacebook">facebook</button>
+      <!-- <button @click="onFacebook">facebook</button> -->
     </div>
   </main>
 </template>
@@ -50,26 +50,9 @@ export default {
         password: this.user.password
       }
 
-      // console.log(this.$auth);
-
       await this.$auth.loginWith('local', { data: param })
-        // .then(e => console.log(e))
+        .then(e => console.log(e))
         .catch(e => this.$toast.error('로그인에 실패했습니다.', { icon: 'error_outline' }));
-
-      console.log(this.$auth);
-      // this.$store.dispatch('LOGIN', param)
-      //   .then(() => this.redirect())
-      //   .catch((message) => this.error = message);
-
-      // await this.$axios.$post('/api/auth/login/local', param)
-      // .then(res => {
-      //   console.log(res);
-      //   //
-      // })
-      // .catch(e => {
-      //   console.log(e.response);
-      //   this.error = '잘못된 계정 정보입니다.'
-      // });
 
     },
     onFacebook() {

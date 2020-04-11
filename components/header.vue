@@ -79,7 +79,7 @@ export default {
     }
   },
   mounted() {
-
+    console.log(this.$auth);
     const breakpoint = 800;
     const pageScroll$ = fromEvent(window, 'scroll');
     const pageResize$ = fromEvent(window, 'resize');
@@ -204,7 +204,7 @@ export default {
 
       this.$auth.logout().then(() => {
         console.log(this.$auth);
-        this.onMenu();
+        this.$router.push('/');
       });
 
     }
