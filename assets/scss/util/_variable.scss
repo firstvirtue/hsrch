@@ -21,14 +21,13 @@ $w-wrap: 1180px;
 // -----------------------------------------------------------------------------
 $font-list: (
   // [filename]: ([font-family]: [weight])
-  NotoSansKR-Light: (NotoSans, 100),
-  NotoSansKR-Regular: (NotoSans, 400),
+  // NotoSansKR-Light: (NotoSans, 100),
+  // NotoSansKR-Regular: (NotoSans, 400),
   MyriadPro-Semibold: (Myriad, 400),
   IropkeBatangM: (iropke, 300)
 );
 
-// $font-main: 'Noto Sans KR', sans-serif;
-$font-main: 'NotoSans', sans-serif;
+$font-main: 'Noto Sans KR', sans-serif;
 $font-sub: 'Myriad', sans-serif;
 $en: $font-sub;
 $serif: 'iropke', serif;

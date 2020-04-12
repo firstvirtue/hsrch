@@ -16,7 +16,9 @@
       </section>
 
       <section class="section section--worship">
-
+        <div class="wrapper wrapper--m-p">
+          <h2>예배안내</h2>
+        </div>
       </section>
 
       <section class="section section--location">

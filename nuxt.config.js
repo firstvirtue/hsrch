@@ -49,7 +49,8 @@ module.exports = {
       { src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver', body: true }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,400,700&display=swap' }
     ]
   },
 
