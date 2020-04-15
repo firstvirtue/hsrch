@@ -6,3 +6,16 @@
   word-break: keep-all;
   word-wrap: break-word;
 }
+
+@mixin headline {
+  &::before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 1px;
+    top: 0;
+    background-color: $gray5;
+    margin-right: 0.7em;
+  }
+}
