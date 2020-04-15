@@ -15,6 +15,14 @@
         </div>
       </section>
 
+      <!-- <section class="section section--feature">
+
+      </section> -->
+
+      <section class="section section--religious-worker">
+
+      </section>
+
       <section class="section section--worship">
         <div class="wrapper wrapper--m-p">
           <h2>예배 안내</h2>
@@ -75,18 +83,9 @@
             팩스. 02.3409.3044<br>
             목사관. 02.461.7939
           </div>
-          <div class="map-container" id="map-container">
-
+          <div class="map-container" id="map-container" style="height: 40vh;">
           </div>
         </div>
-      </section>
-
-      <section class="section section--feature">
-
-      </section>
-
-      <section class="section section--religious-worker">
-
       </section>
 
     </div>
@@ -100,6 +99,15 @@
 export default {
   mounted() {
 
+    var container = document.getElementById('map-container'); //지도를 담을 영역의 DOM 레퍼런스
+    var options = { //지도를 생성할 때 필요한 기본 옵션
+      center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+      level: 3 //지도의 레벨(확대, 축소 정도)
+    };
+
+    var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    // map.setDraggable(false);
+    // map.setZoomable(false);
   }
 }
 </script>

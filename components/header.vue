@@ -16,8 +16,8 @@
     <div class="gnb">
       <ul>
         <li>
-          <!-- <router-link to="/intro">환영합니다</router-link> -->
-          <a href="/intro">환영합니다</a>
+          <!-- <router-link to="/welcome">환영합니다</router-link> -->
+          <a href="/welcome">환영합니다</a>
         </li>
         <li>
           <!-- <nuxt-link to="list">설교와 찬양</nuxt-link> -->

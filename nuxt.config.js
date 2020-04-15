@@ -41,12 +41,13 @@ module.exports = {
     title: '한사랑교회',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, user-scalable=no, initial-scale=1.0' },
+      { name: 'viewport', content: 'width=device-width, user-scalable=no, initial-scale=1.0, minimal-ui' },
       { hid: 'description', name: 'description', content: '한사랑교회 공식 홈페이지' }
     ],
     script: [
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' },
-      { src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver', body: true }
+      { src: 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver', body: true },
+      { src: '//dapi.kakao.com/v2/maps/sdk.js?appkey=985135908302a5d67b330c65ae80bdcd', body: true }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -146,7 +147,7 @@ module.exports = {
     // { src: '~/plugins/gsap.js', ssr: false },
     { src: '~/plugins/browser.js', ssr: false },
     { src: '~/plugins/es2015-polyfill-addon.js', ssr: false },
-    { src: '~/plugins/vue-js-modal' }
+    { src: '~/plugins/vue-js-modal' },
   ],
   /*
   ** Build configuration
