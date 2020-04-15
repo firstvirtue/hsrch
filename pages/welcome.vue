@@ -36,8 +36,9 @@
       </section>
 
       <section class="section section--religious-worker">
-        <h2>섬기는 사람들</h2>
-
+        <div class="wrapper wrapper--m-p">
+          <h2>섬기는 사람들</h2>
+        </div>
       </section>
 
       <section class="section section--worship">
