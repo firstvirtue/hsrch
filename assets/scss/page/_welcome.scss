@@ -2,7 +2,12 @@
   // padding-top: 10rem;
 
   .section {
-
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    &__title {
+      font-size: 3.2rem;
+      @include headline;
+    }
   }
 
   // .section--cover {
@@ -14,7 +19,7 @@
   }
 
   .section--feature {
-    margin-top: -120px;
+    margin-top: -160px;
   }
 
   .cover {

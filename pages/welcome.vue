@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <div class="welcome" data-invert>
-      <section class="section section--cover">
+      <!-- <section class="section section--cover"> -->
         <div class="wrapper wrapper--m-p">
           <div class="cover">
             <h1 class="welcome__title">소개합니다</h1>
@@ -11,7 +11,7 @@
             </div>
           </div>
         </div>
-      </section>
+      <!-- </section> -->
 
       <section class="section section--feature">
         <h2 class="a11y">교회 특징</h2>
@@ -37,13 +37,24 @@
 
       <section class="section section--religious-worker">
         <div class="wrapper wrapper--m-p">
-          <h2>섬기는 사람들</h2>
+          <h2 class="section__title">섬기는 사람들</h2>
+          <ul>
+            <li>
+              <img src="~/assets/image/welcome/DSC00213.jpeg" alt="">
+            </li>
+            <li>
+              <img src="~/assets/image/welcome/DSC00207.jpeg" alt="">
+            </li>
+            <li>
+              <img src="~/assets/image/welcome/DSC00215.jpeg" alt="">
+            </li>
+          </ul>
         </div>
       </section>
 
       <section class="section section--worship">
         <div class="wrapper wrapper--m-p">
-          <h2>예배 안내</h2>
+          <h2 class="section__title">예배 안내</h2>
           <table>
             <!-- <caption>예배 시간</caption> -->
             <thead>
@@ -92,7 +103,7 @@
 
       <section class="section section--location">
         <div class="wrapper wrapper--m-p">
-          <h2>오시는 길</h2>
+          <h2 class="section__title">오시는 길</h2>
           <div class="cont">
             04773<br>
             서울 성동구 뚝섬로 312<br>
