@@ -115,12 +115,16 @@
         <div class="wrapper wrapper--m-p">
           <h2 class="section__title">오시는 길</h2>
           <div class="cont">
-            04773<br>
-            서울 성동구 뚝섬로 312<br>
-            한진타운아파트 상가<br>
-            전화. 02.499.5262<br>
-            팩스. 02.3409.3044<br>
-            목사관. 02.461.7939
+            <div class="cont__top">
+              04773<br>
+              서울 성동구 뚝섬로 312<br>
+              한진타운아파트 상가<br>
+            </div>
+            <div class="cont__bottom">
+              전화. <a href="tel:024995262"><span>02.499.5262</span></a><br>
+              팩스. <a href="tel:0234093044"><span>02.3409.3044</span></a><br>
+              목사관. <a href="tel:024617939"><span>02.461.7939</span></a>
+            </div>
           </div>
           <div class="map-container" id="map-container" style="height: 40vh;">
           </div>
