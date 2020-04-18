@@ -44,13 +44,13 @@
               <div class="summary">
                 <span>{{item.name}}</span>
                 <small>{{item.summary}}</small>
-                <div v-if="item.desc">
+                <div v-if="item.desc" class="mission">
                   {{item.desc}}
                 </div>
               </div>
-              <div v-if="item.comment" class="comment">
-                <button class="comment__more"><span class="a11y">더 보기</span></button>
+              <div v-if="item.comment" class="comment" :class="{'is-open': isOpen}">
                 <strong>담임목사 메시지</strong>
+                <button class="comment__more" @click="onComment"><span class="a11y">더 보기</span></button>
                 <div class="comment__wrapper">
                   <p v-html="item.comment">{{item.comment}}</p>
                 </div>
@@ -170,7 +170,13 @@ export default {
           desc: '어린이교회/414생활관',
           pic: require('~/assets/image/welcome/dsc00199.jpeg')
         }
-      ]
+      ],
+      isOpen: false
+    }
+  },
+  methods: {
+    onComment() {
+      this.isOpen = !this.isOpen;
     }
   }
 }
