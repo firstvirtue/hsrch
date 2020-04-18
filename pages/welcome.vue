@@ -35,18 +35,26 @@
         </div>
       </section>
 
-      <section class="section section--religious-worker">
+      <section class="section section--staff">
         <div class="wrapper wrapper--m-p">
           <h2 class="section__title">섬기는 사람들</h2>
-          <ul>
-            <li>
-              <img src="~/assets/image/welcome/DSC00213.jpeg" alt="">
-            </li>
-            <li>
-              <img src="~/assets/image/welcome/DSC00207.jpeg" alt="">
-            </li>
-            <li>
-              <img src="~/assets/image/welcome/DSC00215.jpeg" alt="">
+          <ul class="staff-list">
+            <li v-for="item in staff" v-bind:key="item.name">
+              <img :src="item.pic" alt="">
+              <div class="summary">
+                <span>{{item.name}}</span>
+                <small>{{item.summary}}</small>
+                <div v-if="item.desc">
+                  {{item.desc}}
+                </div>
+              </div>
+              <div v-if="item.comment" class="comment">
+                <button class="comment__more"><span class="a11y">더 보기</span></button>
+                <strong>담임목사 메시지</strong>
+                <div class="comment__wrapper">
+                  <p v-html="item.comment">{{item.comment}}</p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -140,6 +148,30 @@ export default {
     var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
     // map.setDraggable(false);
     // map.setZoomable(false);
+  },
+  data() {
+    return {
+      staff: [
+        {
+          name: '이명덕',
+          summary: '담임목사',
+          pic: require('~/assets/image/welcome/dsc00213.jpeg'),
+          comment: '한사랑 교회가 세상에 희망을 주는 하나님께서 기뻐하시는 교회로 거듭나기를 기도합니다.<br> 다음세대를 성경적 가치관 세계관으로 세우는 것이 하나님 나라의 건설과 확장에 가장 빠른 길이라고 믿습니다.<br> 저희 교회는 다음 세대를 세우기 위하여 414생활관을 운영하고 있습니다. 가난한 집의 자녀나 부잣집의 자녀나 똑같이 교육의 기회는 제공받아야 하는데 이 사회는 그렇지 못한 구조적인 모순을 지니고 있 습니다. 서민들도 기회를 제공받아야 하겠기에 만든 제도가 바로 414생활관입니다. 기울어진 운동장에서 출발하는 것은 모순입니다. 작게나마 기회를 제공하기 위하여 배움과 훈련의 장을 마련했습니다.<br> 말씀과 기도로 영성을, 공동체생활로 인성을, 자기주도학습을 통해 지성을 계발하여 4차 산업시대에 합 당한 전인적으로 건강한 인재 양육하는 일에 교회가 힘을 기울이고 있습니다.<br> 다음 세대 신앙전수의 요람이 되는 가정과 교회되기 위해 최선을 다하도록 하겠습니다.<br> 예배와 공동체와 성화와 섬김과 복음전파가 한사랑교회가 지향하는 목적입니다.<br> “하나님을 사랑하고 이웃을 사랑하라”는 가장 위대한 계명을 실천함으로 세상에 하나님의 은혜와 복을 전달하는 강소 교회되기를 소망합니다.'
+        },
+        {
+          name: '이세라',
+          summary: '교육전도사',
+          desc: '청년교회/청소년교회',
+          pic: require('~/assets/image/welcome/dsc00207.jpeg')
+        },
+        {
+          name: '이희준',
+          summary: '교육전도사',
+          desc: '어린이교회/414생활관',
+          pic: require('~/assets/image/welcome/dsc00199.jpeg')
+        }
+      ]
+    }
   }
 }
 </script>
