@@ -35,9 +35,17 @@
     }
     .comment {
       position: relative;
+
+      .func {
+        text-align: right;
+      }
+
       &__more {
+        color: $gray6;
+        font-size: 13px;
         @include icon(arrow) {
           position: relative;
+          margin-right: 5px;
           top: 2px;
           transform: rotateZ(90deg);
           transition: transform 0.2s;

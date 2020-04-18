@@ -50,9 +50,11 @@
               </div>
               <div v-if="item.comment" class="comment" :class="{'is-open': isOpen}">
                 <strong>담임목사 메시지</strong>
-                <button class="comment__more" @click="onComment"><span class="a11y">더 보기</span></button>
                 <div class="comment__wrapper">
                   <p v-html="item.comment">{{item.comment}}</p>
+                </div>
+                <div class="func">
+                  <button class="comment__more" @click="onComment"><span>더 보기</span></button>
                 </div>
               </div>
             </li>
