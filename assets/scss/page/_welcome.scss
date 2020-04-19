@@ -8,6 +8,17 @@
       font-size: 3.2rem;
       @include headline;
     }
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   video {
@@ -88,6 +99,75 @@
       strong {
         font-weight: normal;
       }
+    }
+  }
+
+  .section--worship {
+    .worship-guide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 100vw;
+      max-height: 650px;
+
+      .dimmed {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba($black, 0.7);
+      }
+
+      &__table {
+        position: relative;
+        color: $white;
+        max-width: 320px;
+        border-collapse: collapse;
+
+        th {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          color: $gray3;
+          font-size: 18px;
+          // font-size: 21px;
+        }
+
+        td {
+          padding: 0.3em 0;
+          text-align: center;
+        }
+
+        .bordered {
+          td {
+            border-bottom: 1px solid $gray5;
+            padding-bottom: 1em;
+          }
+
+          & + tr td {
+            padding-top: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .section--location {
+    .cont {
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+
+      &__bottom {
+        margin-top: 1rem;
+      }
+
+      a {
+        color: $gray5;
+      }
+    }
+    .map-container {
+      margin-top: 4rem;
     }
   }
 

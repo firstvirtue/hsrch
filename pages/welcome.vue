@@ -65,50 +65,56 @@
       <section class="section section--worship">
         <div class="wrapper wrapper--m-p">
           <h2 class="section__title">예배 안내</h2>
-          <table>
-            <!-- <caption>예배 시간</caption> -->
-            <thead>
-              <tr>
-                <th>예배</th>
-                <th>시간</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>주일예배</td>
-                <td>1부 오전 9:00</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>2부 오전 11:00</td>
-              </tr>
-              <tr>
-                <td>찬양예배</td>
-                <td>오후 2:00</td>
-              </tr>
-              <tr>
-                <td>수요예배</td>
-                <td>오전 11:00</td>
-              </tr>
-              <tr>
-                <td>새벽예배</td>
-                <td>(월-토) 오전 5:30</td>
-              </tr>
-              <tr class="bordered">
-                <td>어린이교회</td>
-                <td>오전 11:00</td>
-              </tr>
-              <tr>
-                <td>청소년교회</td>
-                <td>오전 11:00</td>
-              </tr>
-              <tr>
-                <td>청년교회</td>
-                <td>오후 12:50</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
+          <div class="worship-guide">
+            <video class="bg" src="~/assets/video/worship-guide.mp4" playinlines loop autoplay muted></video>
+            <div class="dimmed" role="presentation"></div>
+
+            <table class="worship-guide__table">
+              <!-- <caption>예배 시간</caption> -->
+              <thead>
+                <tr>
+                  <th>예배</th>
+                  <th>시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>주일예배</td>
+                  <td>1부 오전 9:00</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>2부 오전 11:00</td>
+                </tr>
+                <tr>
+                  <td>찬양예배</td>
+                  <td>오후 2:00</td>
+                </tr>
+                <tr>
+                  <td>수요예배</td>
+                  <td>오전 11:00</td>
+                </tr>
+                <tr class="bordered">
+                  <td>새벽예배</td>
+                  <td>(월-토) 오전 5:30</td>
+                </tr>
+                <tr>
+                  <td>어린이교회</td>
+                  <td>오전 11:00</td>
+                </tr>
+                <tr>
+                  <td>청소년교회</td>
+                  <td>오전 11:00</td>
+                </tr>
+                <tr>
+                  <td>청년교회</td>
+                  <td>오후 12:50</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
       </section>
 
       <section class="section section--location">
