@@ -190,4 +190,53 @@
     font-weight: lighter;
     line-height: 1.3;
   }
+
+  @include mq(large) {
+    .cover {
+      // display: block;
+    }
+    &__title {
+      // margin-top: 300px;
+      font-size: 4.2rem;
+    }
+    &__desc {
+      font-size: 4.0rem;
+    }
+
+    .section--feature {
+      margin-top: -260px;
+
+      .feature__wrap {
+        display: flex;
+        flex-wrap: wrap;
+
+        // TODO: figure 영역은 고정, 내부 콘텐츠 오브젝트핏/패럴랙스
+        figure {
+          width: 60%;
+          box-sizing: border-box;
+
+          &:nth-child(odd) {
+            padding-right: 30px;
+          }
+
+          &:nth-child(even) {
+            padding-left: 30px;
+          }
+
+          &:nth-child(2),
+          &:nth-child(3) {
+            width: 40%;
+          }
+
+          &:nth-child(3) {
+            margin-top: -100px;
+          }
+
+          &:nth-child(4) {
+            margin-top: 60px;
+          }
+        }
+      }
+    }
+  }
 }

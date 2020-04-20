@@ -16,22 +16,24 @@
       <section class="section section--feature">
         <h2 class="a11y">교회 특징</h2>
         <div class="wrapper wrapper--m-p">
-          <figure>
-            <video src="~/assets/video/prayfor.mp4" playsinline loop autoplay muted></video>
-            <!-- <ficaption>성도를 위한 담임목사 기도</ficaption> -->
-          </figure>
-          <figure>
-            <img src="~/assets/image/welcome/friends.jpeg" alt="">
-            <!-- <ficaption>서울숲 청년 교제</ficaption> -->
-          </figure>
-          <figure>
-            <img src="~/assets/image/welcome/bowling.jpeg" alt="">
-            <!-- <ficaption>주일 오후 청년 교제</ficaption> -->
-          </figure>
-          <figure>
-            <video src="~/assets/video/harmonica.mp4" playsinline loop autoplay muted></video>
-            <!-- <ficaption>하모니카 찬양단</ficaption> -->
-          </figure>
+          <div class="feature__wrap">
+            <figure>
+              <video src="~/assets/video/prayfor.mp4" playsinline loop autoplay muted></video>
+              <!-- <ficaption>성도를 위한 담임목사 기도</ficaption> -->
+            </figure>
+            <figure>
+              <img src="~/assets/image/welcome/friends.jpeg" alt="">
+              <!-- <ficaption>서울숲 청년 교제</ficaption> -->
+            </figure>
+            <figure>
+              <img src="~/assets/image/welcome/bowling.jpeg" alt="">
+              <!-- <ficaption>주일 오후 청년 교제</ficaption> -->
+            </figure>
+            <figure>
+              <video src="~/assets/video/harmonica.mp4" playsinline loop autoplay muted></video>
+              <!-- <ficaption>하모니카 찬양단</ficaption> -->
+            </figure>
+          </div>
         </div>
       </section>
 
