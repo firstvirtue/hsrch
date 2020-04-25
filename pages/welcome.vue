@@ -42,12 +42,16 @@
           <h2 class="section__title">섬기는 사람들</h2>
           <ul class="staff-list">
             <li v-for="item in staff" v-bind:key="item.name">
-              <img :src="item.pic" alt="">
-              <div class="summary">
-                <span>{{item.name}}</span>
-                <small>{{item.summary}}</small>
-                <div v-if="item.desc" class="mission">
-                  {{item.desc}}
+              <div class="staff">
+                <div class="img-wrap">
+                  <img :src="item.pic" alt="">
+                </div>
+                <div class="summary">
+                  <span>{{item.name}}</span>
+                  <small>{{item.summary}}</small>
+                  <div v-if="item.desc" class="mission">
+                    {{item.desc}}
+                  </div>
                 </div>
               </div>
               <div v-if="item.comment" class="comment" :class="{'is-open': isOpen}">
@@ -122,19 +126,21 @@
       <section class="section section--location">
         <div class="wrapper wrapper--m-p">
           <h2 class="section__title">오시는 길</h2>
-          <div class="cont">
-            <div class="cont__top">
-              04773<br>
-              서울 성동구 뚝섬로 312<br>
-              한진타운아파트 상가<br>
+          <div class="location">
+            <div class="cont">
+              <div class="cont__top">
+                04773<br>
+                서울 성동구 뚝섬로 312<br>
+                한진타운아파트 상가<br>
+              </div>
+              <div class="cont__bottom">
+                전화. <a href="tel:024995262"><span>02.499.5262</span></a><br>
+                팩스. <a href="tel:0234093044"><span>02.3409.3044</span></a><br>
+                목사관. <a href="tel:024617939"><span>02.461.7939</span></a>
+              </div>
             </div>
-            <div class="cont__bottom">
-              전화. <a href="tel:024995262"><span>02.499.5262</span></a><br>
-              팩스. <a href="tel:0234093044"><span>02.3409.3044</span></a><br>
-              목사관. <a href="tel:024617939"><span>02.461.7939</span></a>
+            <div class="map-container" id="map-container" style="height: 40vh;">
             </div>
-          </div>
-          <div class="map-container" id="map-container" style="height: 40vh;">
           </div>
         </div>
       </section>
