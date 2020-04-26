@@ -239,8 +239,10 @@
 
         // TODO: figure 영역은 고정, 내부 콘텐츠 오브젝트핏/패럴랙스
         figure {
-          width: 60%;
+          position: relative;
           box-sizing: border-box;
+          width: 60%;
+          overflow: hidden;
 
           &:nth-child(odd) {
             padding-right: 30px;
@@ -261,6 +263,14 @@
 
           &:nth-child(4) {
             margin-top: 60px;
+          }
+
+          video,
+          img {
+            // position: absolute;
+            // width: 100%;
+            // height: 100%;
+            object-fit: cover;
           }
         }
       }
