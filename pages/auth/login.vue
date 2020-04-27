@@ -1,32 +1,34 @@
 <template>
   <main class="main" data-invert>
-    <div class="login">
-      <h1>로그인</h1>
+    <div class="auth-form">
+      <div class="auth-form__wrap">
+        <h1 class="title">로그인</h1>
 
-      <form @submit.prevent="onSave">
-        <div class="form-g">
-          <label for="username">아이디</label>
-          <input type="text" id="username" v-model="user.username">
-        </div>
+        <form @submit.prevent="onSave">
+          <div class="auth-form__g">
+            <label for="username">아이디</label>
+            <input type="text" id="username" v-model="user.username">
+          </div>
 
-        <div class="form-g">
-          <label for="password">비밀번호</label>
-          <input type="password" id="password" v-model="user.password">
-        </div>
+          <div class="auth-form__g">
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" v-model="user.password">
+          </div>
 
-        <div class="error">
-          {{error}}
-        </div>
+          <div class="error">
+            {{error}}
+          </div>
 
-        <button type="submit" class="btn btn--invert">로그인</button>
-      </form>
-      <a href="/auth/register">회원 가입</a>
-      <!-- <button @click="onFacebook">facebook</button> -->
+          <button type="submit" class="btn btn--invert">로그인</button>
+        </form>
+        <a href="/auth/register" class="btn-register">회원 가입</a>
+        <!-- <button @click="onFacebook">facebook</button> -->
+      </div>
     </div>
   </main>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_login.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_auth-form.scss"></style>
 
 <script>
 import qs from 'qs';
