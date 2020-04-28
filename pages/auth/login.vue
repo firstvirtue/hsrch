@@ -21,7 +21,7 @@
 
           <button type="submit" class="btn btn--invert">로그인</button>
         </form>
-        <a href="/auth/register" class="btn-register">회원 가입</a>
+        <a href="/auth/register" class="register-link">회원 가입</a>
         <!-- <button @click="onFacebook">facebook</button> -->
       </div>
     </div>
