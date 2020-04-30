@@ -1,16 +1,16 @@
 <template>
   <main class="main" data-invert>
-    <div class="auth-form">
-      <div class="auth-form__wrap">
+    <div class="auth">
+      <div class="auth__wrap">
         <h1 class="title">로그인</h1>
 
         <form @submit.prevent="onSave">
-          <div class="auth-form__g">
+          <div class="auth__g">
             <label for="username">아이디</label>
             <input type="text" id="username" v-model="user.username">
           </div>
 
-          <div class="auth-form__g">
+          <div class="auth__g">
             <label for="password">비밀번호</label>
             <input type="password" id="password" v-model="user.password">
           </div>
@@ -28,7 +28,7 @@
   </main>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_auth-form.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_auth.scss"></style>
 
 <script>
 import qs from 'qs';

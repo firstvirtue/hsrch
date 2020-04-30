@@ -1,4 +1,4 @@
-.auth-form {
+.auth {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,6 +6,7 @@
   @include mq(large) {
     height: calc(100vh - 100px);
   }
+
   &__wrap {
 
     .title {
