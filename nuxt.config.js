@@ -79,7 +79,7 @@ module.exports = {
   },
 
   axios: {
-    baseURL: 'http://192.168.0.14:4000',
+    baseURL: 'http://192.168.0.3:4000',
     credentials: true,
     proxy: true
   },
@@ -93,7 +93,7 @@ module.exports = {
 
   proxy: {
     '/api/': {
-      target: 'http://192.168.0.14:4000',
+      target: 'http://192.168.0.3:4000',
       // pathRewrite: { '^/api/': '' },
       changeOrigin: true
     }
