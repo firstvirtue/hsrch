@@ -108,7 +108,7 @@ export default {
         }
 
         await this.$axios.post('/api/auth/register/local', param )
-          .then(e => console.log(e))
+          .then(res => this.$router.push('/'))
           .catch(e => this.$toast.error('회원 가입에 실패했습니다.', { icon: 'error_outline' }));
         }
       });

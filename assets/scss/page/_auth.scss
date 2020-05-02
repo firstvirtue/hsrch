@@ -31,6 +31,8 @@
   }
 
   &__g {
+    display: block;
+    position: relative;
     padding-top: 1em;
     padding-bottom: 1em;
 
@@ -41,6 +43,13 @@
     input {
       width: 100%;
       margin-top: 1rem;
+    }
+
+    .error {
+      position: absolute;
+      font-size: 80%;
+      top: 90%;
+      color: red;
     }
   }
 
