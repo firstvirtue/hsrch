@@ -148,12 +148,14 @@ module.exports = {
     { src: '~/plugins/browser.js', ssr: false },
     { src: '~/plugins/es2015-polyfill-addon.js', ssr: false },
     { src: '~/plugins/vue-js-modal' },
+    { src: '~/plugins/vee-validate' }
   ],
   /*
   ** Build configuration
   */
   build: {
     vendor: [],
+    transpile: ['vee-validate/dist/rules'],
     postcss: {
       plugins: {
         'postcss-preset-env': {
