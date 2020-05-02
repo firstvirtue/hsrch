@@ -18,5 +18,5 @@ extend("confirmed", {
 
 extend("min", {
   ...min,
-  message: (field, param) => `${param.length}글자 이상 입력하세요.`
+  message: (field, params) => `${params.length}글자 이상 입력하세요.`
 });

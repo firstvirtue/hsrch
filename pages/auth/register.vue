@@ -6,7 +6,7 @@
 
         <form @submit.prevent="onSubmit">
           <ValidationObserver ref="observer">
-            <ValidationProvider rules="required|alpha_num|min:6" v-slot="{ errors }" class="auth__g" ref="provider">
+            <ValidationProvider rules="required|alpha_num|min:6|unique" v-slot="{ errors }" class="auth__g" ref="provider">
               <label for="id">아이디</label>
               <input type="text" id="id" v-model="user.id">
               <div class="error">
@@ -50,7 +50,7 @@
 <style lang="scss" src="~/assets/scss/page/_auth.scss"></style>
 
 <script>
-import { ValidationProvider, ValidationObserver } from 'vee-validate';
+import { extend, ValidationProvider, ValidationObserver } from 'vee-validate';
 import qs from 'qs';
 
 export default {
@@ -67,6 +67,33 @@ export default {
         passwordConfirm: ''
       },
     }
+  },
+  mounted() {
+    const isUnique = value =>
+      new Promise(resolve => {
+        setTimeout(() => {
+          this.$axios.get('/api/auth/exists/id/' + value).then(result => {
+
+            if(!result.data.exists) {
+              return resolve({
+                valid: true
+              })
+            }
+
+            return resolve({
+              valid: false
+            });
+
+          })
+        }, 200);
+      });
+
+
+    extend('unique', {
+      validate: isUnique,
+      message: (field, params) => `${params._value_}는 이미 존재하는 ID 입니다.`
+    });
+
   },
   methods: {
     async onSubmit() {
@@ -88,11 +115,6 @@ export default {
 
     },
 
-  },
-  watch: {
-    errors: function() {
-      console.log(this.errors);
-    }
   }
 };
 </script>
