@@ -24,7 +24,7 @@ class Editor {
             class: ImageTool,
             config: {
               endpoints: {
-                byFile: 'http://192.168.0.14:4000/api/posts/upload'
+                byFile: 'http://192.168.0.3:4000/api/posts/upload'
               },
               field: 'post-rsc-pool'
             }

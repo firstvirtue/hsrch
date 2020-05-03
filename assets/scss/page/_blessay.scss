@@ -17,4 +17,29 @@
       }
     }
   }
+
+  .func {
+    position: relative;
+    margin-left: 20px;
+
+    &__btn {
+      color: $gray6;
+      font-size: 13px;
+      @include icon(arrow) {
+        transform: rotateZ(90deg);
+        transition: transform 0.2s;
+      }
+    }
+
+    &__layer {
+      position: absolute;
+      width: 150px;
+    }
+  }
+
+  .is-active .func__btn {
+    &::before {
+      transform: rotateZ(270deg);
+    }
+  }
 }

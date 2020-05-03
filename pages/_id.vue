@@ -23,9 +23,9 @@
                   </span>
                 </div>
               </a>
-              <div>
-                <button @click="onUtil(item)">유틸</button>
-                <div v-show="item.isActive">
+              <div class="func" :class="{'is-active': item.isActive}">
+                <button @click="onUtil(item)" class="func__btn"><span class="a11y">유틸</span></button>
+                <div v-show="item.isActive" class="func__layer">
                   <a :href="`/post/write?id=${item.id}`" class="btn btn--invert">수정하기</a>
                   <button class="btn btn--invert" @click="onDelete(item)">삭제하기</button>
                 </div>
