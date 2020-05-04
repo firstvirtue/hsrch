@@ -332,8 +332,9 @@
         align-items: flex-end;
 
         .cont {
-          $cont-w: 20rem;
+          $cont-w: 23rem;
           $cont-mr: 6rem;
+          // font-weight: lighter;
 
           width: $cont-w;
           box-sizing: border-box;

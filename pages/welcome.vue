@@ -132,6 +132,7 @@
                 04773<br>
                 서울 성동구 뚝섬로 312<br>
                 한진타운아파트 상가<br>
+                대한예수교 장로회 한사랑교회
               </div>
               <div class="cont__bottom">
                 전화. <a href="tel:024995262"><span>02.499.5262</span></a><br>
@@ -168,6 +169,22 @@ export default {
     var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
     // map.setDraggable(false);
     // map.setZoomable(false);
+    var imageSrc = '/ri.png', // 마커이미지의 주소입니다
+      imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+      imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+        markerPosition = new kakao.maps.LatLng(33.450701, 126.570667); // 마커가 표시될 위치입니다
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition,
+        image: markerImage // 마커이미지 설정
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
   },
   data() {
     return {
