@@ -8,6 +8,8 @@
   }
 
   &__wrap {
+    margin-left: 40px;
+    margin-right: 40px;
 
     .title {
       text-align: center;
@@ -41,6 +43,7 @@
     }
 
     input {
+      box-sizing: border-box;
       width: 100%;
       margin-top: 1rem;
     }
@@ -48,7 +51,8 @@
     .error {
       position: absolute;
       font-size: 80%;
-      top: 90%;
+      top: 0;
+      left: 0;
       color: red;
     }
   }
@@ -57,6 +61,11 @@
     &__g {
       input {
         width: 300px;
+      }
+
+      .error {
+        top: 90%;
+        right: auto;
       }
     }
   }
