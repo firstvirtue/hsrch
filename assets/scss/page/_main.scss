@@ -13,6 +13,7 @@
   .container {
     position: relative;
     margin-top: 100vh;
+    max-width: none;
     background: $white;
   }
 
@@ -353,6 +354,7 @@
         &-current {
           right: -500px;
           width: 400px;
+          box-sizing: content-box;
 
           .tit {
             font-size: 42px;

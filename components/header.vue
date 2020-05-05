@@ -30,7 +30,7 @@
           <a href="#">414생활관</a>
         </li>
         <li>
-          <a href="#">신앙상담</a>
+          <a href="/counsel">신앙상담</a>
         </li>
       </ul>
     </div>

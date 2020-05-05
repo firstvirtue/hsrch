@@ -150,6 +150,9 @@ module.exports = {
     { src: '~/plugins/vue-js-modal' },
     { src: '~/plugins/vee-validate' }
   ],
+  buildModules: [
+    ['@nuxtjs/vuetify', { /* module options */ }]
+  ],
   /*
   ** Build configuration
   */

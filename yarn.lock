@@ -974,6 +974,17 @@
   dependencies:
     vue-toasted "^1.1.27"
 
+"@nuxtjs/vuetify@^1.11.2":
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/vuetify/-/vuetify-1.11.2.tgz#fefa861d98c021e10dd579a5b91b34b3fb49dc99"
+  dependencies:
+    deepmerge "^4.2.2"
+    fibers "^4.0.3"
+    sass "^1.26.5"
+    sass-loader "^8.0.2"
+    vuetify "^2"
+    vuetify-loader "^1.4.3"
+
 "@nuxtjs/youch@^4.2.3":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@nuxtjs/youch/-/youch-4.2.3.tgz#36f8b22df5a0efaa81373109851e1d857aca6bed"
@@ -1921,6 +1932,20 @@ check-types@^8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-8.0.3.tgz#3356cca19c889544f2d7a95ed49ce508a0ecf552"
 
+"chokidar@>=2.0.0 <4.0.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.0.tgz#b30611423ce376357c765b9b8f904b9fba3c0be8"
+  dependencies:
+    anymatch "~3.1.1"
+    braces "~3.0.2"
+    glob-parent "~5.1.0"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.4.0"
+  optionalDependencies:
+    fsevents "~2.1.2"
+
 chokidar@^2.0.2:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
@@ -2622,6 +2647,10 @@ detect-indent@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-5.0.0.tgz#3871cc0a6a002e8c3e5b3cf7f336264675f06b9d"
 
+detect-libc@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
+
 diffie-hellman@^5.0.0:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/diffie-hellman/-/diffie-hellman-5.0.3.tgz#40e8ee98f55a2149607146921c63e1ae5f3d2875"
@@ -3122,6 +3151,12 @@ fast-json-stable-stringify@^2.0.0:
 fast-levenshtein@~2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
+
+fibers@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/fibers/-/fibers-4.0.3.tgz#dda5918280a48507f5d8a96dd9a525e8f4a532e2"
+  dependencies:
+    detect-libc "^1.0.3"
 
 figgy-pudding@^3.5.1:
   version "3.5.1"
@@ -4297,7 +4332,7 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.2, loader-utils@^1.0.4, loader-utils@^1.1.0, loader-utils@^1.2.3:
+loader-utils@^1.0.2, loader-utils@^1.0.4, loader-utils@^1.1.0, loader-utils@^1.2.0, loader-utils@^1.2.3:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
   dependencies:
@@ -5188,6 +5223,10 @@ picomatch@^2.0.4, picomatch@^2.0.7:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.1.tgz#21bac888b6ed8601f831ce7816e335bc779f0a4a"
 
+picomatch@^2.2.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
+
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
@@ -6068,6 +6107,12 @@ readdirp@~3.3.0:
   dependencies:
     picomatch "^2.0.7"
 
+readdirp@~3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.4.0.tgz#9fdccdf9e9155805449221ac645e8303ab5b9ada"
+  dependencies:
+    picomatch "^2.2.1"
+
 redent@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-1.0.0.tgz#cf916ab1fd5f1f16dfb20822dd6ec7f730c2afde"
@@ -6323,7 +6368,7 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
-sass-loader@^8.0.0:
+sass-loader@^8.0.0, sass-loader@^8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-8.0.2.tgz#debecd8c3ce243c76454f2e8290482150380090d"
   dependencies:
@@ -6345,6 +6390,12 @@ sass-resources-loader@^2.0.0, sass-resources-loader@^2.0.1:
     chalk "^1.1.3"
     glob "^7.1.1"
     loader-utils "^1.0.4"
+
+sass@^1.26.5:
+  version "1.26.5"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.5.tgz#2d7aecfbbabfa298567c8f06615b6e24d2d68099"
+  dependencies:
+    chokidar ">=2.0.0 <4.0.0"
 
 sax@^1.1.5, sax@~1.2.4:
   version "1.2.4"
@@ -7491,6 +7542,16 @@ vue-toasted@^1.1.27:
 vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
+
+vuetify-loader@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/vuetify-loader/-/vuetify-loader-1.4.3.tgz#df1323c558be09890877e5fbe817b3a71a6c538d"
+  dependencies:
+    loader-utils "^1.2.0"
+
+vuetify@^2:
+  version "2.2.26"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.2.26.tgz#d834b8c5b089c831a00e7be6495925aa9bda8583"
 
 vuex@^3.1.2:
   version "3.1.2"
