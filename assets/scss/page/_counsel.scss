@@ -1,4 +1,30 @@
 .counsel {
   padding-top: 10rem;
-  padding-bottom: 5rem;
+
+  &:last-child {
+    padding-bottom: 5rem;
+  }
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-self: center;
+
+  max-width: 700px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: lighter;
+    margin-bottom: 5rem;
+    @include break-word;
+
+    i {
+      color: $gray3;
+      font-style: normal;
+      font-family: $font-sub;
+      font-size: 6rem;
+    }
+  }
+
 }
