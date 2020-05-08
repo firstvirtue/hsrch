@@ -12,7 +12,7 @@
         <h1 class="title">
           a light has dawned
         </h1>
-        <span class="btn btn--discover" lang="ko">올 봄 등장!</span>
+        <a href="/welcome" class="btn btn--discover" lang="ko">discover</a>
       </div>
     </header>
 
@@ -63,7 +63,7 @@
         <h2 class="a11y">신앙상담</h2>
         <strong class="reveal">love in jesus christ</strong>
         <!-- <a href="#" class="btn btn--discover" lang="ko">신앙상담</a> -->
-        <a href="#" class="btn btn--discover reveal">discover</a>
+        <a href="/counsel" class="btn btn--discover reveal">discover</a>
       </section>
 
       <div class="wrapper">
