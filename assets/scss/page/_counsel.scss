@@ -1,5 +1,5 @@
 .counsel {
-  padding-top: 10rem;
+  padding-top: 6rem;
 
   &:last-child {
     padding-bottom: 5rem;
@@ -14,9 +14,10 @@
   margin: 0 auto;
 
   &__title {
+    padding-top: 8rem;
+    margin-bottom: 4rem;
     font-size: 3rem;
     font-weight: lighter;
-    margin-bottom: 5rem;
     @include break-word;
 
     i {
@@ -27,4 +28,32 @@
     }
   }
 
+  &__sub-title {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    font-size: 14px;
+    color: $gray7;
+  }
+
+  textarea {
+    min-height: 200px;
+    margin-top: 10px;
+  }
+
+  .v-slider {
+    max-width: 80%;
+
+    &__tick-label {
+      font-size: 13px;
+    }
+  }
+
+  .func {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+
+    button {
+      box-sizing: border-box;
+    }
+  }
 }
