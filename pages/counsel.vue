@@ -61,7 +61,7 @@
           <h2 class="counsel__title"><i>3.</i> 저희가 연락 드릴 수 있는 연락처와 이름을 적어주세요.</h2>
           <v-row>
             <v-col cols="12" sm="12" md="6">
-              <ValidationProvider rules="required|min:2" v-slot="{ errors }" class="auth__g">
+              <ValidationProvider rules="required|phoneNumber" v-slot="{ errors }" class="auth__g">
               <v-text-field
                 label="연락처"
                 v-model="counsel.contact"
@@ -141,6 +141,7 @@ import { extend, ValidationProvider, ValidationObserver } from 'vee-validate';
           if(isValid) {
             await this.$axios.post('/api/counsel/register/', this.counsel)
               .then(res => {
+                console.log(res);
                 this.showThanks = true;
                 setTimeout(() => {
                   this.$router.push('/');
