@@ -56,6 +56,13 @@
 
   .gnb {
     display: none;
+
+    li {
+      span {
+        color: $gray3 !important;
+        font-size: 17px;
+      }
+    }
   }
 
   .user {

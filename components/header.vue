@@ -27,7 +27,7 @@
           <a href="/community">커뮤니티</a>
         </li>
         <li>
-          <a href="#">414생활관</a>
+          <span>414생활관</span>
         </li>
         <li>
           <a href="/counsel">신앙상담</a>
