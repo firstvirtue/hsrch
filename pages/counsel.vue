@@ -44,7 +44,8 @@
           ></v-radio>
         </v-radio-group>
 
-        <template v-if="!counsel.isAttendance">
+        <transition name="fade">
+        <div v-show="!counsel.isAttendance">
           <h3 class="counsel__sub-title">교회에 출석하시지 않은 기간을 알 수 있을까요?</h3>
           <v-slider
             v-model="counsel.nonattendancePeriodLevel"
@@ -53,7 +54,8 @@
             step="1"
             ticks="always"
             tick-size="4"></v-slider>
-        </template>
+        </div>
+        </transition>
 
         <h2 class="counsel__title"><i>3.</i> 저희가 연락 드릴 수 있는 연락처와 이름을 적어주세요.</h2>
         <v-row>

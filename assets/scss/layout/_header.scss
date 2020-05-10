@@ -59,8 +59,8 @@
 
     li {
       span {
+        position: relative;
         color: $gray3 !important;
-        font-size: 17px;
       }
     }
   }
@@ -126,6 +126,16 @@
         margin-top: 8px;
         font-size: 32px;
         font-weight: 700;
+
+        span {
+          &::after {
+            content: '(개발중)';
+            position: absolute;
+            font-size: 12px;
+            bottom: 10%;
+            right: -40px;
+          }
+        }
       }
     }
 
@@ -168,7 +178,7 @@
       }
 
       li {
-        a {
+        a, span {
           color: $white;
           font-size: 17px;
         }
