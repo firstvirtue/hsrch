@@ -57,6 +57,28 @@
     }
   }
 
+  .thanks {
+    &-card {
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $white;
+    }
+
+    &-message {
+      max-width: $w-wrap;
+      width: 100%;
+      margin: 0 auto;
+      padding-left: 20px;
+      color: $gray5;
+      font-size: 4rem;
+    }
+  }
+
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
   }

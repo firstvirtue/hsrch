@@ -102,17 +102,16 @@ export default {
         console.log(isValid);
         if(isValid) {
           const param = {
-          id: this.user.id,
-          username: this.user.username,
-          password: this.user.password
-        }
+            id: this.user.id,
+            username: this.user.username,
+            password: this.user.password
+          }
 
-        await this.$axios.post('/api/auth/register/local', param )
-          .then(res => this.$router.push('/'))
-          .catch(e => this.$toast.error('회원 가입에 실패했습니다.', { icon: 'error_outline' }));
+          await this.$axios.post('/api/auth/register/local', param )
+            .then(res => this.$router.push('/'))
+            .catch(e => this.$toast.error('회원 가입에 실패했습니다.', { icon: 'error_outline' }));
         }
       });
-
     },
 
   }
