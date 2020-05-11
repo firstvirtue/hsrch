@@ -22,7 +22,7 @@
     position: relative;
     margin-left: 20px;
 
-    &__btn {
+    &__opener {
       color: $gray6;
       font-size: 13px;
       @include icon(arrow) {
@@ -31,15 +31,16 @@
       }
     }
 
+    &__btn {
+      padding: 0.35em 0;
+      color: $gray6;
+      font-size: 15px;
+    }
+
     &__layer {
       position: absolute;
       width: 150px;
-    }
-  }
-
-  .is-active .func__btn {
-    &::before {
-      transform: rotateZ(270deg);
+      top: 20px;
     }
   }
 }

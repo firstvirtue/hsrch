@@ -105,12 +105,6 @@
 
     .gnb {
       display: block;
-      // position: absolute;
-      // top: 0;
-      // left: 0;
-      // right: 0;
-      // bottom: 0;
-
       visibility: visible !important;
       opacity: 1 !important;
       transform: translateX(0) !important;
@@ -118,8 +112,6 @@
       padding-top: 100px;
       padding-right: 40px;
       padding-bottom: 50px;
-      // background: $white;
-      // height: 100vh;
       text-align: right;
 
       li {
