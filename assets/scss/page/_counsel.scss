@@ -5,11 +5,6 @@
     padding-bottom: 5rem;
   }
 
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-self: center;
-
   max-width: 700px;
   margin: 0 auto;
 
@@ -45,6 +40,7 @@
 
     &__tick-label {
       font-size: 13px;
+      transform: translateX(-50%);
     }
   }
 
