@@ -85,7 +85,7 @@
           </v-row>
 
           <div class="func">
-            <v-btn block type="submit">보내기</v-btn>
+            <v-btn block depressed color="primary" type="submit">보내기</v-btn>
           </div>
         </ValidationObserver>
       </form>
