@@ -71,8 +71,7 @@ module.exports = {
     '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    '@nuxtjs/toast',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/toast'
   ],
   toast: {
     position: 'top-right',
@@ -151,22 +150,12 @@ module.exports = {
     { src: '~/plugins/vue-js-modal' },
     { src: '~/plugins/vee-validate' }
   ],
-  // buildModules: [
-  //   '@nuxtjs/vuetify'
-  // ],
+  buildModules: [
+    '@nuxtjs/vuetify'
+  ],
   vuetify: {
     theme: {
-      themes: {
-        light: {
-          primary: "#5755d9",
-          secondary: "#444291",
-          accent: "#444291",
-          error: "#f44336",
-          warning: "#ffeb3b",
-          info: "#2196f3",
-          success: "#4caf50"
-        }
-      }
+      light: true,
     }
   },
   /*

@@ -1,4 +1,5 @@
 <template>
+   <v-app>
   <div class="counsel" data-invert>
     <div class="wrapper wrapper--m-p">
 
@@ -98,6 +99,7 @@
       </div>
     </transition>
   </div>
+   </v-app>
 </template>
 
 <style lang="scss" src="~/assets/scss/page/_counsel.scss"></style>
