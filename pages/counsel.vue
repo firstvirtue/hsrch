@@ -147,7 +147,7 @@ import { extend, ValidationProvider, ValidationObserver } from 'vee-validate';
                 this.showThanks = true;
                 setTimeout(() => {
                   this.$router.push('/');
-                }, 2000);
+                }, 3000);
               })
               .catch(e => this.$toast.error('상담 내용을 보내는데 실패했습니다.', { icon: 'error_outline' }));
           }
