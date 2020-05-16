@@ -2,7 +2,6 @@ form {
   & + & {
     margin-top: 4rem;
     padding-top: 2rem;
-    // border-top: 1px solid $gray1;
   }
 
   label {
@@ -25,6 +24,7 @@ form {
   fieldset {
 
     legend {
+      margin-bottom: 0.4em;
       width: 100%;
       font-size: 3.4rem;
       color: $gray3;

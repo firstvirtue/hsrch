@@ -99,8 +99,9 @@ export default {
           }
 
           await this.$axios.post('/api/auth/register/local/password', param )
-            .then(res => {
+            .then(async res => {
               this.$toast.success('비밀번호가 변경되었습니다.');
+              await this.$auth.fetchUser();
             })
             .catch(e => this.$toast.error('비밀번호 변경이 실패했습니다.', { icon: 'error_outline' }));
         }

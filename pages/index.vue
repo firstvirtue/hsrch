@@ -80,17 +80,19 @@
           <div v-swiper:swiperC="swiperOptionNews" class="reveal">
             <ul class="swiper-wrapper news disabled">
               <li class="swiper-slide item reveal-comm" :data-delay="index * 0.15" v-for="(item, index) in news" :key="item.id">
-                <a href="#">
+                <a :href="`/post/${item.id}`">
                   <div class="img-wrap">
-                    <img :src="item.imgSrc" alt="">
+                    <img :src="item.thumbnail" alt="">
                   </div>
                   <div class="cont">
                     <span class="category">{{item.category}}</span>
-                    <h3 class="tit">{{item.tit}}</h3>
+                    <h3 class="tit">{{item.title}}</h3>
                     <p class="desc">
-                      {{item.desc}}
+                      {{item.description}}
                     </p>
-                    <span class="date">{{item.date}}</span>
+                    <span class="date">
+                      {{item.created_on && item.created_on.substring(0,10).replace(/-/gi, '.')}}
+                    </span>
                   </div>
                 </a>
               </li>
@@ -290,6 +292,19 @@ export default {
       } catch (e) {
         console.log(`ERROR: ${e}`);
       }
+
+      try {
+        await this.$axios.get('/api/posts?size=4')
+        .then(res => {
+          console.log(res);
+
+          this.news = res.data.results;
+        })
+        .catch(err => console.log(err));
+      } catch (e) {
+        console.log(e);
+      }
+
     },
     updateSermonIndex() {
       if(this.swiperS !== undefined) {

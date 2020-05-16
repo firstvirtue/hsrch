@@ -28,7 +28,7 @@
                   <p class="desc">{{item.description}}</p>
                 </div>
                 <span class="date">
-                  {{item.created_on.substring(0,10).replace(/-/gi, '.')}}
+                  {{item.created_on && item.created_on.substring(0,10).replace(/-/gi, '.')}}
                   </span>
               </div>
             </a>
@@ -94,7 +94,7 @@ export default {
       .then(res => {
         console.log(res);
 
-        this.items = res.data;
+        this.items = res.data.results;
       })
       .catch(err => console.log(err));
     },
