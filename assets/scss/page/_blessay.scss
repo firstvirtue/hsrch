@@ -21,6 +21,17 @@
   .func {
     position: relative;
     margin-left: 20px;
+    margin-right: 20px;
+
+    &.align-right {
+      text-align: right;
+    }
+
+    .btn {
+      & + .btn {
+        margin-left: 4px;
+      }
+    }
 
     &__opener {
       color: $gray6;
@@ -41,6 +52,18 @@
       position: absolute;
       width: 150px;
       top: 20px;
+    }
+  }
+
+  .notice-recommend {
+    a {
+      display: block;
+      color: $gray3;
+      font-size: 32px;
+      padding: 20rem 0;
+      text-align: center;
+      align-self: center;
+      @include break-word;
     }
   }
 }

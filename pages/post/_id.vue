@@ -1,10 +1,10 @@
 <template>
   <main class="main">
-    <div class="write" data-invert>
+    <div class="blessay" data-invert>
       <div class="wrapper">
-        <div class="func align-right" v-if="$auth.user && article.writer === $auth.user.profile.username">
-          <a :href="`/post/write?id=${articleId}`" class="btn btn--invert">수정하기</a>
-          <button class="btn btn--invert" @click="onDelete">삭제하기</button>
+        <div class="func align-right" v-if="$auth.user && article.writer === $auth.user.profile.id">
+          <a :href="`/post/write?id=${articleId}`" class="btn btn--sm btn--ghost btn--next">수정하기</a>
+          <button class="btn btn--sm btn--ghost btn--cancel" @click="onDelete">삭제하기</button>
         </div>
         <article class="article">
           <!-- <h1 class="h2 article__title">{{article.title}}</h1> -->
@@ -28,7 +28,7 @@
   </main>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_write.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_blessay.scss"></style>
 
 <script>
 export default {

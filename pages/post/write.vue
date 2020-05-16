@@ -1,56 +1,71 @@
 <template>
   <main class="main">
-    <div class="write" data-invert>
+    <div class="blessay" data-invert>
       <div class="wrapper">
         <div class="func align-right">
           <template v-if="article.published">
-            <button class="btn btn--invert" @click="onSavePublish">게시글 저장하기</button>
+            <button class="btn btn--ghost btn--sm btn--next" @click="onSavePublish">게시글 저장하기</button>
           </template>
           <template v-else>
-            <button class="btn btn--invert" @click="onPublish">게시하기</button>
-            <button class="btn btn--invert" @click="onSave">저장</button>
+            <button class="btn btn--ghost btn--sm btn--publish btn--em" @click="onPublish">게시하기</button>
+            <button class="btn btn--ghost btn--sm btn--next" @click="onSave">저장</button>
           </template>
-          <button class="btn btn--invert" @click="$router.back()">취소</button>
+          <button class="btn btn--ghost btn--sm btn--cancel" @click="$router.back()">취소</button>
         </div>
 
-        <!-- <div class="wrapper wrapper__post"> -->
-          <article class="article">
-
-            <div id="container"></div>
-          </article>
-        <!-- </div> -->
+        <article class="article">
+          <div id="container"></div>
+        </article>
       </div>
     </div>
 
     <modal name="publish-modal"
          :adaptive="true"
          :max-width="1000"
-         :max-height="500"
+         :height="500"
          @before-open="beforeOpen">
       <div style="padding:30px; text-align: center" class="article-modal">
-        <h3>출간</h3>
-        <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다.<br> 게시 하시겠습니까?</p>
+        <v-app>
+          <h3>출간</h3>
+          <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다.<br> 게시 하시겠습니까?</p>
 
-        <div class="article-modal__preview">
-          <img src="" alt="">
-          <input type="text" class="article-modal__h" v-model="article.title">
-          <input type="text" class="article-modal__desc" v-model="article.description">
-          <select v-model="article.category">
-            <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.value">
-              {{ option.text }}
-            </option>
-          </select>
-        </div>
+          <div class="article-modal__preview">
+            <img src="" alt="">
+            <v-container fluid>
+              <v-row>
+                <v-col>
+                  <v-text-field
+                    label="제목"
+                    v-model="article.title"
+                  ></v-text-field>
+                </v-col>
+                <v-col>
+                <v-text-field
+                  label="내용"
+                  v-model="article.description"
+                ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col>
+                  <v-select v-model="article.category" :items="options">
+                  </v-select>
+                </v-col>
+              </v-row>
 
-        <button @click="execPublish">게시하기</button>
-        <button @click="$modal.hide('publish-modal')">취소</button>
+            </v-container>
+          </div>
+
+          <v-btn @click="execPublish" color="primary">게시하기</v-btn>
+          <v-btn @click="$modal.hide('publish-modal')">취소</v-btn>
+        </v-app>
       </div>
     </modal>
 
     <modal name="published-modal"
          :adaptive="true"
          :max-width="1000"
-         :max-height="500"
+
          @before-open="beforeOpen">
       <div style="padding:30px; text-align: center">
         <h3>출간</h3>
@@ -74,7 +89,7 @@
   </main>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_write.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_blessay.scss"></style>
 
 <script>
 import Editor from '~/assets/js/module/editor.js';
@@ -97,10 +112,10 @@ export default {
             this.article.category = this.options[0].value;
           }
           console.log(this.article);
-          // this.article.storedTitle = res.data.title;
 
-          if(this.article.writer !== this.$auth.user.profile.username) {
+          if(this.article.writer !== this.$auth.user.profile.id) {
             alert('TODO: 403 잘못된 접근입니다.');
+            return;
           }
 
           const data = {
@@ -246,6 +261,8 @@ export default {
       return true;
     },
     execServiceSave() {
+      console.log(this.$auth);
+
       if(this.article.id) {
         this.$axios.patch('/api/posts/' + this.article.id, this.article).then((e) => {
           console.log(e);

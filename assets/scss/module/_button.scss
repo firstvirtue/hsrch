@@ -33,4 +33,36 @@
     display: block;
     width: 100%;
   }
+
+  &--sm {
+    padding: 13px 29px 10px;
+  }
+
+  &--ghost {
+    color: $gray9;
+    border-color: $gray6;
+    border: 1px solid;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  &--next {
+    color: #00897B;
+    border-color: #00897B;
+  }
+
+  &--publish {
+    color: #039BE5;
+    border-color: #039BE5;
+
+    &.btn--em {
+      color: $white;
+      background-color: #039BE5;
+    }
+  }
+
+  &--cancel {
+    color: #E53935;
+    border-color: #E53935;
+  }
 }

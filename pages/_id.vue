@@ -5,7 +5,7 @@
         <h1>@{{$auth.user.profile.username}} 님의 이야기</h1>
 
         <div class="func align-right">
-          <a href="/post/write" class="btn btn--invert">글 쓰기</a>
+          <a href="/post/write" class="btn btn--sm btn--ghost btn--next">글 쓰기</a>
         </div>
 
         <div class="essay">
@@ -32,6 +32,11 @@
               </div>
             </li>
           </ul>
+          <template v-if="articles.length === 0">
+            <div class="notice-recommend">
+              <a href="/post/write">새로운 글을 작성해 보세요!</a>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -50,7 +55,7 @@ export default {
   //   next('/auth/login?returnPath=mypage');
   // },
   async mounted() {
-    await this.$axios.get(`/api/posts/user/${this.$auth.user.profile.username}`)
+    await this.$axios.get(`/api/posts/user/${this.$auth.user.profile.id}`)
       .then(res => {
         console.log(res);
         res.data.forEach(item => {
