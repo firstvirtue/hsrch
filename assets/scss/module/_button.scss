@@ -28,4 +28,9 @@
   &--em {
     background-color: $black;
   }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
 }

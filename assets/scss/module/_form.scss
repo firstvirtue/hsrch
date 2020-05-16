@@ -1,23 +1,53 @@
-label {
-  display: inline-block;
-  min-width: 120px;
-}
-
-input {
-  border: 0;
-  border-bottom: 1px solid #dedede;
-  border-radius: 0;
-  outline: 0;
-  transition: border-color .2s;
-
-  &:focus {
-    border-color: #1f1f1f;
+form {
+  & + & {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    // border-top: 1px solid $gray1;
   }
-}
 
-.func {
+  label {
+    display: inline-block;
+    min-width: 120px;
+  }
 
-  &.align-right {
-    text-align: right;
+  input {
+    border: 0;
+    border-bottom: 1px solid #dedede;
+    border-radius: 0;
+    outline: 0;
+    transition: border-color .2s;
+
+    &:focus {
+      border-color: #1f1f1f;
+    }
+  }
+
+  fieldset {
+
+    legend {
+      width: 100%;
+      font-size: 3.4rem;
+      color: $gray3;
+      font-weight: lighter;
+    }
+  }
+
+  .func {
+
+    &.align-right {
+      text-align: right;
+    }
+  }
+
+  @include mq(large) {
+    & + & {
+      margin-top: 6rem;
+    }
+
+    fieldset {
+      legend {
+        font-size: 4rem;
+      }
+    }
   }
 }

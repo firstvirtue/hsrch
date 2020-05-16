@@ -38,7 +38,7 @@
               </div>
             </ValidationProvider>
 
-            <button type="submit" class="btn btn--invert">가입 하기</button>
+            <button type="submit" class="btn btn--invert btn--block">가입 하기</button>
           </ValidationObserver>
         </form>
         <a href="/auth/login" class="register-link">로그인</a>

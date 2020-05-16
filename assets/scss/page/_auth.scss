@@ -18,12 +18,16 @@
     }
 
     .btn {
-      width: 100%;
+      // width: 100%;
       box-sizing: border-box;
-      margin-top: 3em;
+      margin-top: 2em;
       color: $white;
       background-color: $gray9;
       font-weight: bold;
+
+      &--block {
+        margin-top: 3rem;
+      }
     }
 
     .register-link {
