@@ -3,7 +3,6 @@
     <div class="auth">
       <div class="auth__wrap">
         <h1 class="title">마이페이지</h1>
-
         <form @submit.prevent="onSubmitEmail">
           <ValidationObserver ref="observerEmail">
             <fieldset>
@@ -75,15 +74,17 @@ export default {
   methods: {
     async onSubmitEmail() {
       this.$refs.observerEmail.validate().then(async isValid => {
-        console.log(isValid);
+
         if(isValid) {
           const param = {
             email: this.user.email,
           }
 
-          await this.$axios.post('/api/auth/register/local/email', param )
-            .then(res => {
+          await this.$axios.post('/api/auth/register/local/email', param)
+            .then(async res => {
               this.$toast.success('이메일이 저장되었습니다.');
+              await this.$auth.fetchUser();
+              console.log(this.$auth);
             })
             .catch(e => this.$toast.error('이메일이 저장에 실패했습니다.', { icon: 'error_outline' }));
         }
@@ -91,14 +92,14 @@ export default {
     },
     async onSubmitPassword() {
       this.$refs.observerPassword.validate().then(async isValid => {
-        console.log('pass');
+
         if(isValid) {
           if(isValid) {
           const param = {
             password: this.user.password,
           }
 
-          await this.$axios.post('/api/auth/register/local/password', param )
+          await this.$axios.post('/api/auth/register/local/password', param)
             .then(async res => {
               this.$toast.success('비밀번호가 변경되었습니다.');
               await this.$auth.fetchUser();

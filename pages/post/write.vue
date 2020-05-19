@@ -4,11 +4,11 @@
       <div class="wrapper">
         <div class="func align-right">
           <template v-if="article.published">
-            <button class="btn btn--ghost btn--sm btn--next" @click="onSavePublish">게시글 저장하기</button>
+            <button class="btn btn--ghost btn--sm btn--light" @click="onSavePublish">게시글 저장하기</button>
           </template>
           <template v-else>
-            <button class="btn btn--ghost btn--sm btn--publish btn--em" @click="onPublish">게시하기</button>
-            <button class="btn btn--ghost btn--sm btn--next" @click="onSave">저장</button>
+            <button class="btn btn--ghost btn--sm btn--light btn--em" @click="onPublish">게시하기</button>
+            <button class="btn btn--ghost btn--sm btn--light" @click="onSave">저장</button>
           </template>
           <button class="btn btn--ghost btn--sm btn--cancel" @click="$router.back()">취소</button>
         </div>
