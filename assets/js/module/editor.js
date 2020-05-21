@@ -24,7 +24,7 @@ class Editor {
             class: ImageTool,
             config: {
               endpoints: {
-                byFile: 'http://192.168.0.3:4000/api/posts/upload'
+                byFile: process.env.NODE_ENV === 'production' ? 'http://blessay:4000/api/posts/upload' : 'http://192.168.0.3:4000/api/posts/upload'
               },
               field: 'post-rsc-pool'
             }

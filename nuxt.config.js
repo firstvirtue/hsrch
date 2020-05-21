@@ -79,22 +79,14 @@ module.exports = {
   },
 
   axios: {
-    baseURL: 'http://192.168.0.3:4000',
+    baseURL: process.env.NODE_ENV === 'production' ? 'http://blessay:4000' : 'http://192.168.0.3:4000',
     credentials: true,
     proxy: true
   },
 
-  // proxy: {
-  //   '/api/auth/login/local': { target: 'http://192.168.0.14:4000' },
-  //   '/api/auth/user': { target: 'http://192.168.0.14:4000' },
-  //   '/api/auth/logout': { target: 'http://192.168.0.14:4000' },
-  //   '/api/posts/': { target: 'http://192.168.0.14:4000' }
-  // },
-
   proxy: {
     '/api/': {
-      target: 'http://192.168.0.3:4000',
-      // pathRewrite: { '^/api/': '' },
+      target: process.env.NODE_ENV === 'production' ? 'http://blessay:4000' : 'http://192.168.0.3:4000',
       changeOrigin: true
     }
   },

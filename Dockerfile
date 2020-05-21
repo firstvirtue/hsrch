@@ -10,7 +10,7 @@ COPY package.json /app
 #RUN npm rebuild
 RUN npm i
 
-ENV NODE_ENV=production
+ENV NODE_ENV production
 
 COPY . /app
 RUN npm run build
