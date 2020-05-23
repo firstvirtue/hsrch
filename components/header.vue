@@ -14,7 +14,7 @@
       </div>
     </a>
     <div class="gnb">
-      <ul>
+      <ul class="nav-list">
         <li>
           <!-- <router-link to="/welcome">환영합니다</router-link> -->
           <a href="/welcome">환영합니다</a>
