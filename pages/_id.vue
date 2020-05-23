@@ -113,7 +113,7 @@ export default {
     // console.log(params.id);
     // console.log(store.$auth.user.profile.username);
 
-    return `@${store.$auth.user.profile.username}` === params.id;
+    return `@${store.$auth.user.profile.id}` === params.id;
   }
 };
 </script>
