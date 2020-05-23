@@ -11,7 +11,7 @@
 
           <p v-for="block in article.blocks" :key="block.id">
             <template v-if="block.type === 'paragraph'">
-              {{block.content}}
+              <p v-html="block.content"></p>
             </template>
             <template v-if="block.type === 'header'">
               <h1 v-if="block.optional === '1'">{{block.content}}</h1>
