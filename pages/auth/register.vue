@@ -51,7 +51,6 @@
 
 <script>
 import { extend, ValidationProvider, ValidationObserver } from 'vee-validate';
-import qs from 'qs';
 
 export default {
   components: {

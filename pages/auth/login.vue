@@ -31,8 +31,6 @@
 <style lang="scss" src="~/assets/scss/page/_auth.scss"></style>
 
 <script>
-import qs from 'qs';
-
 export default {
 
   data() {
