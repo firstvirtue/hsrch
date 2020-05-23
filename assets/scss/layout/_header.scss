@@ -173,6 +173,11 @@
         display: flex;
 
         li {
+          a, span {
+            color: $white;
+            font-size: 17px;
+          }
+
           & + li {
             margin-left: 40px;
           }
@@ -185,17 +190,6 @@
       padding: 0 30px;
     }
   }
-
-  // .menu {
-  //   opacity: 0;
-  // }
-
-  // @include mq(xx-large) {
-  //   .l-header {
-  //     height: 140px;
-  //     padding: 0 50px;
-  //   }
-  // }
 
   &.is-invert,
   &.is-open {
@@ -211,9 +205,11 @@
     }
 
     .gnb {
-      li {
-        a {
-          color: $black; // TODO: check color gray?
+      .nav-list {
+        li {
+          a {
+            color: $black; // TODO: check color gray?
+          }
         }
       }
     }
