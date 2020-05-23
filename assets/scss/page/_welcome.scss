@@ -27,6 +27,12 @@
 
   .section--feature {
     margin-top: -160px;
+
+    .feature__wrap {
+      figure {
+        opacity: 0;
+      }
+    }
   }
 
   .section--staff {

@@ -17,19 +17,19 @@
         <h2 class="a11y">교회 특징</h2>
         <div class="wrapper wrapper--m-p">
           <div class="feature__wrap">
-            <figure>
+            <figure class="reveal" data-delay="0.5">
               <video src="~/assets/video/prayfor.mp4" playsinline loop autoplay muted></video>
               <!-- <ficaption>성도를 위한 담임목사 기도</ficaption> -->
             </figure>
-            <figure>
+            <figure class="reveal" data-delay="0.65">
               <img src="~/assets/image/welcome/friends.jpeg" alt="">
               <!-- <ficaption>서울숲 청년 교제</ficaption> -->
             </figure>
-            <figure>
+            <figure class="reveal" data-delay="0.65">
               <img src="~/assets/image/welcome/bowling.jpeg" alt="">
               <!-- <ficaption>주일 오후 청년 교제</ficaption> -->
             </figure>
-            <figure>
+            <figure class="reveal" data-delay="0.65">
               <video src="~/assets/video/harmonica.mp4" playsinline loop autoplay muted></video>
               <!-- <ficaption>하모니카 찬양단</ficaption> -->
             </figure>
@@ -154,6 +154,8 @@
 <style lang="scss" src="~/assets/scss/page/_welcome.scss"></style>
 
 <script>
+import Reveal from '~/assets/js/module/reveal.js';
+
 export default {
   mounted() {
 
@@ -185,6 +187,8 @@ export default {
 
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
+
+    new Reveal('.reveal');
   },
   data() {
     return {
