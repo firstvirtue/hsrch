@@ -19,17 +19,20 @@
       </div>
     </div>
 
-    <modal name="publish-modal"
-         :adaptive="true"
-         :max-width="1000"
-         :height="500"
-         @before-open="beforeOpen">
-      <div style="padding:30px; text-align: center" class="article-modal">
-        <v-app>
-          <h3>출간</h3>
-          <p>이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다.<br> 게시 하시겠습니까?</p>
+    <v-app>
+      <v-dialog
+        v-model="publishDialog"
+        max-width="1000">
+        <v-card>
+          <v-card-title class="headline">출간</v-card-title>
 
-          <div class="article-modal__preview">
+          <v-card-text>
+            이야기를 게시하시면 커뮤니티 메뉴에서 이 글을 모두 볼 수 있습니다.<br> 게시 하시겠습니까?
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
             <img src="" alt="">
             <v-container fluid>
               <v-row>
@@ -53,27 +56,27 @@
                 </v-col>
               </v-row>
 
+              <v-btn @click="execPublish" color="primary">게시하기</v-btn>
+              <v-btn @click="publishDialog = false">취소</v-btn>
             </v-container>
-          </div>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
 
-          <v-btn @click="execPublish" color="primary">게시하기</v-btn>
-          <v-btn @click="$modal.hide('publish-modal')">취소</v-btn>
-        </v-app>
-      </div>
-    </modal>
+      <v-dialog
+        v-model="publishedDialog"
+        max-width="1000">
+        <v-card>
+          <v-card-title class="headline">출간</v-card-title>
 
-    <modal name="published-modal"
-         :adaptive="true"
-         :max-width="1000"
-         :height="500"
-         @before-open="beforeOpen">
-      <div style="padding:30px; text-align: center">
-        <v-app>
-          <h3>출간</h3>
-          <p>이 게시글의 편집한 내용이 저장되어 커뮤니티에 반영됩니다.<br> 저장 하시겠습니까?</p>
+          <v-card-text>
+            이 게시글의 편집한 내용이 저장되어 커뮤니티에 반영됩니다.<br> 저장 하시겠습니까?
+          </v-card-text>
 
-          <div class="article-modal__preview">
-              <img src="" alt="">
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <img src="" alt="">
               <v-container fluid>
                 <v-row>
                   <v-col cols="12" md="6">
@@ -96,14 +99,13 @@
                   </v-col>
                 </v-row>
 
+                <v-btn @click="execPublish" color="primary">게시글 저장하기</v-btn>
+                <v-btn @click="publishedDialog = false">취소</v-btn>
               </v-container>
-            </div>
-
-          <v-btn @click="execPublish" color="primary">게시글 저장하기</v-btn>
-          <v-btn @click="$modal.hide('published-modal')">취소</v-btn>
-        </v-app>
-      </div>
-    </modal>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-app>
   </main>
 </template>
 
@@ -205,7 +207,9 @@ export default {
       options: [
         { text: '부서별 행사', value: 'events' },
         { text: '신앙 칼럼', value: 'columns' }
-      ]
+      ],
+      publishDialog: false,
+      publishedDialog: false,
     }
   },
   methods: {
@@ -221,7 +225,6 @@ export default {
       await this.editor.save().then((outputData) => {
         console.log(outputData);
         const blocks = [];
-        // let title = null, desc = null;
 
         outputData.blocks.forEach(el => {
           let blockContent, optional;
@@ -284,7 +287,7 @@ export default {
       if(this.article.id) {
         this.$axios.patch('/api/posts/' + this.article.id, this.article).then((e) => {
           console.log(e);
-          this.$router.push(`/@${this.$auth.user.profile.username}`);
+          this.$router.push(`/@${this.$auth.user.profile.id}`);
 
         }).catch((e) => {
           console.log(e);
@@ -294,7 +297,7 @@ export default {
         this.$axios.post('/api/posts/', this.article).then((e) => {
           // history.push('/post/list');
           console.log(e);
-          this.$router.push(`/@${this.$auth.user.profile.username}`);
+          this.$router.push(`/@${this.$auth.user.profile.id}`);
 
         }).catch((e) => {
           console.log(e);
@@ -305,14 +308,14 @@ export default {
     onPublish() {
       this.saveArticle().then(result => {
         if(result) {
-          this.$modal.show('publish-modal');
+          this.publishDialog = true;
         }
       });
     },
     onSavePublish() {
       this.saveArticle().then(result => {
         if(result) {
-          this.$modal.show('published-modal');
+          this.publishedDialog = true;
         }
       });
     },
