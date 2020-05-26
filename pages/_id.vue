@@ -41,7 +41,38 @@
       </div>
     </div>
 
-    <v-dialog/>
+    <v-app>
+      <v-dialog
+        v-model="dialog"
+        max-width="290">
+        <v-card>
+          <v-card-title class="headline">삭제</v-card-title>
+
+          <v-card-text>
+            이야기를 삭제 하시겠습니까?
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn
+              color="green darken-1"
+              text
+              @click="execDelete">
+              삭제
+            </v-btn>
+
+            <v-btn
+              color="green darken-1"
+              text
+              @click="dialog = false"
+            >
+              취소
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-app>
   </main>
 </template>
 
@@ -69,7 +100,8 @@ export default {
     console.log(params);
     return {
       articles: [],
-      article: undefined
+      article: undefined,
+      dialog: false
     }
   },
   methods: {
@@ -78,34 +110,20 @@ export default {
     },
     onDelete(item) {
       item.isActive = false;
-      // this.$modal.show('conditional-modal');
+
       this.article = item;
-      let ccc = this.$modal.show('dialog', {
-        title: '삭제',
-        text: '이야기를 삭제 하시겠습니까?',
-        buttons: [
-          {
-            title: '삭제',       // Button title
-            default: true,    // Will be triggered by default if 'Enter' pressed.
-            handler: () => {
-              this.$axios.delete(`/api/posts/${this.article.id}`)
-              .then(res => {
-                // this.$router.push(`/@${this.$auth.user.profile.username}`);
-                this.articles.splice(this.articles.findIndex(item => item.id === this.article.id), 1);
-              })
-              .catch(err => console.log(err))
-              .finally(() => { this.$modal.hide('dialog'); });
-            }
-          },
-          {
-            title: '취소'
-          }
-      ]
-      });
+      this.dialog = true;
     },
     execDelete() {
 
-      console.log(this.articles);
+      this.$axios.delete(`/api/posts/${this.article.id}`)
+      .then(res => {
+        // this.$router.push(`/@${this.$auth.user.profile.username}`);
+        this.articles.splice(this.articles.findIndex(item => item.id === this.article.id), 1);
+        this.dialog = false;
+      })
+      .catch(err => console.log(err))
+      .finally(() => { this.$modal.hide('dialog'); });
     }
   },
   validate({ params, query, store }) {

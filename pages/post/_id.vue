@@ -24,7 +24,38 @@
         </article>
       </div>
     </div>
-    <v-dialog/>
+    <v-app>
+      <v-dialog
+        v-model="dialog"
+        max-width="290">
+        <v-card>
+          <v-card-title class="headline">삭제</v-card-title>
+
+          <v-card-text>
+            이야기를 삭제 하시겠습니까?
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn
+              color="green darken-1"
+              text
+              @click="execDelete">
+              삭제
+            </v-btn>
+
+            <v-btn
+              color="green darken-1"
+              text
+              @click="dialog = false"
+            >
+              취소
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-app>
   </main>
 </template>
 
@@ -45,32 +76,21 @@ export default {
   asyncData({ params }) {
     return {
       articleId: params.id,
-      article: {}
+      article: {},
+      dialog: false
     }
   },
   methods: {
     onDelete() {
-      console.log(this.$modal);
-      this.$modal.show('dialog', {
-        title: '삭제',
-        text: '이야기를 삭제 하시겠습니까?',
-        buttons: [
-          {
-            title: '삭제',       // Button title
-            default: true,    // Will be triggered by default if 'Enter' pressed.
-            handler: () => {
-              this.$axios.delete(`/api/posts/${this.articleId}`)
-              .then(res => {
-                this.$router.push(`/@${this.$auth.user.profile.username}`);
-              })
-              .catch(err => console.log(err));
-            }
-          },
-          {
-            title: '취소'
-          }
-      ]
-      });
+      this.dialog = true;
+    },
+    execDelete() {
+      this.$axios.delete(`/api/posts/${this.articleId}`)
+      .then(res => {
+        this.dialog = false;
+        this.$router.push(`/@${this.$auth.user.profile.username}`);
+      })
+      .catch(err => console.log(err));
     }
   },
   validate({ params }) {
