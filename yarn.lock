@@ -695,6 +695,10 @@
     codex-notifier "^1.1.2"
     codex-tooltip "^1.0.0"
 
+"@editorjs/embed@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@editorjs/embed/-/embed-2.3.1.tgz#893680c9ccde16dbd8de48c80379f661731a8726"
+
 "@editorjs/header@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@editorjs/header/-/header-2.4.0.tgz#0ac14bf68e4a01305bbb20c8ffb754a75a3d374a"
