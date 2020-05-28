@@ -1,25 +1,25 @@
 <template>
   <main class="main">
-    <div class="blessay" data-invert>
-      <div class="wrapper">
-        <div class="func align-right">
-          <template v-if="article.published">
-            <button class="btn btn--ghost btn--sm btn--light" @click="onSavePublish">게시글 저장하기</button>
-          </template>
-          <template v-else>
-            <button class="btn btn--ghost btn--sm btn--light btn--em" @click="onPublish">게시하기</button>
-            <button class="btn btn--ghost btn--sm btn--light" @click="onSave">저장</button>
-          </template>
-          <button class="btn btn--ghost btn--sm btn--cancel" @click="$router.back()">취소</button>
-        </div>
-
-        <article class="article">
-          <div id="container"></div>
-        </article>
-      </div>
-    </div>
-
     <v-app>
+      <div class="blessay" data-invert>
+        <div class="wrapper">
+          <div class="func align-right">
+            <template v-if="article.published">
+              <button class="btn btn--ghost btn--sm btn--light" @click="onSavePublish">게시글 저장하기</button>
+            </template>
+            <template v-else>
+              <button class="btn btn--ghost btn--sm btn--light btn--em" @click="onPublish">게시하기</button>
+              <button class="btn btn--ghost btn--sm btn--light" @click="onSave">저장</button>
+            </template>
+            <button class="btn btn--ghost btn--sm btn--cancel" @click="$router.back()">취소</button>
+          </div>
+
+          <article class="article">
+            <div id="container"></div>
+          </article>
+        </div>
+      </div>
+
       <v-dialog
         v-model="publishDialog"
         max-width="1000">
@@ -164,6 +164,13 @@ export default {
                 level: el.optional
               }
               break;
+            case 'embed':
+              blockContent = {
+                service: 'youtube',
+                embed: el.content,
+                caption: el.optional
+              }
+              break;
             }
 
             let item = {
@@ -239,6 +246,10 @@ export default {
             case 'header':
               blockContent = el.data.text;
               optional = el.data.level;
+              break;
+            case 'embed':
+              blockContent = el.data.embed;
+              optional = el.data.caption;
               break;
           }
 

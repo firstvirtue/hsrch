@@ -35,7 +35,7 @@ class Editor {
             config: {
               services: {
                 youtube: true,
-                vimeo: true
+                // vimeo: true
               }
             }
           }

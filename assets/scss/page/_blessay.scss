@@ -66,4 +66,20 @@
       @include break-word;
     }
   }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 9 / 16 * 100%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
