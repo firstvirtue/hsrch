@@ -278,12 +278,8 @@ export default {
         return false;
       }
 
-      if(this.article.title === null) {
-        this.article.title = hBlock.content;
-      }
-      if(this.article.description === null && pBlock !== undefined) {
-        this.article.description = pBlock.content;
-      }
+      this.article.title = hBlock.content;
+      this.article.description = pBlock.content;
 
       const thumbBlock = this.article.blocks.find(block => block.type === 'image');
       if(thumbBlock !== undefined) {
