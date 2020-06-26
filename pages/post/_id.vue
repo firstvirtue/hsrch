@@ -3,13 +3,12 @@
     <v-app>
       <div class="blessay" data-invert>
         <div class="wrapper">
-          <div class="func align-right" v-if="$auth.user && article.writer === $auth.user.profile.id">
+          <div class="func align-right" v-if="$auth.user && article && article.writer === $auth.user.profile.id">
             <a :href="`/post/write?id=${articleId}`" class="btn btn--sm btn--ghost btn--next">수정하기</a>
             <button class="btn btn--sm btn--ghost btn--cancel" @click="onDelete">삭제하기</button>
           </div>
-          <article class="article">
-            <!-- <h1 class="h2 article__title">{{article.title}}</h1> -->
-
+        </div>
+          <!-- <article class="article">
             <p v-for="block in article.blocks" :key="block.id">
               <template v-if="block.type === 'paragraph'">
                 <p v-html="block.content"></p>
@@ -27,8 +26,8 @@
                 </div>
               </template>
             </p>
-          </article>
-        </div>
+          </article> -->
+        <ArticleView v-if="article !== null" :articleProp="article"/>
       </div>
 
       <v-dialog
@@ -65,10 +64,14 @@
   </main>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_blessay.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_community.scss"></style>
 
 <script>
+import ArticleView from '~/components/ArticleView';
 export default {
+  components: {
+    ArticleView
+  },
   mounted() {
 
     this.$axios.get(`/api/posts/read/${this.articleId}`)
@@ -82,7 +85,7 @@ export default {
   asyncData({ params }) {
     return {
       articleId: params.id,
-      article: {},
+      article: null,
       dialog: false
     }
   },

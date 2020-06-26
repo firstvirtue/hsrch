@@ -109,7 +109,7 @@
   </main>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_blessay.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_community.scss"></style>
 
 <script>
 import Editor from '~/assets/js/module/editor.js';
