@@ -1,6 +1,6 @@
 <template>
   <main class="main" data-invert>
-    <div class="auth">
+    <div class="auth auth--info">
       <div class="auth__wrap">
         <h1 class="title">마이페이지</h1>
         <form @submit.prevent="onSubmitEmail">
