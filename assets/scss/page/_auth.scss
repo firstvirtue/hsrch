@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: calc(100vh - 60px);
+  min-height: 100rem;
   @include mq(large) {
     height: calc(100vh - 100px);
   }
