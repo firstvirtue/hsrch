@@ -67,9 +67,13 @@ ul {
 
 .notice-recommend {
   a {
+    display: block;
+    color: $gray3;
+    font-size: 32px;
+    padding: 20rem 0;
     text-align: center;
-    font-weight: bolder;
-    font-size: 24px;
+    align-self: center;
+    @include break-word;
   }
 }
 
@@ -92,6 +96,30 @@ ul {
       padding-bottom: 20px;
     }
   }
+  .func {
+    position: relative;
+
+    &__opener {
+      color: $gray6;
+      font-size: 13px;
+      @include icon(arrow) {
+        transform: rotateZ(90deg);
+        transition: transform 0.2s;
+      }
+    }
+
+    &__btn {
+      padding: 0.35em 0;
+      color: $gray6;
+      font-size: 15px;
+    }
+
+    &__layer {
+      position: absolute;
+      width: 150px;
+      top: 20px;
+    }
+  }
   .tit {
     margin-bottom: 0.5em;
     color: #343a40;
@@ -99,7 +127,6 @@ ul {
     font-weight: bold;
   }
   .desc {
-    // font-weight: 300;
     margin: 0;
   }
   .date {
@@ -117,6 +144,8 @@ ul {
   @media (min-width: 500px) {
     &__list {
       margin: 0 auto;
+      padding-left: 4rem;
+      padding-right: 4rem;
     }
     &__item {
       a {

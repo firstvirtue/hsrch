@@ -1,44 +1,13 @@
 <template>
-  <main class="main" data-invert>
-    <!-- <div class="blessay" data-invert> -->
+  <main class="main">
+    <div class="community" data-invert>
       <div class="wrapper wrapper--m-p">
-        <h1>@{{$auth.user.profile.username}} 님의 이야기</h1>
-
-        <div class="func align-right">
+        <div class="cmd">
+          <h1 class="title">@{{$auth.user.profile.username}} 님의 이야기</h1>
           <a href="/post/write" class="btn btn--sm btn--ghost btn--next">글 쓰기</a>
         </div>
-
-        <!-- <div class="essay">
-          <ul class="essay__list">
-            <li class="essay__item" v-for="item in articles" v-bind:key="item.id">
-              <a :href="`/post/${item.id}`">
-                <div class="cont">
-                  <div class="cont__wrapper">
-                    <h3 class="tit">{{item.title}}</h3>
-                    <p class="desc">{{item.description}}</p>
-                  </div>
-                  <span class="date">
-                    {{item.created_on.substring(0,10).replace(/-/gi, '.')}}
-                  </span>
-                </div>
-              </a>
-              <div class="func" :class="{'is-active': item.isActive}">
-                <button @click="onUtil(item)" class="func__opener"><span class="a11y">유틸</span></button>
-                <div v-show="item.isActive" class="func__layer">
-                  <a :href="`/post/write?id=${item.id}`" class="func__btn">수정하기</a>
-                  <button class="func__btn" @click="onDelete(item)">삭제하기</button>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <template v-if="articles.length === 0">
-            <div class="notice-recommend">
-              <a href="/post/write">새로운 글을 작성해 보세요!</a>
-            </div>
-          </template>
-        </div> -->
       </div>
-    <!-- </div> -->
+    </div>
 
     <v-app>
       <ArticleList v-if="articles !== null" :articlesProp="articles" :baseViewPathProp="baseViewPath"/>

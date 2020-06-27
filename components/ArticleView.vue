@@ -1,15 +1,14 @@
 <template>
   <div class="blessay" data-invert>
-    <!-- <div class="wrapper"> -->
-      <article class="article">
-        <template v-for="block in article.blocks">
-          <p v-if="block.type === 'paragraph'" v-html="block.content" :key="block.id"></p>
-          <h1 v-if="block.type === 'header' && block.optional === '1'" :key="block.id">{{block.content}}</h1>
-          <h3 v-if="block.type === 'header' && block.optional === '2'" :key="block.id">{{block.content}}</h3>
-          <img v-else-if="block.type === 'image'" :key="block.id" :src="block.content" :alt="block.optional">
-        </template>
-      </article>
-    <!-- </div> -->
+    <article class="article">
+      <span class="date">{{article.created_on.substring(0,10).replace(/-/gi, '.')}}</span>
+      <template v-for="block in article.blocks">
+        <p v-if="block.type === 'paragraph'" v-html="block.content" :key="block.id"></p>
+        <h1 v-if="block.type === 'header' && block.optional === '1'" :key="block.id">{{block.content}}</h1>
+        <h3 v-if="block.type === 'header' && block.optional === '2'" :key="block.id">{{block.content}}</h3>
+        <img v-else-if="block.type === 'image'" :key="block.id" :src="block.content" :alt="block.optional">
+      </template>
+    </article>
   </div>
 </template>
 
@@ -48,6 +47,20 @@ export default {
     max-width: 630px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .date {
+    display: block;
+    margin-top: 5rem;
+    color: #868e96;
+    font-family: 'Myriad', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    @include common;
+
+    & + h1 {
+      margin-top: 0.5em;
+    }
   }
 
   h1 {

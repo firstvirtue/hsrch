@@ -1,9 +1,9 @@
 <template>
   <main class="main">
     <v-app>
-      <div class="blessay" data-invert>
-        <div class="wrapper">
-          <div class="func align-right">
+      <div class="community" data-invert>
+        <div class="wrapper wrapper--m-p">
+          <div class="cmd">
             <template v-if="article.published">
               <button class="btn btn--ghost btn--sm btn--light" @click="onSavePublish">게시글 저장하기</button>
             </template>

@@ -1,32 +1,13 @@
 <template>
   <main class="main">
     <v-app>
-      <div class="blessay" data-invert>
-        <div class="wrapper">
-          <div class="func align-right" v-if="$auth.user && article && article.writer === $auth.user.profile.id">
+      <div class="community" data-invert>
+        <div class="wrapper wrapper--m-p">
+          <div class="cmd" v-if="$auth.user && article && article.writer === $auth.user.profile.id">
             <a :href="`/post/write?id=${articleId}`" class="btn btn--sm btn--ghost btn--next">수정하기</a>
             <button class="btn btn--sm btn--ghost btn--cancel" @click="onDelete">삭제하기</button>
           </div>
         </div>
-          <!-- <article class="article">
-            <p v-for="block in article.blocks" :key="block.id">
-              <template v-if="block.type === 'paragraph'">
-                <p v-html="block.content"></p>
-              </template>
-              <template v-if="block.type === 'header'">
-                <h1 v-if="block.optional === '1'">{{block.content}}</h1>
-                <h2 v-if="block.optional === '2'">{{block.content}}</h2>
-              </template>
-              <template v-else-if="block.type === 'image'">
-                <img :src="block.content" :alt="block.optional">
-              </template>
-              <template v-else-if="block.type === 'embed'">
-                <div class="video-wrapper video-wrapper--youtube">
-                  <iframe :src="block.content" frameborder="0"></iframe>
-                </div>
-              </template>
-            </p>
-          </article> -->
         <ArticleView v-if="article !== null" :articleProp="article"/>
       </div>
 
