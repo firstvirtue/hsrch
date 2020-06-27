@@ -83,10 +83,12 @@
     }
     &__layer {
       position: absolute;
-      right: 0;
+      // right: 0;
       top: 30px;
-      width: 100px;
-      background-color: transparent;
+      width: 160px;
+      padding: 0 4rem;
+      right: -4rem;
+      background-color: white;
 
       li + li {
         margin-top: 5px;
