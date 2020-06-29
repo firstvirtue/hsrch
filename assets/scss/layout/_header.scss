@@ -88,10 +88,10 @@
       width: 160px;
       padding: 0 4rem;
       right: -4rem;
-      background-color: white;
+      // background-color: white;
 
       li + li {
-        margin-top: 5px;
+        margin-top: 8px;
       }
 
       a, button {
@@ -236,10 +236,18 @@
     }
   }
 
+  &.is-invert {
+    .user {
+      &__layer {
+        background-color: $white;
+      }
+    }
+  }
+
   &.is-open {
     .user {
       &__panel {
-        margin-top: 80px;
+        margin-top: 9.5rem;
       }
       &__info {
         pointer-events: none;

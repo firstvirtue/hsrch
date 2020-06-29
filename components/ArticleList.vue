@@ -6,7 +6,7 @@
           <div class="cont">
             <div class="cont__wrapper">
               <h3 class="tit">{{item.title}}</h3>
-              <p class="desc">{{item.description}}</p>
+              <p class="desc" v-html="item.description"></p>
             </div>
             <span class="date">{{item.created_on.substring(0,10).replace(/-/gi, '.')}}</span>
           </div>

@@ -143,39 +143,39 @@ export default {
           }
 
           res.data.blocks.forEach(el => {
-            let blockContent;
+            // let blockContent;
 
-            switch(el.type) {
-            case 'image':
-              blockContent = {
-                file: {
-                  url: el.content
-                }
-              }
-              break;
-            case 'paragraph':
-              blockContent = {
-                text: el.content
-              };
-              break;
-            case 'header':
-              blockContent = {
-                text: el.content,
-                level: el.optional
-              }
-              break;
-            case 'embed':
-              blockContent = {
-                service: 'youtube',
-                embed: el.content,
-                caption: el.optional
-              }
-              break;
-            }
+            // switch(el.type) {
+            // case 'image':
+            //   blockContent = {
+            //     file: {
+            //       url: el.content
+            //     }
+            //   }
+            //   break;
+            // case 'paragraph':
+            //   blockContent = {
+            //     text: el.content
+            //   };
+            //   break;
+            // case 'header':
+            //   blockContent = {
+            //     text: el.content,
+            //     level: el.optional
+            //   }
+            //   break;
+            // case 'embed':
+            //   blockContent = {
+            //     service: 'youtube',
+            //     embed: el.content,
+            //     caption: el.optional
+            //   }
+            //   break;
+            // }
 
             let item = {
               type: el.type,
-              data: blockContent
+              data: el.content_data
             };
 
             data.blocks.push(item);
@@ -231,32 +231,32 @@ export default {
     async saveArticle() {
       await this.editor.save().then((outputData) => {
         console.log(outputData);
+
         const blocks = [];
 
         outputData.blocks.forEach(el => {
-          let blockContent, optional;
+          // let blockContent, optional;
 
-          switch(el.type) {
-            case 'image':
-              blockContent = el.data.file.url;
-              break;
-            case 'paragraph':
-              blockContent = el.data.text;
-              break;
-            case 'header':
-              blockContent = el.data.text;
-              optional = el.data.level;
-              break;
-            case 'embed':
-              blockContent = el.data.embed;
-              optional = el.data.caption;
-              break;
-          }
+          // switch(el.type) {
+          //   case 'image':
+          //     blockContent = el.data.file.url;
+          //     break;
+          //   case 'paragraph':
+          //     blockContent = el.data.text;
+          //     break;
+          //   case 'header':
+          //     blockContent = el.data.text;
+          //     optional = el.data.level;
+          //     break;
+          //   case 'embed':
+          //     blockContent = el.data.embed;
+          //     optional = el.data.caption;
+          //     break;
+          // }
 
           const item = {
             type: el.type,
-            content: blockContent,
-            optional: optional,
+            content_data: el.data,
             created_on: new Date().toISOString(),
             updated_on: new Date().toISOString()
           }
@@ -278,18 +278,17 @@ export default {
         return false;
       }
 
-      this.article.title = hBlock.content;
-      this.article.description = pBlock.content;
+      this.article.title = hBlock.content_data.text;
+      this.article.description = pBlock.content_data.text;
 
       const thumbBlock = this.article.blocks.find(block => block.type === 'image');
       if(thumbBlock !== undefined) {
-        this.article.thumbnail = thumbBlock.content;
+        this.article.thumbnail = thumbBlock.content_data.file.url;
       }
       // console.log(this.article);
       return true;
     },
     execServiceSave() {
-      console.log(this.$auth);
 
       if(this.article.id) {
         this.$axios.patch('/api/posts/' + this.article.id, this.article).then((e) => {

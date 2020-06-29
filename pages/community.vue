@@ -25,7 +25,7 @@
                 <div class="cont__wrapper">
                   <span class="category-badge">카테고리</span>
                   <h3 class="tit">{{item.title}}</h3>
-                  <p class="desc">{{item.description}}</p>
+                  <p class="desc" v-html="item.description">{{item.description}}</p>
                 </div>
                 <span class="date">
                   {{item.created_on && item.created_on.substring(0,10).replace(/-/gi, '.')}}

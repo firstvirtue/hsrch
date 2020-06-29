@@ -87,7 +87,7 @@
                   <div class="cont">
                     <span class="category">{{item.category}}</span>
                     <h3 class="tit">{{item.title}}</h3>
-                    <p class="desc">
+                    <p class="desc" v-html="item.description">
                       {{item.description}}
                     </p>
                     <span class="date">
