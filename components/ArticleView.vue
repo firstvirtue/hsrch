@@ -6,7 +6,7 @@
         <p v-if="block.type === 'paragraph'" v-html="block.content_data.text" :key="block.id"></p>
         <h1 v-if="block.type === 'header' && block.content_data.level === 1" :key="block.id">{{block.content_data.text}}</h1>
         <h3 v-if="block.type === 'header' && block.content_data.level === 2" :key="block.id">{{block.content_data.text}}</h3>
-        <img v-else-if="block.type === 'image'" :key="block.id" :src="block.content_data.file.url" :alt="block.optional">
+        <img v-if="block.type === 'image'" :key="block.id" :src="block.content_data.file.url" :alt="block.content_data.caption" :class="{'is-stretched': block.content_data.stretched}">
       </template>
     </article>
   </div>
@@ -38,9 +38,14 @@ export default {
 
 <style lang="scss" scoped>
 .blessay {
-
   font-family: 'Noto Sans KR', sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
+  word-break: keep-all;
+  word-wrap: break-word;
+
+  *:last-child {
+    margin-bottom: 5rem;
+  }
 
   @mixin common {
     width: 90%;
@@ -75,7 +80,7 @@ export default {
   h3 {
     margin-top: 2em;
     margin-bottom: 1em;
-    font-size: 28px;
+    font-size: 22px;
     line-height: 1.3;
     font-weight: bold;
     @include common;
@@ -84,12 +89,20 @@ export default {
   p {
     margin-top: 1em;
     margin-bottom: 1.3em;
-    font-size: 18px;
+    // font-size: 18px;
     @include common;
   }
 
   img {
+    @include common;
+    display: block;
     width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    &.is-stretched {
+      max-width: none;
+    }
   }
 
   @media (min-width: 500px) {
@@ -99,10 +112,16 @@ export default {
       font-size: 46px;
     }
     h3 {
-      font-size: 34px;
+      font-size: 28px;
     }
     p {
-      font-size: 20px;
+      font-size: 18px;
+    }
+    img {
+      &.is-stretched {
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+      }
     }
   }
 }
