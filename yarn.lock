@@ -688,24 +688,24 @@
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
 
-"@editorjs/editorjs@^2.16.1":
-  version "2.16.1"
-  resolved "https://registry.yarnpkg.com/@editorjs/editorjs/-/editorjs-2.16.1.tgz#41a2707fc126518dca513a09aa207aa8b6d9a65c"
+"@editorjs/editorjs@^2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/editorjs/-/editorjs-2.18.0.tgz#bde42183013f5ca98693e77986cc9d8b2c9a1244"
   dependencies:
     codex-notifier "^1.1.2"
-    codex-tooltip "^1.0.0"
+    codex-tooltip "^1.0.1"
 
 "@editorjs/embed@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@editorjs/embed/-/embed-2.3.1.tgz#893680c9ccde16dbd8de48c80379f661731a8726"
 
-"@editorjs/header@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@editorjs/header/-/header-2.4.0.tgz#0ac14bf68e4a01305bbb20c8ffb754a75a3d374a"
+"@editorjs/header@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/header/-/header-2.5.0.tgz#f6266d5b7e639fc38289291160f9c41ab12d9da5"
 
-"@editorjs/image@^2.3.3":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@editorjs/image/-/image-2.3.3.tgz#5bd0e46ab038853948c5e5df9b049cce53f2d998"
+"@editorjs/image@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@editorjs/image/-/image-2.4.2.tgz#bd62e85d005fcfbc909725c4f5f3a67ea26d9f34"
 
 "@nuxt/babel-preset-app@2.11.0":
   version "2.11.0"
@@ -2084,9 +2084,9 @@ codex-notifier@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/codex-notifier/-/codex-notifier-1.1.2.tgz#a733079185f4c927fa296f1d71eb8753fe080895"
 
-codex-tooltip@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/codex-tooltip/-/codex-tooltip-1.0.0.tgz#720353b27fadc40f2d054d171479b016ffcb63ea"
+codex-tooltip@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/codex-tooltip/-/codex-tooltip-1.0.1.tgz#f6e4f39d81507f9c455b667f1287746d14ee8056"
 
 collection-visit@^1.0.0:
   version "1.0.0"
