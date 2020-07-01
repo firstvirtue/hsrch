@@ -10,7 +10,7 @@
     </div>
 
     <v-app>
-      <ArticleList v-if="articles !== null" :articlesProp="articles" :baseViewPathProp="baseViewPath"/>
+      <ArticleList v-if="articles !== null" :articlesProp="articles" :baseViewPathProp="baseViewPath" :onUtilCallback="onUtil" :onDeleteCallback="onDelete"/>
 
       <v-dialog
         v-model="dialog"
