@@ -24,14 +24,6 @@ export default {
     }
   },
   async mounted() {
-    console.log(this.articleIdProp)
-    // await this.$axios.get(`/api/posts/read/${this.articleId}`)
-    //   .then(res => {
-    //     console.log(res.data);
-    //     // this.articles = res.data;
-    //     this.article = res.data;
-    //   })
-    //   .catch(err => console.log(err));
   }
 }
 </script>
@@ -89,7 +81,6 @@ export default {
   p {
     margin-top: 1em;
     margin-bottom: 1.3em;
-    // font-size: 18px;
     @include common;
   }
 
