@@ -85,8 +85,8 @@
       position: absolute;
       // right: 0;
       top: 30px;
-      width: 160px;
-      padding: 0 4rem;
+      min-width: 142px;
+      padding: 1rem 3rem;
       right: -4rem;
       // background-color: white;
 
@@ -150,6 +150,7 @@
 
       &__layer {
         display: block !important;
+        padding-right: 4rem;
       }
     }
 
@@ -194,6 +195,13 @@
     .l-header {
       height: 80px;
       padding: 0 30px;
+    }
+
+    .user {
+      &__layer {
+        border: 1px solid #f0f0f0;
+        border-radius: 5px;
+      }
     }
   }
 
