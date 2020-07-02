@@ -108,9 +108,10 @@ export default {
 
   hr {
     @include common;
+    width: 35%;
     margin: 4rem auto 3.4rem;
     border: none;
-    background-color: #f0f0f0;
+    background-color: #e6e6e6;
   }
 
   @media (min-width: 500px) {
@@ -133,6 +134,8 @@ export default {
     }
     hr {
       margin: 6rem auto;
+      width: 25%;
+      max-width: 220px;
     }
   }
 }

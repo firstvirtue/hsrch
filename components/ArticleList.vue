@@ -96,7 +96,7 @@ ul {
   }
   &__item {
     position: relative;
-    border-bottom: 1px solid #f7f7f7;
+    border-bottom: 1px solid #e6e6e6;
     padding-right: 2em;
 
     a {
@@ -125,10 +125,9 @@ ul {
 
     &__layer {
       position: absolute;
-      // width: 150px;
       right: 0;
       top: 3rem;
-      border: 1px solid #f0f0f0;
+      border: 1px solid #e6e6e6;
       border-radius: 5px;
       padding: 1rem 2rem;
       background-color: #ffffff;
