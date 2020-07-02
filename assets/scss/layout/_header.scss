@@ -148,7 +148,6 @@
 
       &__layer {
         display: block !important;
-        padding-right: 4rem;
       }
     }
 
@@ -160,15 +159,6 @@
   }
 
   &.is-spread {
-    .logo {
-      // left: 60px;
-      // transform: translateX(30px);
-    }
-
-    .menu {
-      // right: 60px;
-      // transform: translateX(-30px);
-    }
 
     .gnb {
       display: block;
@@ -205,7 +195,6 @@
 
   &.is-invert,
   &.is-open {
-    // background: $white;
 
     .logo {
       .cls-1{
