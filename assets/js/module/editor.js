@@ -7,6 +7,9 @@ class Editor {
       const ImageTool = require('@editorjs/image');
       const Header = require('@editorjs/header');
       const Embed = require('@editorjs/embed');
+      const Quote = require('@editorjs/quote');
+      const Delimiter = require('@editorjs/delimiter');
+      const Marker = require('@editorjs/marker');
 
       this.editor = new EditorJS({
         holder: container,
@@ -38,7 +41,13 @@ class Editor {
                 // vimeo: true
               }
             }
-          }
+          },
+          quote: {
+            class: Quote,
+            inlineToolbar: true
+          },
+          delimiter: Delimiter,
+          marker: Marker
         },
         onReady: cb,
         /**
@@ -55,18 +64,18 @@ class Editor {
             ui: {
               "blockTunes": {
                 "toggler": {
-                  "Click to tune": "Нажмите, чтобы настроить",
-                  "or drag to move": "или перетащите"
+                  "Click to tune": "클릭하여 수정",
+                  "or drag to move": "또는 드래그로 이동"
                 },
               },
               "inlineToolbar": {
                 "converter": {
-                  "Convert to": "Конвертировать в"
+                  "Convert to": "변환"
                 }
               },
               "toolbar": {
                 "toolbox": {
-                  "Add": "Добавить"
+                  "Add": "삽입"
                 }
               }
             },
@@ -75,21 +84,22 @@ class Editor {
              * Section for translation Tool Names: both block and inline tools
              */
             toolNames: {
-              "Text": "Параграф",
-              "Heading": "Заголовок",
-              "List": "Список",
-              "Warning": "Примечание",
-              "Checklist": "Чеклист",
-              "Quote": "Цитата",
-              "Code": "Код",
-              "Delimiter": "Разделитель",
-              "Raw HTML": "HTML-фрагмент",
-              "Table": "Таблица",
-              "Link": "Ссылка",
-              "Marker": "Маркер",
-              "Bold": "Полужирный",
-              "Italic": "Курсив",
-              "InlineCode": "Моноширинный",
+              "Text": "텍스트",
+              "Heading": "제목",
+              "List": "리스트",
+              "Warning": "경고",
+              "Checklist": "체크리스트",
+              "Quote": "인용",
+              "Code": "코드",
+              "Delimiter": "구분",
+              "Raw HTML": "HTML",
+              "Table": "표",
+              "Link": "링크",
+              "Marker": "마커",
+              "Bold": "강조",
+              "Italic": "이탤릭",
+              "InlineCode": "인라인코드",
+              "Image": "사진"
             },
 
             /**
@@ -101,27 +111,27 @@ class Editor {
                * The name of a plugin should be equal the name you specify in the 'tool' section for that plugin
                */
               "warning": { // <-- 'Warning' tool will accept this dictionary section
-                "Title": "Название",
-                "Message": "Сообщение",
+                "Title": "제목",
+                "Message": "메시지",
               },
 
               /**
                * Link is the internal Inline Tool
                */
               "link": {
-                "Add a link": "Вставьте ссылку"
+                "Add a link": "링크 삽입"
               },
               /**
                * The "stub" is an internal block tool, used to fit blocks that does not have the corresponded plugin
                */
               "stub": {
-                'The block can not be displayed correctly.': 'Блок не может быть отображен'
+                'The block can not be displayed correctly.': '블럭이 올바르게 표시될 수 없습니다.'
               },
               "header": {
                 "": ""
               },
               "image": {
-                "": ""
+                "Stretch image": "이미지 크게"
               },
               "embed": {
                 "": ""
@@ -139,13 +149,13 @@ class Editor {
                * Also, there are few internal block tunes: "delete", "moveUp" and "moveDown"
                */
               "delete": {
-                "Delete": "Удалить"
+                "Delete": "삭제"
               },
               "moveUp": {
-                "Move up": "Переместить вверх"
+                "Move up": "위로 이동"
               },
               "moveDown": {
-                "Move down": "Переместить вниз"
+                "Move down": "아래로 이동"
               }
             },
           }

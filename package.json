@@ -13,10 +13,13 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@editorjs/delimiter": "^1.1.0",
     "@editorjs/editorjs": "^2.18.0",
     "@editorjs/embed": "^2.3.1",
     "@editorjs/header": "^2.5.0",
     "@editorjs/image": "^2.4.2",
+    "@editorjs/marker": "^1.2.2",
+    "@editorjs/quote": "^2.3.0",
     "@nuxtjs/auth": "^4.8.5",
     "@nuxtjs/axios": "^5.6.0",
     "@nuxtjs/toast": "^3.3.0",
