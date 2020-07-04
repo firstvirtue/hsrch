@@ -269,23 +269,23 @@ export default {
 
       // validate
       const hBlock = this.article.blocks.find(block => block.type === 'header');
-      const pBlock = this.article.blocks.find(block => block.type === 'paragraph');
-
-      if(hBlock === null || hBlock === undefined) {
-        // console.log(hBlock);
-
+      if(hBlock) {
+        this.article.title = hBlock.content_data.text;
+      } else {
         this.$toast.error('제목이 있어야 저장이 가능해요!');
         return false;
       }
 
-      this.article.title = hBlock.content_data.text;
-      this.article.description = pBlock.content_data.text;
+      const pBlock = this.article.blocks.find(block => block.type === 'paragraph');
+      if(pBlock) {
+        this.article.description = pBlock.content_data.text;
+      }
 
       const thumbBlock = this.article.blocks.find(block => block.type === 'image');
-      if(thumbBlock !== undefined) {
+      if(thumbBlock) {
         this.article.thumbnail = thumbBlock.content_data.file.url;
       }
-      // console.log(this.article);
+
       return true;
     },
     execServiceSave() {

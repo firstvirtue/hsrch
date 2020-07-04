@@ -6,9 +6,15 @@
         <p v-if="block.type === 'paragraph'" v-html="block.content_data.text" :key="block.id">{{block.content_data.text}}</p>
         <h1 v-if="block.type === 'header' && block.content_data.level === 1" :key="block.id">{{block.content_data.text}}</h1>
         <h3 v-if="block.type === 'header' && block.content_data.level === 2" :key="block.id">{{block.content_data.text}}</h3>
-        <img v-if="block.type === 'image'" :key="block.id" :src="block.content_data.file.url" :alt="block.content_data.caption" :class="{'is-stretched': block.content_data.stretched}">
+        <figure v-if="block.type === 'image'" :key="block.id" :class="{'is-stretched': block.content_data.stretched}">
+          <img :src="block.content_data.file.url">
+          <figcaption v-if="block.content_data.caption">{{block.content_data.caption}}</figcaption>
+        </figure>
         <hr v-if="block.type === 'delimiter'" :key="block.id">
-        <blockquote v-if="block.type === 'quote'" :key="block.id" v-html="block.content_data.text">{{block.content_data.text}}</blockquote>
+        <blockquote v-if="block.type === 'quote'" :key="block.id">
+          <p v-html="block.content_data.text"></p>
+          <footer v-if="block.content_data.caption">{{block.content_data.caption}}</footer>
+        </blockquote>
       </template>
     </article>
   </div>
@@ -36,10 +42,6 @@ export default {
   line-height: 1.6;
   word-break: keep-all;
   word-wrap: break-word;
-
-  *:last-child {
-    margin-bottom: 5rem;
-  }
 
   @mixin common {
     width: 90%;
@@ -83,10 +85,11 @@ export default {
   p {
     margin-top: 1em;
     margin-bottom: 1.3em;
+    font-size: 1.8rem;
     @include common;
   }
 
-  img {
+  figure {
     @include common;
     display: block;
     width: 100%;
@@ -95,15 +98,42 @@ export default {
 
     &.is-stretched {
       max-width: none;
+
+      figcaption {
+        @include common;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      margin-top: 0.4rem;
+      text-align: center;
     }
   }
 
   blockquote {
     @include common;
-    margin-top: 1.3em;
-    margin-bottom: 1.3em;
-    color: 868e96;
-    font-size: 2.4rem;
+    margin-top: 2em;
+    margin-bottom: 5rem;
+    width: 90%;
+
+    p {
+      margin: 0;
+      width: 100%;
+      color: 868e96;
+      font-family: 'iropke', serif;
+      font-size: 1.8rem;
+    }
+
+    footer {
+      margin-top: 1em;
+      color: #868e96;
+      font-size: 1.6rem;
+      text-align: center;
+    }
   }
 
   hr {
@@ -118,15 +148,15 @@ export default {
     line-height: 1.55;
 
     h1 {
-      font-size: 46px;
+      font-size: 4.6rem;
     }
     h3 {
-      font-size: 28px;
+      font-size: 2.8rem;
     }
     p {
-      font-size: 18px;
+      font-size: 2.0rem;
     }
-    img {
+    figure {
       &.is-stretched {
         margin-top: 6rem;
         margin-bottom: 5.2rem;
@@ -136,6 +166,11 @@ export default {
       margin: 6rem auto;
       width: 25%;
       max-width: 220px;
+    }
+    blockquote {
+      p {
+        font-size: 2.6rem;
+      }
     }
   }
 }
