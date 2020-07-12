@@ -5,7 +5,7 @@
         <a :href="`${baseViewPath}${item.id}`">
           <div class="cont">
             <div class="cont__wrapper">
-              <h3 class="tit">{{item.title}}</h3>
+              <h3 class="tit" v-html="item.title"></h3>
               <p class="desc" v-html="item.description"></p>
             </div>
             <span class="date">{{item.created_on.substring(0,10).replace(/-/gi, '.')}}</span>
@@ -74,12 +74,14 @@ ul {
 .notice-recommend {
   a {
     display: block;
-    color: $gray3;
+    // color: $gray3;
+    color: #b3b3b3;
     font-size: 32px;
     padding: 20rem 0;
     text-align: center;
     align-self: center;
-    @include break-word;
+    word-break: keep-all;
+    word-wrap: break-word;
   }
 }
 
@@ -89,7 +91,7 @@ ul {
   word-wrap: break-word;
 
   &__list {
-    max-width: 630px;
+    max-width: 700px;
     margin: 0 auto;
     padding-left: 6%;
     padding-right: 6%;
@@ -98,6 +100,10 @@ ul {
     position: relative;
     border-bottom: 1px solid #e6e6e6;
     padding-right: 2em;
+
+    &:last-child {
+      border-bottom: none;
+    }
 
     a {
       display: block;
@@ -109,7 +115,8 @@ ul {
     position: relative;
 
     &__opener {
-      color: $gray6;
+      // color: $gray6;
+      color: #666666;
       font-size: 13px;
       @include icon(arrow) {
         transform: rotateZ(90deg);
@@ -119,7 +126,8 @@ ul {
 
     &__btn {
       padding: 0.35em 0;
-      color: $gray6;
+      // color: $gray6;
+      color: #666666;
       font-size: 15px;
     }
 
@@ -141,6 +149,7 @@ ul {
   }
   .desc {
     margin: 0;
+    color: #495057;
   }
   .date {
     font-size: 13px;
@@ -154,7 +163,7 @@ ul {
     right: 10px;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 540px) {
     &__list {
       margin: 0 auto;
       padding-left: 4rem;

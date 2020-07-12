@@ -3,9 +3,9 @@
     <article class="article">
       <span class="date">{{article.created_on.substring(0,10).replace(/-/gi, '.')}}</span>
       <template v-for="block in article.blocks">
-        <p v-if="block.type === 'paragraph'" v-html="block.content_data.text" :key="block.id">{{block.content_data.text}}</p>
-        <h1 v-if="block.type === 'header' && block.content_data.level === 1" :key="block.id">{{block.content_data.text}}</h1>
-        <h3 v-if="block.type === 'header' && block.content_data.level === 2" :key="block.id">{{block.content_data.text}}</h3>
+        <p v-if="block.type === 'paragraph'" v-html="block.content_data.text" :key="block.id"></p>
+        <h1 v-if="block.type === 'header' && block.content_data.level === 1" v-html="block.content_data.text" :key="block.id"></h1>
+        <h3 v-if="block.type === 'header' && block.content_data.level === 2" v-html="block.content_data.text" :key="block.id"></h3>
         <figure v-if="block.type === 'image'" :key="block.id" :class="{'is-stretched': block.content_data.stretched}">
           <img :src="block.content_data.file.url">
           <figcaption v-if="block.content_data.caption">{{block.content_data.caption}}</figcaption>
@@ -48,6 +48,7 @@ export default {
     max-width: 630px;
     margin-left: auto;
     margin-right: auto;
+    color: #343a40;
   }
 
   .date {
@@ -144,7 +145,7 @@ export default {
     background-color: #e6e6e6;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 540px) {
     line-height: 1.55;
 
     h1 {

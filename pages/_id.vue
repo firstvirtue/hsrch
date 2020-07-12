@@ -1,48 +1,48 @@
 <template>
   <main class="main">
     <div class="community" data-invert>
-      <div class="wrapper wrapper--m-p">
+      <div class="wrapper">
         <div class="cmd">
           <h1 class="title">@{{$auth.user.profile.username}} 님의 이야기</h1>
           <a href="/post/write" class="btn btn--sm btn--ghost btn--next">글 쓰기</a>
         </div>
       </div>
+
+      <v-app>
+        <ArticleList v-if="articles !== null" :articlesProp="articles" :baseViewPathProp="baseViewPath" :onUtilCallback="onUtil" :onDeleteCallback="onDelete"/>
+
+        <v-dialog
+          v-model="dialog"
+          max-width="290">
+          <v-card>
+            <v-card-title class="headline">삭제</v-card-title>
+
+            <v-card-text>
+              이야기를 삭제 하시겠습니까?
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                color="green darken-1"
+                text
+                @click="execDelete">
+                삭제
+              </v-btn>
+
+              <v-btn
+                color="green darken-1"
+                text
+                @click="dialog = false"
+              >
+                취소
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-app>
     </div>
-
-    <v-app>
-      <ArticleList v-if="articles !== null" :articlesProp="articles" :baseViewPathProp="baseViewPath" :onUtilCallback="onUtil" :onDeleteCallback="onDelete"/>
-
-      <v-dialog
-        v-model="dialog"
-        max-width="290">
-        <v-card>
-          <v-card-title class="headline">삭제</v-card-title>
-
-          <v-card-text>
-            이야기를 삭제 하시겠습니까?
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-
-            <v-btn
-              color="green darken-1"
-              text
-              @click="execDelete">
-              삭제
-            </v-btn>
-
-            <v-btn
-              color="green darken-1"
-              text
-              @click="dialog = false"
-            >
-              취소
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-app>
   </main>
 </template>
 

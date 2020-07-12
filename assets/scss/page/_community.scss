@@ -4,20 +4,28 @@
 
   .cmd {
     position: relative;
-    margin: 2rem 0;
+    margin: 2rem auto;
+    padding-left: 6%;
+    padding-right: 6%;
     text-align: right;
+    max-width: 700px;
 
     .btn {
       & + .btn {
         margin-left: 4px;
       }
     }
+
+    @media (min-width: 540px) {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
   }
 
   .title {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 6%;
     font-size: 2.2rem;
     transform: translateY(-50%);
     font-weight: bold;
