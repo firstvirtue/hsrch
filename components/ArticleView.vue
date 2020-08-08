@@ -15,6 +15,10 @@
           <p v-html="block.content_data.text"></p>
           <footer v-if="block.content_data.caption">{{block.content_data.caption}}</footer>
         </blockquote>
+        <figure v-if="block.type === 'embed'" :key="block.id" class="video-wrapper">
+          <iframe :src="block.content_data.embed" frameborder="0" allowfullscreen="1"></iframe>
+          <figcaption v-if="block.content_data.caption">{{block.content_data.caption}}</figcaption>
+        </figure>
       </template>
     </article>
   </div>
@@ -143,6 +147,32 @@ export default {
     margin: 4rem auto 3.4rem;
     border: none;
     background-color: #e6e6e6;
+  }
+
+  figure.video-wrapper {
+    position: relative;
+    width: 100%;
+
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: 9 / 16 * 100%;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    figcaption {
+      position: relative;
+      bottom: -2em;
+    }
   }
 
   @media (min-width: 540px) {
