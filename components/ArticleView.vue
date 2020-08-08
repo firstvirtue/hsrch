@@ -170,7 +170,8 @@ export default {
     }
 
     figcaption {
-      position: relative;
+      position: absolute;
+      width: 100%;
       bottom: -2em;
     }
   }
