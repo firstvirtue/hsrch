@@ -95,6 +95,7 @@ ul {
     margin: 0 auto;
     padding-left: 6%;
     padding-right: 6%;
+    box-sizing: border-box;
   }
   &__item {
     position: relative;
