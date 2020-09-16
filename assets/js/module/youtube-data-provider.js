@@ -12,6 +12,8 @@ class YoutubeDataProvider {
       maxResults: 5,
       pageToken: ''
     }
+
+    this.beforeThumbNumber = null;
   }
 
   get(params) {
@@ -33,16 +35,14 @@ class YoutubeDataProvider {
         data.nextPageToken = res.data.nextPageToken;
         data.items = [];
 
-        res.data.items.some(el => {
-
-          data.items.push({
+        data.items = res.data.items.map(el => {
+          return {
             videoId: el.snippet.resourceId.videoId,
             title: el.snippet.title,
             description: el.snippet.description,
             publishedAt: el.contentDetails.videoPublishedAt,
             thumbnail: this.getThumbnail()
-          });
-
+          }
         });
 
         return data;
@@ -84,14 +84,13 @@ class YoutubeDataProvider {
 
   getThumbnail() {
     // 랜덤한 썸네일 가져오기
-    this.beforeThumbNumber;
     let rand = this.getNewRand(this.beforeThumbNumber);
     this.beforeThumbNumber = rand;
     return `/image/list/list-${rand}.jpg`;
   }
 
   getNewRand(before) {
-    let rand = Math.floor(Math.random() * 6 + 1);
+    let rand = Math.floor(Math.random() * 5 + 1);
     if(rand === before) {
       rand = this.getNewRand(before);
     }

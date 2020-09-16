@@ -102,12 +102,12 @@ export default {
       .finally(() => { this.$modal.hide('dialog'); });
     }
   },
-  validate({ params, query, store }) {
-    // return /^\d+$/.test(params.id);
-    // console.log(params.id);
-    // console.log(store.$auth.user.profile.username);
+  // validate({ params, query, store }) {
+  //   // return /^\d+$/.test(params.id);
+  //   // console.log(params.id);
+  //   // console.log(store.$auth.user.profile.username);
 
-    return `@${store.$auth.user.profile.id}` === params.id;
-  }
+  //   return `@${store.$auth.user.profile.id}` === params.id;
+  // }
 };
 </script>
