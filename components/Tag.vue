@@ -43,7 +43,7 @@ export default {
   },
   async mounted() {
 
-    this.tags = this.initialTags;
+    this.currentTags = this.initialTags;
 
     window.addEventListener('click', () => {
       this.isPopup = false;

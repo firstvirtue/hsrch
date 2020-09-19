@@ -227,10 +227,13 @@ export default {
     updateTags(tags) {
       console.log('article tags: ', tags);
       this.article.tags = tags.map(tag => {
-        delete tag.isOpen;
-        delete tag.isActive;
-        return tag;
+        return {
+          id: tag.id,
+          created_on: tag.created_on,
+          updated_on: tag.updated_on,
+        }
       });
+      console.log('article tags: ', this.article.tags);
     },
     async onSave() {
 
