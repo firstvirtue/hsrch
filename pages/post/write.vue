@@ -51,8 +51,7 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <v-select v-model="article.category" :items="options">
-                  </v-select>
+                  <Tag :initialTags="article.tags" @changeTags="updateTags"/>
                 </v-col>
               </v-row>
 
@@ -94,8 +93,7 @@
                 </v-row>
                 <v-row>
                   <v-col>
-                    <v-select v-model="article.category" :items="options">
-                    </v-select>
+                    <Tag :initialTags="article.tags" @changeTags="updateTags"/>
                   </v-col>
                 </v-row>
 
@@ -113,8 +111,12 @@
 
 <script>
 import Editor from '~/assets/js/module/editor.js';
+import Tag from '~/components/Tag';
 
 export default {
+  components: {
+    Tag
+  },
   mounted() {
 
     if(this.$auth.user === undefined) {
@@ -209,7 +211,9 @@ export default {
         description: null,
         thumbnail: null,
         category: 'events',
-        published: 0
+        published: 0,
+        blocks: [],
+        tags: [],
       },
       options: [
         { text: '부서별 행사', value: 'events' },
@@ -220,6 +224,14 @@ export default {
     }
   },
   methods: {
+    updateTags(tags) {
+      console.log('article tags: ', tags);
+      this.article.tags = tags.map(tag => {
+        delete tag.isOpen;
+        delete tag.isActive;
+        return tag;
+      });
+    },
     async onSave() {
 
       this.saveArticle().then(result => {
