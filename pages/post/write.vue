@@ -228,7 +228,7 @@ export default {
       console.log('article tags: ', tags);
       this.article.tags = tags.map(tag => {
         return {
-          id: tag.id,
+          tag_id: tag.id,
           created_on: tag.created_on,
           updated_on: tag.updated_on,
         }
