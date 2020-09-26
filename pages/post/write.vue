@@ -51,7 +51,7 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <Tag :initialTags="article.tags" @changeTags="updateTags"/>
+                  <Tag domain="hsrch.co.kr" :initialTags="article.tags" @changeTags="updateTags"/>
                 </v-col>
               </v-row>
 
@@ -93,7 +93,7 @@
                 </v-row>
                 <v-row>
                   <v-col>
-                    <Tag :initialTags="article.tags" @changeTags="updateTags"/>
+                    <Tag domain="hsrch.co.kr" :initialTags="article.tags" @changeTags="updateTags"/>
                   </v-col>
                 </v-row>
 

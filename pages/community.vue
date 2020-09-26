@@ -6,8 +6,8 @@
       <ul class="nav">
         <li v-for="item in navList" :key="item.id">
           <h2>
-            <a :href="item.id" :data-id="item.id" @click="selectCategory">
-              {{item.title}}
+            <a :href="item.id" :data-id="'#' + item.id" @click="selectCategory">
+              {{item.tagname}}
               <span class="bar"></span>
             </a>
           </h2>
@@ -44,25 +44,19 @@
 <script>
 export default {
   async mounted() {
+    this.getCategory();
+    this.getList();
+
     document.querySelector(`.nav li a[data-id="#all"]`)
         .classList.add('is-active');
-    this.getList();
   },
   data() {
     return {
       navList: [
         {
-          id: '#all',
-          title: '전체보기'
+          id: 'all',
+          tagname: '전체보기'
         },
-        {
-          id: '#events',
-          title: '부서별 행사'
-        },
-        {
-          id: '#columns',
-          title: '신앙 칼럼'
-        }
       ],
       items: [],
     }
@@ -85,7 +79,7 @@ export default {
       let apiUrl;
 
       if(target && target !== 'all') {
-        apiUrl = `/api/posts/${target}`;
+        apiUrl = `/api/posts?tags=${target}`;
       } else {
         apiUrl = '/api/posts/';
       }
@@ -98,7 +92,10 @@ export default {
       })
       .catch(err => console.log(err));
     },
-
+    async getCategory() {
+      const categories = await this.$axios.get('/api/tags?domain=hsrch.co.kr');
+      this.navList = this.navList.concat(categories.data);
+    }
   }
 }
 </script>

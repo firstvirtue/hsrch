@@ -39,7 +39,11 @@
 <script>
 export default {
   props: {
-    initialTags: Array
+    initialTags: Array,
+    domain: {
+      type: String,
+      default: 'jakel.ee'
+    },
   },
   async mounted() {
 
@@ -49,8 +53,9 @@ export default {
       this.isPopup = false;
     });
 
-    const domain = 'jakel.ee';
-    await this.$axios.get(`/api/tags?domain=${domain}`)
+    console.log('domain: ', this.domain);
+
+    await this.$axios.get(`/api/tags?domain=${this.domain}`)
       .then(res => {
         this.tags = res.data.map(x => {
           x.isOpen = false;
@@ -101,7 +106,7 @@ export default {
 
           let item = this.activeTag ? this.activeTag : {
             tagname: inputValue,
-            domain: 'jakel.ee',
+            domain: this.domain,
             isOpen: false,
             isActive: false,
             isNew: true,
@@ -158,7 +163,7 @@ export default {
       if(filter.length > 0 && !this.filteredTags.find(x => x.tagname === filter)) {
         const newTag = {
           tagname: filter,
-          domain: 'jakel.ee',
+          domain: this.domain,
           isOpen: false,
           isActive: false,
           isNew: true,
