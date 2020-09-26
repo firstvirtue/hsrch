@@ -56,18 +56,16 @@
       padding-bottom: 3rem;
     }
 
-    .cont {
-      padding-top: 2.5rem;
-    }
-
     .tit {
       font-size: 2.2rem;
+      line-height: 1.6;
     }
 
     .desc {
       margin-top: 2rem;
       color: $gray7;
       font-size: 1.6rem;
+      line-height: 1.6;
     }
 
     .date {
@@ -76,13 +74,34 @@
     }
   }
 
+  &--list {
+    .tit {
+      margin-top: 1.2rem;
+    }
+
+    .cont {
+      padding-top: 2.5rem;
+    }
+  }
+
   &--masonry {
     li {
+      .img-wrap {
+        margin-bottom: 2.8rem;
+      }
+
+      .badge-wrap {
+        margin-bottom: 1.2rem;
+      }
+
       .category-badge {
-        display: block;
-        margin-bottom: 10px;
+        // display: inline-block;
         color: #A69174;
         font-size: 1.4rem;
+        padding: 0.4em;
+        &:first-child {
+          margin-left: -0.4em;
+        }
       }
     }
   }

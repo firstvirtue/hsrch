@@ -158,24 +158,34 @@
     }
 
     .img-wrap {
+      margin-bottom: 2.8rem;
+
       img {
         width: 100%;
       }
     }
 
-    .cont {
-      margin: 2.8rem 5px 0;
+    .link {
+      display: block;
+      padding: 0 0.5rem;
     }
 
-    .category {
-      color: $color-secondary;
-      font-size: 14px;
-      letter-spacing: -.025em;
-      font-weight: lighter;
+    .badge-wrap {
+      margin-bottom: 1.2rem;
+
+      .category {
+        color: $color-secondary;
+        font-size: 14px;
+        letter-spacing: -.025em;
+        // font-weight: lighter;
+        padding: 0.4em;
+        &:first-child {
+          margin-left: -0.4em;
+        }
+      }
     }
 
     .tit {
-      margin-top: 12px;
       color: $black;
       font-size: 22px;
       letter-spacing: -.025em;

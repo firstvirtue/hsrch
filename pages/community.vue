@@ -18,12 +18,16 @@
         <ul class="items items--masonry">
           <li v-for="(item) in items" :key="item.videoId">
             <a :href="`/post/${item.id}`">
-              <div class="img-wrap">
+              <div class="img-wrap" v-if="item.thumbnail">
                 <img :src="item.thumbnail" alt="">
               </div>
               <div class="cont">
                 <div class="cont__wrapper">
-                  <span class="category-badge">카테고리</span>
+                  <div class="badge-wrap" v-if="item.tags && item.tags.length > 0">
+                    <span class="category-badge" v-for="tag in item.tags" :key="tag.id">
+                      {{tag.tagname}}
+                    </span>
+                  </div>
                   <h3 class="tit">{{item.title}}</h3>
                   <p class="desc" v-html="item.description">{{item.description}}</p>
                 </div>

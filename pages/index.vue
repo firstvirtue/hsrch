@@ -80,12 +80,16 @@
           <div v-swiper:swiperC="swiperOptionNews" class="reveal">
             <ul class="swiper-wrapper news disabled">
               <li class="swiper-slide item reveal-comm" :data-delay="index * 0.15" v-for="(item, index) in news" :key="item.id">
-                <a :href="`/post/${item.id}`">
-                  <div class="img-wrap">
+                <a class="link" :href="`/post/${item.id}`">
+                  <div class="img-wrap" v-if="item.thumbnail">
                     <img :src="item.thumbnail" alt="">
                   </div>
                   <div class="cont">
-                    <span class="category">{{item.category}}</span>
+                    <div class="badge-wrap" v-if="item.tags && item.tags.length > 0">
+                      <span class="category" v-for="tag in item.tags" :key="tag.id">
+                        {{tag.tagname}}
+                      </span>
+                    </div>
                     <h3 class="tit">{{item.title}}</h3>
                     <p class="desc" v-html="item.description">
                       {{item.description}}
