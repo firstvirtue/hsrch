@@ -133,7 +133,7 @@ export default {
           if(this.article.category === null || this.article.category === undefined) {
             this.article.category = this.options[0].value;
           }
-          console.log(this.article);
+          // console.log(this.article);
 
           if(this.article.writer !== this.$auth.user.profile.id) {
             alert('TODO: 403 잘못된 접근입니다.');
@@ -228,12 +228,12 @@ export default {
       console.log('article tags: ', tags);
       this.article.tags = tags.map(tag => {
         return {
-          tag_id: tag.id,
+          tag_id: tag.tag_id,
           created_on: tag.created_on,
           updated_on: tag.updated_on,
         }
       });
-      console.log('article tags: ', this.article.tags);
+      // console.log('article tags: ', this.article.tags);
     },
     async onSave() {
 
