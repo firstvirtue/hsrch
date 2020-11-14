@@ -83,9 +83,9 @@ export default {
       let apiUrl;
 
       if(target && target !== 'all') {
-        apiUrl = `/api/posts?tags=${target}`;
+        apiUrl = `/api/posts/hsrch.co.kr?tags=${target}`;
       } else {
-        apiUrl = '/api/posts/';
+        apiUrl = '/api/posts/hsrch.co.kr';
       }
 
       await this.$axios.get(apiUrl)
