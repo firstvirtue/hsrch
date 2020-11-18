@@ -21,9 +21,16 @@ export default {
     Header
   },
   mounted() {
-
     if(! window.Browser.isMobileAndTablet && ! window.Browser.isIE) {
-      const smoothScroll = new SmoothScroll($('.smooth-scroll'));
+      const smoothScroll = new SmoothScroll(
+        $('.smooth-scroll'),
+        this.$router.currentRoute.name === 'index' ? '100vh' : null
+      );
+    }
+  },
+  watch: {
+    $route: async function() {
+      // [TODO] router로 네비게이션 하지 않아 이 메서드가 타지 않음.
     }
   }
 }

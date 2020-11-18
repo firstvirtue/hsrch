@@ -11,22 +11,7 @@ import { fromEvent, interval, animationFrameScheduler } from 'rxjs';
 import { map, withLatestFrom, scan, distinctUntilChanged } from 'rxjs/operators';
 
 class SmoothScroll {
-  constructor($el) {
-
-    // $el.css({
-    //   'position': 'fixed',
-    //   'top': 0,
-    //   'left': 0,
-    //   'width': '100%',
-    //   'z-index': 100
-    // });
-
-    // this.virtualElId = 'pillar';
-    //
-    // this.$pillar = $('<div id="' + this.virtualElId + '" />').insertBefore($el);
-    // this.$pillar.width(1);
-    // this.$pillar.height($el.height());
-
+  constructor($el, param) {
     this.setSmoothCursor($el);
 
     function lerp(start, end) {
@@ -49,9 +34,13 @@ class SmoothScroll {
       scan(lerp)
     );
 
+    const getHeight = () => {
+      return (param && param === '100vh' ?
+      $el.height() :
+      $el.height() - window.innerHeight);
+    }
     this.smoothMove = smoothMove$.subscribe(scrollTop => {
-
-      let rate = scrollTop / ($el.height()) * 200;
+      let rate = scrollTop / getHeight() * 200;
       this.$progressIndicator.css('stroke-dashoffset', 200 - rate);
     });
   }
