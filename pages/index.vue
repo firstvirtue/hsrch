@@ -14,7 +14,7 @@
         </h1>
         <a href="/welcome" class="btn btn--discover" lang="ko">discover</a>
       </div>
-      <LiveNoti/>
+      <Live @onLive="onLive"/>
     </header>
 
     <div class="container">
@@ -124,12 +124,12 @@ import Reveal from '~/assets/js/module/reveal.js';
 import YoutubeDataProvider from '~/assets/js/module/youtube-data-provider.js';
 import Objectfit from '~/assets/js/module/objectfit.js';
 
-import LiveNoti from '~/components/Live-notification.vue';
+import Live from '~/components/Live.vue';
 
 
 export default {
   components: {
-    LiveNoti
+    Live
   },
   data() {
     return {
@@ -357,7 +357,10 @@ export default {
       if(! window.Browser.isMobileAndTablet) {
         new Reveal('.reveal-comm');
       }
-    }
+    },
+    onLive (liveVideoId) {
+      this.youtubeLayer.open(liveVideoId);
+    },
   }
 }
 </script>
