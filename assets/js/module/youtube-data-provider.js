@@ -83,9 +83,14 @@ class YoutubeDataProvider {
   }
 
   getLive() {
-    // [TODO] 라이브 있을 경우 메인에 하단 유튜브 팝업 플로팅 오브젝트 생성
     // 아래 샘플은 key, channelId 동일
-    // https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCWihiQGtAhpC0ReaSHa2CcQ&eventType=live&type=video&key=AIzaSyCJFhLpq6fjFz0_qv24ibbC-aV6Q_J3sTU
+    return axios.get(`https://www.googleapis.com/youtube/v3/search?part=${this.options.part}&channelId=${this.options.channelId}&eventType=live&type=video&key=${this.options.key}`)
+    .then((res) => {
+      if(res.data.items.length > 0) {
+        return res.data.items[0].id.videoId;
+      }
+
+    });
   }
 
   getThumbnail() {

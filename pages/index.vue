@@ -14,6 +14,7 @@
         </h1>
         <a href="/welcome" class="btn btn--discover" lang="ko">discover</a>
       </div>
+      <LiveNoti/>
     </header>
 
     <div class="container">
@@ -123,10 +124,12 @@ import Reveal from '~/assets/js/module/reveal.js';
 import YoutubeDataProvider from '~/assets/js/module/youtube-data-provider.js';
 import Objectfit from '~/assets/js/module/objectfit.js';
 
+import LiveNoti from '~/components/Live-notification.vue';
+
 
 export default {
   components: {
-
+    LiveNoti
   },
   data() {
     return {
