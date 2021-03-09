@@ -1,8 +1,8 @@
 <template lang="html">
   <header class="header" v-bind:class="{'is-spread': isSpread, 'is-invert': isInvert}">
     <div class="l-header">
-      <!-- <router-link to="/"> -->
-      <a href="/">
+      <router-link to="/">
+      <!-- <a href="/"> -->
         <div class="logo">
           <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 434.9 219">
             <defs>
@@ -13,28 +13,28 @@
             <path class="ci-line" d="M380.4 157.1c-4.6.6-8.8 2.6-13.1 4.2l.5-.3c-6.7 3.9-13.3 6.2-20.6 8.4-11.9 3.4-26.3 4.6-38.4 7.1-24.1 4.8-45.7 8-70.2 9.3-28.6 1.5-62.1 2.6-90.3-2.5a195.8 195.8 0 0 1-40-11.4C86.8 163.1 66 151.6 53.2 132c-6.5-10.1-9.7-20.6-9.2-31.7.5-8.1 3.8-16.5 6.4-22.4 4.1-9.5 8.8-17 14.5-23.1-6.6 6.6-10.3 12.6-14.5 22.3-2.8 6.6 0-5.4 2.3-9.8.9-1.9 3.9-3.7 4.9-5.3 2.7-3.4 4.9-7 8.3-10.3 1.3-1.6 2.1-.2 2.7-.8 4.8-4.2 8.5-8.1 12.5-9.3 9-2.6 18.3-3.8 27.7-2.1s16 6.1 22.5 12.8c4.2 4.3 8 9.7 9.3 15.5.6 2.7 0 6.1 2.2 8.1s7.6 1.1 10-1.4a15.6 15.6 0 0 0 3-4.4h.1c4.5-3.7.9-5.3 4.7-9.9-2.2 3.2-2.9-6.9 2.1-8.3s6.8-7.7 12.9-9.6c1.3-.4 2.5-1.1 4-1.7 8.2-1.2 14.9.3 22.4 5.2s11.2 5.6 14.9 13.8c5.4-3.2-3-14.4-5.8-17.3-5.5-6-11.5-8.1-19.5-9.1a48.2 48.2 0 0 0-16.1.5c-10.8 2.9-18.8 8.4-26.8 18-2.4 2.9-3.1 9-2.8 13.8a1.8 1.8 0 0 1-.7.9c-1.9-1.7-2.1-4.1-3.2-6.3a70.8 70.8 0 0 0-5.3-8.8c-2.5-4.1-6.6-9-11-11.3s-8.5-6-13.3-7.6c-6.3-2.2-13.2-2.4-19.8-2-12.8 1-26.9 5-37.3 13.5-30.5 24.8-38.2 73.9-10.5 99.8 16 14.9 42.3 31.3 63.5 38.4a221.2 221.2 0 0 0 84.2 11.2c23.1-1.6 38-1.9 68.3-6.1 36.8-5.1 71.9-9.8 104.8-22.7-8.2 2.9-16.3 6.2-24.7 8.5 13-6.1 26.9-10.6 40.5-15.5-1.1.4-2.4.6-3.6.9l4.6-1.4zM219.7 53.7l-.4-.4z"/>
           </svg>
         </div>
-      </a>
-      <!-- </router-link> -->
+      <!-- </a> -->
+      </router-link>
       <div class="gnb">
         <ul class="nav-list">
           <li>
-            <!-- <router-link to="/welcome">환영합니다</router-link> -->
-            <a href="/welcome">환영합니다</a>
+            <router-link to="/welcome">환영합니다</router-link>
+            <!-- <a href="/welcome">환영합니다</a> -->
           </li>
           <li>
-            <!-- <nuxt-link to="worship">설교와 찬양</nuxt-link> -->
-            <a href="/worship">설교와 찬양</a>
+            <nuxt-link to="worship">설교와 찬양</nuxt-link>
+            <!-- <a href="/worship">설교와 찬양</a> -->
           </li>
           <li>
-            <!-- <nuxt-link to="community">커뮤니티</nuxt-link> -->
-            <a href="/community">커뮤니티</a>
+            <nuxt-link to="community">커뮤니티</nuxt-link>
+            <!-- <a href="/community">커뮤니티</a> -->
           </li>
           <li>
             <span>414생활관</span>
           </li>
           <li>
-            <!-- <nuxt-link to="counsel">신앙상담</nuxt-link> -->
-            <a href="/counsel">신앙상담</a>
+            <nuxt-link to="counsel">신앙상담</nuxt-link>
+            <!-- <a href="/counsel">신앙상담</a> -->
           </li>
         </ul>
       </div>
@@ -75,6 +75,14 @@ export default {
       return this.$store.getters.signed;
     }
   },
+  watch: {
+    $route(to, from) {
+      // [FIXME] loaded event
+      setTimeout(() => {
+        this.isInvert = this.checkInvert();
+      }, 100);
+    }
+  },
   data() {
     return {
       isShowUserLayer: false,
@@ -97,21 +105,7 @@ export default {
     pageScroll$
       .pipe(
         map(() => {
-          let invert = false;
-          document.querySelectorAll("[data-invert]").forEach(element => {
-            const checkPoint = 80 / 2; // header height
-
-            const rect = element.getBoundingClientRect();
-            if (
-              rect.top < checkPoint &&
-              checkPoint < rect.height - Math.abs(rect.top)
-            ) {
-              invert = true;
-            }
-          });
-
-          console.log("invert scroll");
-          return invert;
+          return this.checkInvert();
         }),
         distinctUntilChanged()
       )
@@ -163,6 +157,22 @@ export default {
     window.dispatchEvent(new CustomEvent("scroll"));
   },
   methods: {
+    checkInvert() {
+      let invert = false;
+      document.querySelectorAll("[data-invert]").forEach(element => {
+        const checkPoint = 80 / 2; // header height
+
+        const rect = element.getBoundingClientRect();
+        if (
+          rect.top < checkPoint &&
+          checkPoint < rect.height - Math.abs(rect.top)
+        ) {
+          invert = true;
+        }
+      });
+
+      return invert;
+    },
     onMenu() {
       const header = document.querySelector(".header");
       if (header.classList.contains("is-open")) {
