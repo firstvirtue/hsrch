@@ -112,7 +112,7 @@
   </main>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_main.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_main.scss" scoped></style>
 
 <script>
 import { fromEvent, merge } from 'rxjs';
