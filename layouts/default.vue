@@ -5,7 +5,7 @@
       <nuxt/>
       <footer class="footer">
         <div class="l-footer">
-          <p>© 2020 hansarang church.</p>
+          <p>© 2021 hansarang church.</p>
         </div>
       </footer>
     </div>
