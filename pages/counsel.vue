@@ -102,7 +102,7 @@
    </v-app>
 </template>
 
-<style lang="scss" src="~/assets/scss/page/_counsel.scss"></style>
+<style lang="scss" src="~/assets/scss/page/_counsel.scss" scoped></style>
 <style lang="scss" src="~/assets/scss/page/_auth.scss"></style>
 
 <script>
