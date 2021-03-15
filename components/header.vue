@@ -80,6 +80,8 @@ export default {
       // [FIXME] loaded event
       setTimeout(() => {
         this.isInvert = this.checkInvert();
+        const header = document.querySelector(".header");
+        header.classList.remove('is-open');
       }, 100);
     }
   },
