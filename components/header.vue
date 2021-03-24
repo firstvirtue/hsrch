@@ -22,18 +22,18 @@
             <!-- <a href="/welcome">환영합니다</a> -->
           </li>
           <li>
-            <nuxt-link to="worship">설교와 찬양</nuxt-link>
+            <nuxt-link to="/worship">설교와 찬양</nuxt-link>
             <!-- <a href="/worship">설교와 찬양</a> -->
           </li>
           <li>
-            <nuxt-link to="community">커뮤니티</nuxt-link>
+            <nuxt-link to="/community">커뮤니티</nuxt-link>
             <!-- <a href="/community">커뮤니티</a> -->
           </li>
           <li>
             <span>414생활관</span>
           </li>
           <li>
-            <nuxt-link to="counsel">신앙상담</nuxt-link>
+            <nuxt-link to="/counsel">신앙상담</nuxt-link>
             <!-- <a href="/counsel">신앙상담</a> -->
           </li>
         </ul>
