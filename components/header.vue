@@ -30,7 +30,8 @@
             <!-- <a href="/community">커뮤니티</a> -->
           </li>
           <li>
-            <span>414생활관</span>
+            <nuxt-link to="/414">414생활관</nuxt-link>
+            <!-- <span>414생활관</span> -->
           </li>
           <li>
             <nuxt-link to="/counsel">신앙상담</nuxt-link>
