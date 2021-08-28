@@ -30,21 +30,36 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section section--meta">
         <div class="wrapper wrapper--m-p">
           <h2 class="section__title">414 학습 전략</h2>
-          414생활관은 인출, 정교화, 반추의 과정을 통해 메타인지를 배양합니다.
+          <p>414생활관은 인출, 정교화, 반추의 과정을 통해 메타인지를 배양합니다.</p>
 
-          <ul>
-            <!-- [TODO] 스르륵 점이 퍼지며 연결되어 나오는 모션 -->
-            <li>인출 - 교재와 필기의 도움없이 기억에서 정보를 꺼내 나열해 보기.</li>
-            <li>정교화 - 기존의 지식과 새로운 지식을 서로 연결해 보기.</li>
-            <li>반추 - 인출 + 정교화 과정을 돌이켜보며 만들어진 지식을 다른 사람에게 설명할 수 있을 정도까지 나만의 지식으로 만듦.</li>
-          </ul>
+          <div class="meta-cognition">
+            <div class="bg-line" role="presentation"></div>
+            <ul class="meta-cognition__list">
+              <!-- [TODO] 스르륵 점이 퍼지며 연결되어 나오는 모션 -->
+              <!-- https://codepen.io/ejones/pen/omBIt -->
+              <li class="meta-cognition__item">
+                <span>인출</span>
+                <small>교재와 필기의 도움없이 기억에서 정보를 꺼내 나열해 보기.</small>
+              </li>
+              <li class="meta-cognition__item">
+                <span>정교화</span>
+                <small>기존의 지식과 새로운 지식을 서로 연결해 보기.</small>
+              </li>
+              <li class="meta-cognition__item">
+                <span>반추</span>
+                <small>인출 + 정교화 과정을 돌이켜보며 만들어진 지식을 다른 사람에게 설명할 수 있을 정도까지 나만의 지식으로 만듦.</small>
+              </li>
+            </ul>
+          </div>
 
-
-          <strong>메타인지란 내가 무엇을 알고 모르는지 스스로 생각하는 습관을 기르는 것입니다.</strong>
-          <small>414생활관은 구체적이고 실천적인 4가지 방법을 통해 아이들이 스스로 생각하는 습관을 훈련합니다.</small>
+          <div class="desc">
+            <strong>메타인지란 내가 무엇을 알고 모르는지 스스로 생각하는 습관을 기르는 것입니다.</strong>
+            <br>
+            <small>414생활관은 구체적이고 실천적인 4가지 방법을 통해 아이들이 스스로 생각하는 습관을 훈련합니다.</small>
+          </div>
 
           <ul class="feature">
             <li class="feature__item">

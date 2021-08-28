@@ -22,6 +22,50 @@
       font-size: 3.2rem;
       @include headline;
     }
+
+    &--meta {
+      .desc {
+        margin-top: 4rem;
+      }
+    }
+  }
+
+  .meta-cognition {
+    position: relative;
+    padding-top: 4rem;
+
+    .bg-line {
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      background-color: gray;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__item {
+      position: relative;
+      margin-top: 1em;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1em;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: gray;
+      }
+
+      small {
+        display: none;
+      }
+    }
   }
 
   .feature {
