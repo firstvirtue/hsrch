@@ -1,0 +1,48 @@
+.view {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  @include break-word;
+
+  p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+  }
+
+  .title {
+    font-family: $serif;
+    font-size: 34px;
+    text-align: center;
+  }
+
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    &__title {
+      margin-bottom: 4rem;
+      font-size: 3.2rem;
+      @include headline;
+    }
+  }
+
+  .feature {
+    margin-top: 10rem;
+
+    &__item {
+      & + .feature__item {
+        margin-top: 4rem;
+      }
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      font-size: 2.6rem;
+    }
+
+    &__icon {
+      width: 80px;
+      height: 80px;
+      margin-left: -1rem;
+    }
+  }
+}
