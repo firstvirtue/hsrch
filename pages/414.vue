@@ -36,7 +36,11 @@
           <p>414생활관은 인출, 정교화, 반추의 과정을 통해 메타인지를 배양합니다.</p>
 
           <div class="meta-cognition">
-            <div class="bg-line" role="presentation"></div>
+            <svg id="bg-svg">
+              <line class="bg-line" x1="1" y1="1" x2="100" y2="100"/>
+              <line class="bg-line" x1="1" y1="1" x2="100" y2="100"/>
+            </svg>
+
             <ul class="meta-cognition__list">
               <!-- [TODO] 스르륵 점이 퍼지며 연결되어 나오는 모션 -->
               <!-- https://codepen.io/ejones/pen/omBIt -->
@@ -145,6 +149,33 @@ export default {
     Logos,
   },
   mounted() {
+
+    const svg = document.querySelector('#bg-svg');
+    const svgRect = svg.getBoundingClientRect();
+
+
+    const lines = document.querySelectorAll('.bg-line');
+    const items = document.querySelectorAll('.meta-cognition__item');
+
+    function animate() {
+      let currentRect = { x: 0, y: 0 };
+      items.forEach((el, i) => {
+        const rect = { x: el.offsetLeft, y: el.offsetTop };
+
+        if( i !== 0) {
+          lines[i-1].setAttribute(`x1`, Math.floor(currentRect.x));
+          lines[i-1].setAttribute(`y1`, Math.floor(currentRect.y));
+          lines[i-1].setAttribute(`x2`, Math.floor(rect.x));
+          lines[i-1].setAttribute(`y2`, Math.floor(rect.y));
+        }
+
+        currentRect = {x: rect.x, y: rect.y};
+      })
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
 
   }
 }
