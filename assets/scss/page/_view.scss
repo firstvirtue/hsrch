@@ -25,7 +25,13 @@
 
     &--meta {
       .desc {
-        margin-top: 4rem;
+        margin-top: 6rem;
+        line-height: 1.4;
+
+        small {
+          display: block;
+          margin-top: 1rem;
+        }
       }
     }
   }
@@ -46,6 +52,13 @@
     .bg-line {
       stroke-width:2px;
       stroke:rgb(0,0,0);
+      stroke-dasharray: 100%;
+      stroke-dashoffset: 100%;
+      transition: all 1.2s;
+
+      &.is-active {
+        stroke-dashoffset: 0;
+      }
     }
 
     &__list {
@@ -59,19 +72,19 @@
       &:nth-child(1) {
         top: 100%;
         left: 0;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -5px);
       }
 
       &:nth-child(2) {
-        top: 100%;
+        top: 70%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -5px);
       }
 
       &:nth-child(3) {
-        top: 100%;
+        top: 20%;
         left: 100%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -5px);
       }
 
       // &::before {
@@ -91,7 +104,7 @@
           content: '';
           display: block;
           position: relative;
-          margin: 10px auto;
+          margin: 0 auto;
           width: 10px;
           height: 10px;
           border-radius: 50%;
@@ -105,7 +118,7 @@
           content: '';
           display: block;
           position: absolute;
-          margin: 10px auto;
+          // margin: 0 auto;
           width: 10px;
           height: 10px;
           top: 0;

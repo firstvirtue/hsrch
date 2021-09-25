@@ -143,6 +143,7 @@
 
 <script>
 import Logos from '~/components/Logos.vue';
+import gsap from 'gsap';
 
 export default {
   components: {
@@ -176,6 +177,48 @@ export default {
     }
 
     animate();
+
+    const elem = document.querySelector('.meta-cognition');
+    gsap.set('.meta-cognition__item', { opacity: 0 });
+
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          // gsap.to(elem, options.dur, { opacity: 1, y: 0, delay: options.delay });
+
+          // gsap.to('.meta-cognition__item:nth-child(1)', opacity:)
+          const tl = gsap.timeline();
+          tl
+            .to('.meta-cognition__item:nth-child(1)', { opacity: 1, duration: 0.5,
+              onStart: () => {
+                document.querySelector('.meta-cognition__item:nth-child(1)').classList.add('is-active');
+              },
+              onComplete: () => {
+                document.querySelector('.bg-line:nth-child(1)').classList.add('is-active');
+              },
+            })
+            .to('.meta-cognition__item:nth-child(2)', { opacity: 1, duration: 0.5, delay: 0.5,
+              onStart: () => {
+                document.querySelector('.meta-cognition__item:nth-child(2)').classList.add('is-active');
+              },
+              onComplete: () => {
+                document.querySelector('.bg-line:nth-child(2)').classList.add('is-active');
+              },
+            })
+            .to('.meta-cognition__item:nth-child(3)', { opacity: 1, duration: 0.5, delay: 0.5,
+              onStart: () => {
+                document.querySelector('.meta-cognition__item:nth-child(3)').classList.add('is-active');
+              },
+            });
+
+
+        }
+      })
+    }, {
+      threshold: 1,
+    });
+
+    io.observe(elem);
 
   }
 }
