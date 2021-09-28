@@ -87,18 +87,6 @@
         transform: translate(-50%, -5px);
       }
 
-      // &::before {
-      //   content: '';
-      //   position: absolute;
-      //   top: -1em;
-      //   left: 50%;
-      //   transform: translate(-50%, -50%);
-      //   width: 6px;
-      //   height: 6px;
-      //   border-radius: 50%;
-      //   background-color: gray;
-      // }
-
       span {
         &::before {
           content: '';
@@ -171,6 +159,17 @@
       width: 80px;
       height: 80px;
       margin-left: -1rem;
+    }
+  }
+
+  @include mq(medium) {
+    .section {
+      max-width: 730px;
+      margin: 0 auto;
+    }
+
+    .meta-cognition {
+      height: 23vh;
     }
   }
 }

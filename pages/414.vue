@@ -120,17 +120,31 @@
 
           414생활관이 준비하는 모든 과정 앞에 하나님의 돌보심과 자라나게 하심을 믿습니다. 모든 교육 과정은 영적 양육과 함께 합니다.
 
-          <ul>
-            <li>
-              사진 1
-            </li>
-            <li>
-              사진 2
-            </li>
-            <li>
-              사진 3
-            </li>
-          </ul>
+
+          <div v-swiper:swiperC="swiperOptionNews" class="reveal">
+            <ul class="swiper-wrapper news disabled">
+              <li class="swiper-slide item reveal-comm" :data-delay="index * 0.15">
+                  <div class="img-wrap">
+                    <img class="news__img" src="~/assets/image/414/slide-01.jpg" alt="">
+                  </div>
+              </li>
+              <li class="swiper-slide item reveal-comm" :data-delay="index * 0.15">
+                  <div class="img-wrap">
+                    <img class="news__img" src="~/assets/image/414/slide-02.jpg" alt="">
+                  </div>
+              </li>
+              <li class="swiper-slide item reveal-comm" :data-delay="index * 0.15">
+                  <div class="img-wrap">
+                    <img class="news__img" src="~/assets/image/414/slide-03.jpg" alt="">
+                  </div>
+              </li>
+              <li class="swiper-slide item reveal-comm" :data-delay="index * 0.15">
+                  <div class="img-wrap">
+                    <img class="news__img" src="~/assets/image/414/slide-04.jpg" alt="">
+                  </div>
+              </li>
+            </ul>
+          </div>
 
           아이들의 인성과 지성 그리고 영성이 자라나 이웃을 섬기고 돌보는 한 사람으로 자라기를 기도합니다.
         </div>
@@ -220,6 +234,26 @@ export default {
 
     io.observe(elem);
 
+  },
+  data() {
+    return {
+      news: [
+        {}
+      ],
+      swiperOptionNews: {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 20,
+        on: {
+          slideChange() {
+            console.log('onSlideChangeEnd', this);
+          },
+          tap() {
+            console.log('onTap', this);
+          }
+        }
+      }
+    }
   }
 }
 </script>
